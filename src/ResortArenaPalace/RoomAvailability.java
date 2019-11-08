@@ -60,7 +60,11 @@ public class RoomAvailability {
     @FXML
     private Button btn_Select4rm;
 
-
+    /***
+     *
+     * @param event Event that indicates the move to another window
+     * @throws IOException The check exception thrown when working with input or output
+     */
     @FXML
     void changeR1toPay(ActionEvent event) throws IOException {
         Parent paymentAccountParent = FXMLLoader.load(getClass().getResource("PaymentAccount.fxml"));
@@ -71,6 +75,11 @@ public class RoomAvailability {
         payWindow.show();
     }
 
+    /***
+     *
+     * @param event Event that indicates the move to another window
+     * @throws IOException The check exception thrown when working with input or output
+     */
      @FXML
     void changeRAToHome(ActionEvent event) throws IOException {
         Parent roomAvHParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));

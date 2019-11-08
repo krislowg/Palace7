@@ -15,6 +15,11 @@ public class Events {
     @FXML
     private Button eventButton;
 
+    /***
+     *
+     * @param actionEvent   Action to load new window
+     * @throws IOException  The check exception thrown when working with input or output
+     */
     public void openResaurant(ActionEvent actionEvent) throws IOException {
         Parent restaurantParent = FXMLLoader.load(getClass().getResource("Restaurant.fxml"));
         Scene restaurant = new Scene(restaurantParent);

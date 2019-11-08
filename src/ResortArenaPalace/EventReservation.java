@@ -15,6 +15,8 @@ public class EventReservation {
   private boolean dj;
   private boolean partyPlanner;
 
+  /*Getters and setter for the attributes related to the event reservation */
+
   public String getfName() {
     return fName;
   }

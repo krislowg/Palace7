@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 //Payment and User Account
+
 public class PaymentAccount {
 
   @FXML
@@ -37,6 +38,11 @@ public class PaymentAccount {
     cBox_CCType.getSelectionModel().selectFirst();//Sets a default value in the comboBox
   }
 
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changePayToRoomA(ActionEvent event) throws IOException {
     Parent payParent = FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
@@ -47,6 +53,11 @@ public class PaymentAccount {
     payWindow.show();
   }
 
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void showConfirmation(ActionEvent event) throws IOException {
     Parent payParent = FXMLLoader.load(getClass().getResource("ConfirmMessage.fxml"));

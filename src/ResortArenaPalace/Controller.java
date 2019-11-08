@@ -135,15 +135,16 @@ public class Controller {
 
 
   //HOMEPAGE====================================================================================
-  //Arraylist for the comboBox to pick the number of rooms
+
+  //Array list for the comboBox to pick the number of rooms
   private ObservableList<String> norooms = FXCollections.observableArrayList("1 room", "2 rooms",
       "3 rooms", "4 rooms", "5 rooms", "6 rooms", "7 rooms", "8 rooms", "9 rooms", "10 rooms");
 
-  //Arraylist for the comboBox to pick the number of guests
+  //Array list for the comboBox to pick the number of guests
   private ObservableList<String> noguest = FXCollections.observableArrayList("1", "2",
       "3", "4", "5", "6", "7", "8", "9", "10");
 
-  /*Method to populate the number of rooms and guests inside the combobox */
+  /* Method to populate the number of rooms and guests inside the combobox */
   public void initialize(){
     room_pick.setItems(norooms);//sets the items in the ComboBox
     room_pick.setEditable(true);//Allows the user edit
@@ -155,6 +156,11 @@ public class Controller {
     noguests_pick.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
   }
 
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeHomeToManLog(ActionEvent event) throws IOException {
     Parent manLoginParent = FXMLLoader.load(getClass().getResource("ManagerLogin.fxml"));
@@ -167,6 +173,12 @@ public class Controller {
 
   /*Method that changes the scene from "home scene" to "check availability scene" when the user
   presses the check availability button in the home scene */
+
+  /***
+   *
+   * @param actionEvent Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   public void changeScreenRoomAv(ActionEvent actionEvent) throws IOException {
     Parent roomAvailableParent = FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
     Scene roomAvScene = new Scene(roomAvailableParent);
@@ -176,6 +188,11 @@ public class Controller {
     window.show();
   }
 
+  /***
+   *
+   * @param actionEvent Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeScreenUserAccount(ActionEvent actionEvent) throws IOException {
     Parent userAccountParent = FXMLLoader.load(getClass().getResource("UserAccount.fxml"));

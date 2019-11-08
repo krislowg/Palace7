@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 /**
  * Project Resort Arena Palace.
  * @author Legendary Coders.
- *
- * TEAM 7.
  */
 
 public class Main extends Application {
@@ -29,8 +27,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-    /*Check line 48 and 25 there is an error */
 
     // Database Connection Test
 
@@ -50,9 +46,7 @@ public class Main extends Application {
             System.out.println("Database Failed to Connect!");
         }
     }
-
-
-
+    
 }
 
 

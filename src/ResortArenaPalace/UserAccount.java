@@ -1,6 +1,8 @@
 package ResortArenaPalace;
+
 /*Controller for the UserAccount.fxml file
 Scene where the Guest and the user can fill their credentials to access their accounts*/
+
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,6 +43,11 @@ public class UserAccount {
   @FXML
   private Button btn_GoHomeFromUA;
 
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeScreenUAccToReservat(ActionEvent event) throws IOException {
     Parent guestAcParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
@@ -51,6 +58,11 @@ public class UserAccount {
     gAccWindow.show();
   }
 
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeScreenUAccountToHome(ActionEvent event) throws IOException {
     Parent uAccountParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));

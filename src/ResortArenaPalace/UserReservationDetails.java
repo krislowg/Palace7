@@ -26,6 +26,11 @@ public class UserReservationDetails {
   @FXML
   private Button btn_SignOut;
 
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeResDetToHome(ActionEvent event) throws IOException {
     Parent resDetParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));

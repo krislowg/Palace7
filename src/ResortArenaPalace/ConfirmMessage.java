@@ -18,6 +18,10 @@ public class ConfirmMessage {
   @FXML
   private Button OkayBtn;
 
+  /**
+   * @param event  Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void userDetails(ActionEvent event) throws IOException {
     Parent userAccountParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));

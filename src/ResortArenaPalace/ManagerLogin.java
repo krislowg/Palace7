@@ -33,7 +33,11 @@ public class ManagerLogin {
   @FXML
   private Button btn_ManagerSignIn;
 
-
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeManToReport(ActionEvent event) throws IOException {
     Parent manReportParent = FXMLLoader.load(getClass().getResource("ManReport.fxml"));

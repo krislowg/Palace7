@@ -92,7 +92,11 @@ public class ManReport{
   private Button btn_AddGuest;
 
 
-
+  /***
+   *
+   * @param event Event that indicates the move to another window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeRepToManLog(ActionEvent event) throws IOException {
     Parent manSumParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
@@ -104,10 +108,20 @@ public class ManReport{
   }
 
   //Method to add a new guest to the database
+
+  /***
+   *
+   * @param event Action that indicates the click on the button to add a guest
+   */
   @FXML
   void addGuest(ActionEvent event) {}
 
   //Method to cancel a selected reservation from the manager report
+
+  /***
+   *
+   * @param event Action that indicates the click to cancel reservation
+   */
   @FXML
   void cancelReservation(ActionEvent event) {
 
