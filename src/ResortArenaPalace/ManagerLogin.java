@@ -33,6 +33,19 @@ public class ManagerLogin {
   @FXML
   private Button btn_ManagerSignIn;
 
+  @FXML
+  private Button btn_GbackManTOHome;
+
+  @FXML
+  void changeManToHome(ActionEvent event) throws IOException {
+    Parent manLoginParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
+    Scene mLoginScene = new Scene(manLoginParent);
+
+    Stage mLogWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    mLogWindow.setScene(mLoginScene);
+    mLogWindow.show();
+  }
+
   /***
    *
    * @param event Event that indicates the move to another window
