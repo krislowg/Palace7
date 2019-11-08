@@ -25,6 +25,20 @@ GNU General Public License
 ## First preview of the software
 https://drive.google.com/file/d/1T3Wn6rUYQMldoa9ntdLhChPQp992EJ_0/view?usp=sharing
 
+## Data Base access description
+The following steps need to be performed everytime in order to connect the database:
+* Load the project
+* Go to the right side of Intellij window
+* You will find a tab called Database
+* Click on this tab then click on "H2 Palace7" and remove it
+* After that click on the add sign the click on "Data Source from Path"
+* Click on the path where the project is located and be situated in the "res" folder. For example: C:/Users/hp/IdeaProjects/Palace7/res
+* Click OK
+* A window will pop up with two fields; Path and Driver
+* In Path add /Palace7 to it: C:/Users/hp/IdeaProjects/Palace7/res/Palace7
+* In Driver, choose H2 and click Ok then Click Ok one more time
+* Now the database is connected
+
 ## Software description
 The software product to be produced is a Resort Booking System which will automate the hotel’s reservation and booking process. The system shall be able to handle rooms’ reservation in an appropriate way and with a subjective satisfaction. It includes 6 subsystems:
 1.	Checking Availabilities: The user will be asked to select the check in and check out dates, as well as to enter the number of adults and children willing to reside. 
