@@ -81,7 +81,7 @@
           <Image url="@Login_PalmTree.jpg" />
         </image>
       </ImageView>
-         <AnchorPane layoutX="-28.0" layoutY="63.0" prefHeight="453.0" prefWidth="575.0">
+         <AnchorPane layoutX="129.0" layoutY="32.0" prefHeight="453.0" prefWidth="575.0">
             <children>
                <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="154.0" />
                <Label layoutX="197.0" layoutY="75.0" prefHeight="30.0" prefWidth="116.0" text="First Name" textFill="#2a88c3">
@@ -170,36 +170,36 @@
                   </effect>
                </Label>
                <Button fx:id="eventReserveBtn" layoutX="464.0" layoutY="447.0" mnemonicParsing="false" text="Reserve" />
+               <ImageView fitHeight="123.0" fitWidth="207.0" layoutX="-60.0" layoutY="33.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../ResortPictures/beach.jpg" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="116.0" fitWidth="221.0" layoutX="-58.0" layoutY="195.0" opacity="0.64" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../ResortPictures/confrence.jpg" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="-59.0" layoutY="340.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../ResortPictures/night.jpg" />
+                  </image>
+               </ImageView>
             </children>
          </AnchorPane>
-         <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="545.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../../../Login_3/src/sample/beach.jpg" />
+               <Image url="@../ResortPictures/birthday.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="124.0" fitWidth="211.0" layoutX="551.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="749.0" layoutY="205.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../../../Login_3/src/sample/confrence.jpg" />
+               <Image url="@../ResortPictures/wedding.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="125.0" fitWidth="188.0" layoutX="786.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="755.0" layoutY="364.0" opacity="0.69" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../../../Login_3/src/sample/birthday.jpg" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="133.0" fitWidth="189.0" layoutX="786.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Login_3/src/sample/wedding.jpg" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="135.0" fitWidth="211.0" layoutX="547.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Login_3/src/sample/night.jpg" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="119.0" fitWidth="191.0" layoutX="782.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../Login_3/src/sample/outdoor.jpg" />
+               <Image url="@../ResortPictures/beach2.jpg" />
             </image>
          </ImageView>
     </AnchorPane>

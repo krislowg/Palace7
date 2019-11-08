@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.UserReservationDetails">
-      <Label fx:id="lbl_TitleReservation" layoutX="291.0" layoutY="56.0" text="Reservation Details">
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.UserReservationDetails">
+   <ImageView fitHeight="1382.0" fitWidth="1325.0" layoutX="-21.0" layoutY="-216.0" opacity="0.13" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@Login_PalmTree.jpg" />
+      </image>
+   </ImageView>
+      <Label fx:id="lbl_TitleReservation" layoutX="335.0" layoutY="51.0" text="Reservation Details" textFill="#2a88c3">
          <font>
-            <Font size="26.0" />
+            <Font name="Monotype Corsiva" size="38.0" />
          </font>
+      <effect>
+         <InnerShadow color="#28eaeb" height="1.23" radius="0.0" width="0.0" />
+      </effect>
       </Label>
-      <TextArea fx:id="txtA_ReservationDet" layoutX="155.0" layoutY="111.0" prefHeight="227.0" prefWidth="491.0" text="Order: #000001&#10;&#10;No guests: 2&#10;No rooms: 1&#10;Room type: Luxury.&#10;Check In: 10/24/2019&#10;Check out: 10/28/2019&#10;Payment: Visa &#10;Visa Credit&#9;**** **** **** 2040&#10;Total Payment: 12,789.00" />
-      <Button fx:id="btn_CancelR" layoutX="401.0" layoutY="367.0" mnemonicParsing="false" text="Cancel Reservation" />
-      <Button fx:id="btn_SignOut" layoutX="308.0" layoutY="367.0" mnemonicParsing="false" onAction="#changeResDetToHome" text="Sign Out" />
+      <TextArea fx:id="txtA_ReservationDet" layoutX="240.0" layoutY="126.0" prefHeight="227.0" prefWidth="491.0" text="Order: #000001&#10;&#10;No guests: 2&#10;No rooms: 1&#10;Room type: Luxury.&#10;Check In: 10/24/2019&#10;Check out: 10/28/2019&#10;Payment: Visa &#10;Visa Credit&#9;**** **** **** 2040&#10;Total Payment: 12,789.00">
+      <effect>
+         <InnerShadow />
+      </effect></TextArea>
+      <Button fx:id="btn_CancelR" layoutX="506.0" layoutY="378.0" mnemonicParsing="false" text="Cancel Reservation" />
+      <Button fx:id="btn_SignOut" layoutX="355.0" layoutY="383.0" mnemonicParsing="false" onAction="#changeResDetToHome" text="Sign Out" />
   <stylesheets>
     <URL value="@ArenaStyle.css" />
   </stylesheets>
