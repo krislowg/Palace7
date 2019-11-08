@@ -126,7 +126,12 @@ public class ManReport{
    * @param event Action that indicates the click on the button to add a guest
    */
   @FXML
-  void addGuest(ActionEvent event) {}
+  void addGuest(ActionEvent event) {
+    Guest myGuest = new Guest((txt_Email.getText()), txt_Fname.getText(),
+        txt_Lname.getText(), Integer.parseInt(txt_Npeople.getText()), Integer.parseInt(txt_nRooms.getText()),
+        txt_CheckIn.getText(),txt_CheckOut.getText(), txt_RoomType.getText(), txt_roomNumb.getText());
+    tablev_Report.getItems().add(myGuest);
+  }
 
   //Method to cancel a selected reservation from the manager report
 
@@ -136,7 +141,7 @@ public class ManReport{
    */
   @FXML
   void cancelReservation(ActionEvent event) {
-
+    tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
   }
 
 

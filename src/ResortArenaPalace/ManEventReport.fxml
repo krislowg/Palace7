@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@ArenaStyle.css" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.ManEventReport">
       <TableView fx:id="tablev_EventReport" layoutX="36.0" layoutY="123.0" prefHeight="322.0" prefWidth="929.0">
          <columns>
