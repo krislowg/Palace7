@@ -91,6 +91,9 @@ public class ManReport{
   @FXML
   private Button btn_AddGuest;
 
+  @FXML
+  private Button btn_GRepToEvReport;
+
 
   /***
    *
@@ -107,7 +110,16 @@ public class ManReport{
     mSWindow.show();
   }
 
-  //Method to add a new guest to the database
+  //Method to change scenes from Guest Report to Event Report
+  @FXML
+  void changeGuRepEvReport(ActionEvent event) throws IOException {
+    Parent manReportParent = FXMLLoader.load(getClass().getResource("ManEventReport.fxml"));
+    Scene manRepScene = new Scene(manReportParent);
+
+    Stage mRWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    mRWindow.setScene(manRepScene);
+    mRWindow.show();
+  }
 
   /***
    *

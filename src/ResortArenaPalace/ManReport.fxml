@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.ManReport">
   <TableView fx:id="tablev_Report" layoutX="23.0" layoutY="115.0" prefHeight="322.0" prefWidth="929.0">
     <columns>
@@ -22,24 +23,30 @@
          <TableColumn fx:id="col_Password" prefWidth="165.0" text="Password" />
     </columns>
   </TableView>
-  <Label fx:id="lbl_TitleReport" layoutX="343.0" layoutY="54.0" text="Resort Arena Palace Report">
+  <Label fx:id="lbl_TitleReport" layoutX="395.0" layoutY="21.0" prefHeight="35.0" prefWidth="256.0" text="Resort Arena Palace">
     <font>
       <Font size="24.0" />
     </font>
   </Label>
   <Button fx:id="btn_CancelR" layoutX="275.0" layoutY="540.0" mnemonicParsing="false" onAction="#cancelReservation" text="Cancel Reservation" />
   <Button fx:id="btn_SoldOut" layoutX="590.0" layoutY="540.0" mnemonicParsing="false" text="Sold Out" />
-  <Button fx:id="btn_BackRepToMan" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeRepToManLog" text="Go Home" />
-  <TextField fx:id="txt_roomNumb" layoutX="60.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="Room #" />
-  <TextField fx:id="txt_Fname" layoutX="136.0" layoutY="459.0" prefHeight="31.0" prefWidth="89.0" promptText="First name" />
-  <TextField fx:id="txt_Lname" layoutX="225.0" layoutY="459.0" prefHeight="31.0" prefWidth="89.0" promptText="Last Name" />
-  <TextField fx:id="txt_Npeople" layoutX="314.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. People" />
-  <TextField fx:id="txt_nRooms" layoutX="390.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. Rooms" />
-  <TextField fx:id="txt_CheckIn" layoutX="466.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="Check In" />
-  <TextField fx:id="txt_CheckOut" layoutX="542.0" layoutY="459.0" prefHeight="31.0" prefWidth="89.0" promptText="Check Out" />
-  <TextField fx:id="txt_RoomType" layoutX="631.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Room Type" />
-  <TextField fx:id="txt_Email" layoutX="730.0" layoutY="459.0" prefHeight="31.0" prefWidth="188.0" promptText="Email" />
+  <Button fx:id="btn_BackRepToMan" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeRepToManLog" prefHeight="31.0" prefWidth="147.0" text="Go Home" />
+  <TextField fx:id="txt_roomNumb" layoutX="876.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="Room #" />
+  <TextField fx:id="txt_Fname" layoutX="256.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="First name" />
+  <TextField fx:id="txt_Lname" layoutX="355.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Last Name" />
+  <TextField fx:id="txt_Npeople" layoutX="454.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. People" />
+  <TextField fx:id="txt_nRooms" layoutX="530.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. Rooms" />
+  <TextField fx:id="txt_CheckIn" layoutX="606.0" layoutY="459.0" prefHeight="31.0" prefWidth="83.0" promptText="Check In" />
+  <TextField fx:id="txt_CheckOut" layoutX="686.0" layoutY="459.0" prefHeight="31.0" prefWidth="89.0" promptText="Check Out" />
+  <TextField fx:id="txt_RoomType" layoutX="775.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Room Type" />
+  <TextField fx:id="txt_Email" layoutX="23.0" layoutY="459.0" prefHeight="31.0" prefWidth="233.0" promptText="Email" />
   <Button fx:id="btn_AddGuest" layoutX="446.0" layoutY="540.0" mnemonicParsing="false" onAction="#addGuest" text="Add New Guest" />
+   <Button fx:id="btn_GRepToEvReport" layoutX="824.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeGuRepEvReport" prefHeight="31.0" prefWidth="147.0" text="Event Report" />
+   <Label layoutX="426.0" layoutY="56.0" prefHeight="35.0" prefWidth="181.0" text="Guest Report">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
   <stylesheets>
     <URL value="@ArenaStyle.css" />
   </stylesheets>
