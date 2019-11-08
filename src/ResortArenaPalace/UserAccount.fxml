@@ -67,6 +67,6 @@
             </font>
          </Label>
   <stylesheets>
-    <URL value="@ArenaStyle.css" />
-  </stylesheets>
+  <URL value="@ArenaStyle.css" />
+</stylesheets>
 </AnchorPane>
