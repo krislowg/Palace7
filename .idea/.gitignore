@@ -1,6 +1,13 @@
+<<<<<<< Updated upstream
 # Default ignored files
 /workspace.xml
 
 # Datasource local storage ignored files
 /dataSources/
+=======
+
+# Default ignored files
+/workspace.xml
+# Datasource local storage ignored files
+>>>>>>> Stashed changes
 /dataSources.local.xml
