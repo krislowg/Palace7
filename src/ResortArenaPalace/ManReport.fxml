@@ -20,7 +20,7 @@
       <TableColumn fx:id="col_CheckIn" prefWidth="84.0" text="Check In" />
       <TableColumn fx:id="col_CheckOut" prefWidth="103.0" text="Check Out" />
       <TableColumn fx:id="col_RType" prefWidth="99.0" text="Room Type" />
-         <TableColumn fx:id="col_Password" prefWidth="165.0" text="Password" />
+         <TableColumn fx:id="col_Password" prefWidth="108.0" text="Code" />
     </columns>
   </TableView>
   <Label fx:id="lbl_TitleReport" layoutX="395.0" layoutY="21.0" prefHeight="35.0" prefWidth="256.0" text="Resort Arena Palace">
@@ -31,7 +31,7 @@
   <Button fx:id="btn_CancelR" layoutX="275.0" layoutY="540.0" mnemonicParsing="false" onAction="#cancelReservation" text="Cancel Reservation" />
   <Button fx:id="btn_SoldOut" layoutX="590.0" layoutY="540.0" mnemonicParsing="false" text="Sold Out" />
   <Button fx:id="btn_BackRepToMan" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeRepToManLog" prefHeight="31.0" prefWidth="147.0" text="Go Home" />
-  <TextField fx:id="txt_roomNumb" layoutX="876.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="Room #" />
+  <TextField fx:id="txt_roomNumb" layoutX="876.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="code" />
   <TextField fx:id="txt_Fname" layoutX="256.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="First name" />
   <TextField fx:id="txt_Lname" layoutX="355.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Last Name" />
   <TextField fx:id="txt_Npeople" layoutX="454.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. People" />
