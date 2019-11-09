@@ -204,7 +204,7 @@
           <Font name="Monotype Corsiva" size="47.0" />
         </font>
       </Label>
-      <ImageView fx:id="beveragePic" fitHeight="161.0" fitWidth="218.0" layoutX="14.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="beveragePic" fitHeight="161.0" fitWidth="224.0" layoutX="8.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/beverage.jpg" />
       </ImageView>
       <ImageView fx:id="foodPic" fitHeight="185.0" fitWidth="254.0" layoutX="724.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
@@ -214,6 +214,9 @@
         <Image url="@../ResortPictures/dessert.jpg" />
       </ImageView>
          <TextArea layoutX="273.0" layoutY="86.0" prefHeight="124.0" prefWidth="391.0" text="Breakfast: 5:00 AM – 11:00 AM&#10;Lunch: 11:00 AM – 5:00 PM&#10;Dinner: 6:00PM – 10:00 PM – Weekends: 6:00PM – 12:00 AM &#10;Weekends Brunch 12pm - 4pm &#10;For further information or for reservations, please call: 237 567 789&#10;" />
+         <TextArea layoutX="14.0" layoutY="263.0" prefHeight="236.0" prefWidth="264.0" text="Cocktails&#10;-&#9;New York&#9;&#9;&#9;        $20&#10;-&#9;Margarita&#9;&#9;&#9;        $25&#10;-&#9;Mojito&#9;&#9;&#9;&#9;$30&#10;-&#9;Manhattan&#9;&#9;&#9;$35&#9;&#10;-&#9;Tropical&#9;&#9;&#9;&#9;$45&#10;Drinks&#10;-&#9;Soda&#9;&#9;&#9;&#9;$5&#10;-&#9;Tropical Juice&#9;&#9;&#9;$15&#10;-&#9;Green Juice&#9;&#9;&#9;$20&#10;-&#9;Iced Tea&#9;&#9;&#9;        $7&#10;-&#9;Fruited Iced Tea&#9;        $17&#10;" />
+         <TextArea editable="false" layoutX="332.0" layoutY="217.0" prefHeight="124.0" prefWidth="257.0" text="Fancy Desserts:&#10;    -&#9;Merveilleux                             $25&#10;    -&#9;Délicieux                                 $20&#10;    -&#9;Orange almond cake              $22&#10;    -&#9;New York style cheesecake    $22 &#10;    -&#9;Paris Brest                               $25&#10;-&#9;Mille-Feuille                            $20&#10;" />
+         <TextArea layoutX="716.0" layoutY="281.0" prefHeight="200.0" prefWidth="200.0" />
     </AnchorPane>
   </Tab>
   <stylesheets>
