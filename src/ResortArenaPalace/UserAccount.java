@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -48,7 +49,11 @@ public class UserAccount {
   @FXML
   private Label lbl_PasswordVal;
 
+  @FXML
+  void passwordKeyRelease(KeyEvent event) {
+    lbl_PasswordVal.setText(" ");
 
+  }
   /***
    *
    * @param event Event that indicates the move to another window

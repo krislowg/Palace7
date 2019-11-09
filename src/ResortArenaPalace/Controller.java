@@ -1,5 +1,6 @@
 package ResortArenaPalace;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -140,9 +142,21 @@ public class Controller {
   @FXML
   private Label confirmation;
 
+  @FXML
+  private TextField txtF_Email;
 
-    @FXML
+  @FXML
+  private Label lbl_EmailVal;
+
+
+
+
+  @FXML
     void showConfirmation(ActionEvent event) {
+      if (txtF_Email.getText().trim().isEmpty()){
+        lbl_EmailVal.setText("Email Required");
+      }
+      else
       confirmation.setText("Reservation has been Submitted.");
     }
 

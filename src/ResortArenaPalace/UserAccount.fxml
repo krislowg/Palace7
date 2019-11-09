@@ -74,7 +74,7 @@
          <font>
             <Font size="7.0" />
          </font></Label>
-      <Label fx:id="lbl_PasswordVal" prefHeight="24.0" prefWidth="91.0" textFill="#d12424" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label fx:id="lbl_PasswordVal" onKeyReleased="#passwordKeyRelease" prefHeight="24.0" prefWidth="91.0" textFill="#d12424" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
             <Font size="8.0" />
          </font>

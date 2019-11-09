@@ -110,7 +110,7 @@
                <effect>
                   <InnerShadow />
                </effect></TextField>
-               <TextField layoutX="330.0" layoutY="165.0" prefHeight="25.0" prefWidth="156.0">
+               <TextField fx:id="txtF_Email" layoutX="330.0" layoutY="165.0" prefHeight="25.0" prefWidth="156.0">
                <effect>
                   <InnerShadow />
                </effect></TextField>
@@ -205,7 +205,8 @@
                <effect>
                   <InnerShadow />
                </effect></ComboBox>
-            <Label fx:id="confirmation" layoutX="209.0" layoutY="452.0" prefHeight="31.0" prefWidth="203.0" textFill="#26dab3" />
+            <Label fx:id="confirmation" layoutX="135.0" layoutY="-2.0" prefHeight="31.0" prefWidth="203.0" textFill="#26dab3" />
+            <Label fx:id="lbl_EmailVal" layoutX="344.0" layoutY="187.0" textFill="#f03131" />
          </AnchorPane>
          <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/birthday.jpg" />
