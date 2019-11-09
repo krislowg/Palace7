@@ -24,7 +24,7 @@
          <InnerShadow color="#28eaeb" height="1.23" radius="0.0" width="0.0" />
       </effect>
       </Label>
-      <TextArea fx:id="txtA_ReservationDet" layoutX="240.0" layoutY="126.0" prefHeight="227.0" prefWidth="491.0" text="Order: #000001&#10;&#10;No guests: 2&#10;No rooms: 1&#10;Room type: Luxury.&#10;Check In: 10/24/2019&#10;Check out: 10/28/2019&#10;Payment: Visa &#10;Visa Credit&#9;**** **** **** 2040&#10;Total Payment: 12,789.00">
+      <TextArea fx:id="txtA_ReservationDet" layoutX="240.0" layoutY="126.0" prefHeight="227.0" prefWidth="491.0" text="Order: #000001&#10;&#10;No guests: 2&#10;No rooms: 1&#10;Room type: Luxury.&#10;Check In: 11/24/2019&#10;Check out: 11/28/2019&#10;Payment: Visa &#10;Visa Credit&#9;**** **** **** 2040&#10;Total Payment: 12,789.00">
       <effect>
          <InnerShadow />
       </effect></TextArea>
