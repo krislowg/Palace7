@@ -3,6 +3,7 @@ package ResortArenaPalace;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -140,9 +141,23 @@ public class ManReport{
    * @param event Action that indicates the click to cancel reservation
    */
   @FXML
-  void cancelReservation(ActionEvent event) {
+  void cancelReservation(ActionEvent event) throws SQLException {
+    try {
+      System.out.println("Deleting Guest/Reservation Info");
+      Guest guest = tablev_Report.getSelectionModel().getSelectedItem();
+      String selectedGuest = guest.getEmail();
+      String sql = "DELETE FROM GUEST WHERE EMAIL = " + "\'" + selectedGuest + "\';";
+      PreparedStatement pstmt = conn.prepareStatement(sql);
+      pstmt.execute();
+      System.out.println("Guest/Reservation Info Deleted!");
+
+    } catch (SQLException e){
+      System.out.println("Could not delete guest");
+      e.printStackTrace();
+    }
     tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
   }
+
 
 
   private Connection conn = null;
