@@ -213,6 +213,7 @@
       <ImageView fx:id="dessertPic" fitHeight="181.0" fitWidth="248.0" layoutX="348.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/dessert.jpg" />
       </ImageView>
+         <TextArea layoutX="273.0" layoutY="86.0" prefHeight="124.0" prefWidth="391.0" text="Breakfast: 5:00 AM – 11:00 AM&#10;Lunch: 11:00 AM – 5:00 PM&#10;Dinner: 6:00PM – 10:00 PM – Weekends: 6:00PM – 12:00 AM &#10;Weekends Brunch 12pm - 4pm &#10;For further information or for reservations, please call: 237 567 789&#10;" />
     </AnchorPane>
   </Tab>
   <stylesheets>
