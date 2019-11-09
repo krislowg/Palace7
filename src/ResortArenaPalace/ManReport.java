@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Observable;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +18,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,27 +29,36 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 //public class ManReport implements Initializable {
-public class ManReport{
+public class ManReport {
+
   @FXML
   private TableView<Guest> tablev_Report;
 
   //@FXML private TableColumn<Guest, ?> col_Roomnum;
 
-  @FXML private TableColumn<Guest, String> col_FirstName;
+  @FXML
+  private TableColumn<Guest, String> col_FirstName;
 
-  @FXML private TableColumn<Guest, String> col_LastName;
+  @FXML
+  private TableColumn<Guest, String> col_LastName;
 
-  @FXML private TableColumn<Guest, Integer> col_NPeople;
+  @FXML
+  private TableColumn<Guest, Integer> col_NPeople;
 
-  @FXML private TableColumn<Guest, Integer> col_Nrooms;
+  @FXML
+  private TableColumn<Guest, Integer> col_Nrooms;
 
-  @FXML private TableColumn<Guest, String> col_CheckIn;
+  @FXML
+  private TableColumn<Guest, String> col_CheckIn;
 
-  @FXML private TableColumn<Guest, String> col_CheckOut;
+  @FXML
+  private TableColumn<Guest, String> col_CheckOut;
 
-  @FXML private TableColumn<Guest, String> col_RType;
+  @FXML
+  private TableColumn<Guest, String> col_RType;
 
-  @FXML private TableColumn<Guest, String> col_Email;
+  @FXML
+  private TableColumn<Guest, String> col_Email;
 
   @FXML
   private TableColumn<Guest, String> col_Password;
@@ -130,8 +142,10 @@ public class ManReport{
   @FXML
   void addGuest(ActionEvent event) {
     Guest myGuest = new Guest((txt_Email.getText()), txt_Fname.getText(),
-        txt_Lname.getText(), Integer.parseInt(txt_Npeople.getText()), Integer.parseInt(txt_nRooms.getText()),
-        txt_CheckIn.getText(),txt_CheckOut.getText(), txt_RoomType.getText(), txt_roomNumb.getText());
+        txt_Lname.getText(), Integer.parseInt(txt_Npeople.getText()),
+        Integer.parseInt(txt_nRooms.getText()),
+        txt_CheckIn.getText(), txt_CheckOut.getText(), txt_RoomType.getText(),
+        txt_roomNumb.getText());
     tablev_Report.getItems().add(myGuest);
   }
 
@@ -143,22 +157,29 @@ public class ManReport{
    */
   @FXML
   void cancelReservation(ActionEvent event) throws SQLException {
-    try {
-      System.out.println("Deleting Guest/Reservation Info");
-      Guest guest = tablev_Report.getSelectionModel().getSelectedItem();
-      String selectedGuest = guest.getEmail();
-      String sql = "DELETE FROM GUEST WHERE EMAIL = " + "\'" + selectedGuest + "\';";
-      PreparedStatement pstmt = conn.prepareStatement(sql);
-      pstmt.execute();
-      System.out.println("Guest/Reservation Info Deleted!");
+    Alert alert = new Alert(AlertType.CONFIRMATION);
+    alert.setTitle("Cancel Reservation");
+    alert.setHeaderText("Are you sure you want to CANCEL this Reservation?");
+    alert.setContentText(null);
+    Optional<ButtonType> action = alert.showAndWait();
 
-    } catch (SQLException e){
-      System.out.println("Could not delete guest");
-      e.printStackTrace();
+    if (action.get() == ButtonType.OK) {
+      try {
+        System.out.println("Deleting Guest/Reservation Info");
+        Guest guest = tablev_Report.getSelectionModel().getSelectedItem();
+        String selectedGuest = guest.getEmail();
+        String sql = "DELETE FROM GUEST WHERE EMAIL = " + "\'" + selectedGuest + "\';";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.execute();
+        System.out.println("Guest/Reservation Info Deleted!");
+
+      } catch (SQLException e) {
+        System.out.println("Could not delete guest");
+        e.printStackTrace();
+      }
+      tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
     }
-    tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
   }
-
 
 
   private Connection conn = null;
@@ -188,11 +209,12 @@ public class ManReport{
       a.show();
     }
   }
+
   ObservableList<Guest> glist = FXCollections.observableArrayList();
 
   //@Override
   // public void initialize(URL location, ResourceBundle resources) {
-  public void populateGuestTableReport(){
+  public void populateGuestTableReport() {
     col_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
     col_FirstName.setCellValueFactory(new PropertyValueFactory<>("name"));
     col_LastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -207,17 +229,16 @@ public class ManReport{
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next()) {
 
-        glist.add(new Guest(rs.getString("EMAIL"),rs.getString("NAME"),
+        glist.add(new Guest(rs.getString("EMAIL"), rs.getString("NAME"),
             rs.getString("LASTNAME"), Integer.parseInt(rs.getString("NOPEOPLE")),
             Integer.parseInt(rs.getString("NOROOMS")), rs.getString("CHECKIN"),
             rs.getString("CHECKOUT"), rs.getString("ROOMTYPE"),
-            rs.getString("PASSWORD") ));
+            rs.getString("PASSWORD")));
       }
 
     } catch (SQLException e) {
       e.printStackTrace();
     }
-
 
     tablev_Report.setItems(glist);
   }

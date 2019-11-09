@@ -15,22 +15,22 @@
          <Image url="@Login_PalmTree.jpg" />
    </ImageView>
    <AnchorPane layoutX="228.0" layoutY="146.0" opacity="0.91" prefHeight="353.0" prefWidth="563.0" style="-fx-background-color: white;">
-       <Label fx:id="lbl_MUName" layoutX="95.0" layoutY="98.0" text="User name">
+       <Label fx:id="lbl_MUName" layoutX="95.0" layoutY="98.0" text="User name" textFill="#2a88c3">
             <font>
                <Font size="24.0" />
             </font>
        </Label>
        <PasswordField fx:id="passfld_MUPassword" layoutX="281.0" layoutY="210.0" promptText="enter password" />
        <TextField fx:id="txtField_MUName" layoutX="281.0" layoutY="100.0" promptText="enter user name" />
-       <Label fx:id="lbl_MUPassword" layoutX="102.0" layoutY="214.0" text="Password">
+       <Label fx:id="lbl_MUPassword" layoutX="102.0" layoutY="214.0" text="Password" textFill="#2a88c3">
             <font>
                <Font size="24.0" />
             </font>
        </Label>
    </AnchorPane>
-  <Label fx:id="lbl_ManagerLog" layoutX="389.0" layoutY="60.0" text="Manager Login">
+  <Label fx:id="lbl_ManagerLog" layoutX="389.0" layoutY="60.0" text="Manager Login" textFill="#2a88c3">
     <font>
-      <Font name="Bookshelf Symbol 7" size="37.0" />
+      <Font name="Monotype Corsiva" size="53.0" />
     </font>
   </Label>
  <Button fx:id="btn_ManagerSignIn" layoutX="520.0" layoutY="508.0" mnemonicParsing="false" onAction="#changeManToReport" prefHeight="31.0" prefWidth="166.0" text="Sign In" />

@@ -6,14 +6,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.ManReport">
+   <ImageView fitHeight="600.0" fitWidth="1000.0" opacity="0.13" pickOnBounds="true">
+         <Image url="@Login_PalmTree.jpg" />
+   </ImageView>
   <TableView fx:id="tablev_Report" layoutX="23.0" layoutY="115.0" prefHeight="322.0" prefWidth="929.0">
     <columns>
-      <TableColumn fx:id="col_Email" prefWidth="208.0" text="Email" />
-      <TableColumn fx:id="col_FirstName" prefWidth="75.0" text="First Name" />
+      <TableColumn fx:id="col_Email" prefWidth="191.0" text="Email" />
+      <TableColumn fx:id="col_FirstName" prefWidth="92.0" text="First Name" />
       <TableColumn fx:id="col_LastName" prefWidth="92.0" text="Last Name" />
       <TableColumn fx:id="col_NPeople" prefWidth="84.0" text="N. People" />
       <TableColumn fx:id="col_Nrooms" prefWidth="75.0" text="N. Rooms" />
@@ -32,14 +37,14 @@
   <Button fx:id="btn_SoldOut" layoutX="590.0" layoutY="540.0" mnemonicParsing="false" text="Sold Out" />
   <Button fx:id="btn_BackRepToMan" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeRepToManLog" prefHeight="31.0" prefWidth="147.0" text="Go Home" />
   <TextField fx:id="txt_roomNumb" layoutX="876.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="code" />
-  <TextField fx:id="txt_Fname" layoutX="256.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="First name" />
+  <TextField fx:id="txt_Fname" layoutX="225.0" layoutY="459.0" prefHeight="31.0" prefWidth="130.0" promptText="First name" />
   <TextField fx:id="txt_Lname" layoutX="355.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Last Name" />
   <TextField fx:id="txt_Npeople" layoutX="454.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. People" />
   <TextField fx:id="txt_nRooms" layoutX="530.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. Rooms" />
   <TextField fx:id="txt_CheckIn" layoutX="606.0" layoutY="459.0" prefHeight="31.0" prefWidth="83.0" promptText="Check In" />
   <TextField fx:id="txt_CheckOut" layoutX="686.0" layoutY="459.0" prefHeight="31.0" prefWidth="89.0" promptText="Check Out" />
   <TextField fx:id="txt_RoomType" layoutX="775.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Room Type" />
-  <TextField fx:id="txt_Email" layoutX="23.0" layoutY="459.0" prefHeight="31.0" prefWidth="233.0" promptText="Email" />
+  <TextField fx:id="txt_Email" layoutX="23.0" layoutY="459.0" prefHeight="31.0" prefWidth="201.0" promptText="Email" />
   <Button fx:id="btn_AddGuest" layoutX="446.0" layoutY="540.0" mnemonicParsing="false" onAction="#addGuest" text="Add New Guest" />
    <Button fx:id="btn_GRepToEvReport" layoutX="824.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeGuRepEvReport" prefHeight="31.0" prefWidth="147.0" text="Event Report" />
    <Label layoutX="426.0" layoutY="56.0" prefHeight="35.0" prefWidth="181.0" text="Guest Report">

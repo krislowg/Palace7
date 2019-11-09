@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +16,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -117,7 +120,15 @@ public class ManEventReport {
 
   @FXML
   void cancelEvent(ActionEvent event) {
-    tablev_EventReport.getItems().removeAll(tablev_EventReport.getSelectionModel().getSelectedItem());
+    Alert alert = new Alert (AlertType.CONFIRMATION);
+    alert.setTitle("Cancel Event");
+    alert.setHeaderText("Are you sure you want to CANCEL this Event?");
+    alert.setContentText(null);
+    Optional<ButtonType> action = alert.showAndWait();
+
+    if(action.get() == ButtonType.OK) {
+      tablev_EventReport.getItems().removeAll(tablev_EventReport.getSelectionModel().getSelectedItem());
+    }
   }
 
   @FXML

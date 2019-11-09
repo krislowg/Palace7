@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.Controller">
   <Tab fx:id="tab_home" text="Home Page">
     <AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;">
       <ImageView fitHeight="575.0" fitWidth="1000.0" layoutY="-13.0" opacity="0.13" pickOnBounds="true">
@@ -48,9 +48,7 @@
   <Tab fx:id="tab_wellness" text="Wellness">
     <AnchorPane fx:id="wellnessLabel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
       <ImageView fitHeight="669.0" fitWidth="1297.0" opacity="0.26" pickOnBounds="true" preserveRatio="true">
-        <image>
           <Image url="@../ResortPictures/wellness4.jpg" />
-        </image>
       </ImageView>
       <Label fx:id="wellLabel" layoutX="387.0" prefHeight="68.0" prefWidth="306.0" text="Wellness &amp; Spa" textAlignment="CENTER" textFill="#15d4a1" AnchorPane.topAnchor="0.0">
         <font>
@@ -191,9 +189,7 @@
                </Label>
                <Button fx:id="eventReserveBtn" layoutX="464.0" layoutY="447.0" mnemonicParsing="false" onAction="#showConfirmation" text="Reserve" />
                <ImageView fitHeight="123.0" fitWidth="207.0" layoutX="-60.0" layoutY="33.0" opacity="0.64" pickOnBounds="true" preserveRatio="true">
-                  <image>
                      <Image url="@../ResortPictures/beach.jpg" />
-                  </image>
                </ImageView>
                <ImageView fitHeight="116.0" fitWidth="221.0" layoutX="-58.0" layoutY="195.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../ResortPictures/confrence.jpg" />
@@ -205,8 +201,14 @@
                <effect>
                   <InnerShadow />
                </effect></ComboBox>
-            <Label fx:id="confirmation" layoutX="135.0" layoutY="-2.0" prefHeight="31.0" prefWidth="203.0" textFill="#26dab3" />
-            <Label fx:id="lbl_EmailVal" layoutX="344.0" layoutY="187.0" textFill="#f03131" />
+            <Label fx:id="confirmation" layoutX="-40.0" layoutY="-2.0" prefHeight="45.0" prefWidth="378.0" textFill="#26dab3">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="lbl_EmailVal" layoutX="332.0" layoutY="187.0" prefHeight="31.0" prefWidth="153.0" textFill="#f03131">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </AnchorPane>
          <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/birthday.jpg" />
@@ -222,9 +224,7 @@
   <Tab fx:id="tab_restaurant" text="Restaurant">
     <AnchorPane fx:id="dessertBtn" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
       <ImageView fitHeight="1416.0" fitWidth="1254.0" layoutX="-63.0" layoutY="-355.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
-        <image>
           <Image url="@Login_PalmTree.jpg" />
-        </image>
       </ImageView>
       <Label fx:id="resnameLable" layoutX="303.0" prefHeight="60.0" prefWidth="292.0" text="7 Palaces'Menu " textFill="#2a88c3">
         <font>
