@@ -70,7 +70,7 @@
       </ImageView>
          <AnchorPane layoutX="129.0" layoutY="32.0" prefHeight="453.0" prefWidth="575.0">
             <children>
-               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="154.0" />
+               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="161.0" />
                <Label layoutX="197.0" layoutY="75.0" prefHeight="30.0" prefWidth="116.0" text="First Name" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="20.0" />
@@ -171,7 +171,7 @@
                      <Image url="@../ResortPictures/night.jpg" />
                   </image>
                </ImageView>
-               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefWidth="150.0" />
+               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefHeight="25.0" prefWidth="159.0" />
             </children>
          </AnchorPane>
          <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
