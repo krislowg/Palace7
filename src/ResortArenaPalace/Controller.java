@@ -21,7 +21,8 @@ import javafx.stage.Stage;
 
 public class Controller {
 
-  @FXML
+    public Button eventReserveBtn;
+    @FXML
   private Label lbl_TitleHome;
 
   @FXML
