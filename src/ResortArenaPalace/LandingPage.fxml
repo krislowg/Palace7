@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -137,7 +138,6 @@
                   </effect>
                </Label>
                <TextField layoutX="334.0" layoutY="306.0" prefHeight="25.0" prefWidth="158.0" />
-               <ComboBox layoutX="334.0" layoutY="350.0" prefHeight="25.0" prefWidth="159.0" />
                <Label layoutX="194.0" layoutY="349.0" prefHeight="23.0" prefWidth="103.0" text="Venue" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
@@ -185,6 +185,7 @@
                      <Image url="@../ResortPictures/night.jpg" />
                   </image>
                </ImageView>
+               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefWidth="150.0" />
             </children>
          </AnchorPane>
          <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
