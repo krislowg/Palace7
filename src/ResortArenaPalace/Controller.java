@@ -23,8 +23,8 @@ import javafx.stage.Stage;
 
 public class Controller {
 
-    public Button eventReserveBtn;
-    @FXML
+  public Button eventReserveBtn;
+  @FXML
   private Label lbl_TitleHome;
 
   @FXML
@@ -149,7 +149,11 @@ public class Controller {
   private Label lbl_EmailVal;
 
 
-
+  /***
+   *
+   * @param event Event that manages showing the confirmation message
+   *              after making a reservation
+   */
 
   @FXML
     void showConfirmation(ActionEvent event) {

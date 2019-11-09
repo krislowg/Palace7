@@ -19,7 +19,7 @@ public class ConfirmMessage {
   private Button OkayBtn;
 
   /**
-   * @param event  Event that indicates the move to another window
+   * @param event  Event that indicates the move to room availability window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML

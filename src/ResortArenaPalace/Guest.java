@@ -12,6 +12,8 @@ public class Guest {
   private String roomType;
   private String password;
 
+  // Getters and Setters methods for guest attributes
+
   public String getEmail() {
     return email;
   }
@@ -83,6 +85,19 @@ public class Guest {
   public void setPassword(String password) {
     this.password = password;
   }
+
+  /***
+   *
+   * @param email   String that represents the email address of the guest
+   * @param name    Refers to the fist name of the guest
+   * @param lastName  Refers to the family name of the guest
+   * @param noPeople  Number that represents how many people will reside in the hotel
+   * @param noRooms   Corresponds to the umber of rooms that will be booked during the guest's stay
+   * @param checkIn   Date when the guest will come in
+   * @param checkOut  Date when the guest will go
+   * @param roomType  Refers to the style of the room chosen during the reservation
+   * @param password  A secret phrase chosen by the user; it is used for the login
+   */
 
   public Guest(String email, String name, String lastName, int noPeople, int noRooms,
       String checkIn, String checkOut, String roomType, String password) {

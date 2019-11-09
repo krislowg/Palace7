@@ -15,6 +15,7 @@ public class EventReservation {
   private String partyPlanner;
   private String password;
 
+  // Getters and Setters methods for the event reservation attributes
 
   public String getEmail() {
     return email;
