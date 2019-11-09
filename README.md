@@ -41,7 +41,7 @@ The following steps need to be performed everytime in order to connect the datab
 * In Path add /palace to it: C:/Users/hp/IdeaProjects/Palace7/res/palace
 * In Driver, choose H2 and click Ok then Click Ok one more time
 
-
+![database pic3](https://user-images.githubusercontent.com/47893994/68534842-55f51180-0307-11ea-9583-7a29056c975c.jpg)
 
 * Now the database is connected
 
