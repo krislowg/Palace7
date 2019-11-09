@@ -87,6 +87,7 @@ public class Guest {
   }
 
   /***
+   *  Constructor
    *
    * @param email   String that represents the email address of the guest
    * @param name    Refers to the fist name of the guest

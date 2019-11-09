@@ -9,7 +9,7 @@ public class EventReservation {
   private String event;
   private String eventDate;
   private int noPeople;
-  private String venue; //apply enum?
+  private String venue;
   private String catering;
   private String dj;
   private String partyPlanner;
@@ -97,7 +97,22 @@ public class EventReservation {
     this.password = password;
   }
 
-  public EventReservation(String email, String fName, String event, String eventDate, int noPeople,
+  /***
+   * Constructor
+   *
+   * @param email  String that represents the email address of the guest
+   * @param fName Refers to the fist name of the guest
+   * @param event Type of ceremony the guest wants to have
+   * @param eventDate Time when the ceremony will have place
+   * @param noPeople Number of people that will attend the ceremony
+   * @param venue  Place where the event will have place
+   * @param catering Provision of food and drinks needed for the event
+   * @param dj  Music type
+   * @param partyPlanner Planning of the ceremony
+   * @param password A secret phrase chosen by the user; it is used for the login
+   */
+
+  EventReservation(String email, String fName, String event, String eventDate, int noPeople,
       String venue, String catering, String dj, String partyPlanner, String password) {
     this.email = email;
     this.fName = fName;
