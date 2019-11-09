@@ -62,7 +62,7 @@ public class RoomAvailability {
 
     /***
      *
-     * @param event Event that indicates the move to another window
+     * @param event Event that indicates the move to payment scene
      * @throws IOException The check exception thrown when working with input or output
      */
     @FXML
@@ -77,7 +77,7 @@ public class RoomAvailability {
 
     /***
      *
-     * @param event Event that indicates the move to another window
+     * @param event Event that indicates the move to home scene
      * @throws IOException The check exception thrown when working with input or output
      */
      @FXML

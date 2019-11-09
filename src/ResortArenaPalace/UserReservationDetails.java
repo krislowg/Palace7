@@ -32,8 +32,6 @@ public class UserReservationDetails {
   @FXML
   private Button btn_SignOut;
 
-
-
   @FXML
   private ImageView roomImage;
 
@@ -60,7 +58,7 @@ public class UserReservationDetails {
 
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event that indicates the move to the home window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
@@ -73,11 +71,6 @@ public class UserReservationDetails {
     rDWindow.show();
   }
 
-  /***
-   *
-   * @param
-   * @throws
-   */
   @FXML
   void initialize() {
     cancelText.setVisible(false);
@@ -85,7 +78,7 @@ public class UserReservationDetails {
 
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event related to canceling a reservation
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
@@ -101,7 +94,7 @@ public class UserReservationDetails {
 
 
 
-/**
+/*
   @FXML
   void cancelReservation(ActionEvent event) throws SQLException {
     System.out.println("Cancel Reservation Pressed");
@@ -124,6 +117,5 @@ public class UserReservationDetails {
       e.printStackTrace();
     }
     tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
-  }
-**/
+  }*/
 }

@@ -110,6 +110,10 @@ public class ManEventReport {
   private Button btn_LogOut;
 
 
+  /***
+   *
+   * @param event Action that creates a new event reservation and adds it to the report
+   */
   @FXML
   void addEvent(ActionEvent event) {
     EventReservation myEReport = new EventReservation((txt_Email.getText()), txt_Fname.getText(),
@@ -118,6 +122,10 @@ public class ManEventReport {
         tablev_EventReport.getItems().add(myEReport);
   }
 
+  /**
+   *
+   * @param event Action that cancels the reservation of an event
+   */
   @FXML
   void cancelEvent(ActionEvent event) {
     Alert alert = new Alert (AlertType.CONFIRMATION);
@@ -131,6 +139,11 @@ public class ManEventReport {
     }
   }
 
+  /**
+   *
+   * @param event Action that allows getting back to the home page
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeEvRepToHome(ActionEvent event) throws IOException {
     Parent evReportParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
@@ -141,6 +154,11 @@ public class ManEventReport {
     eRWindow.show();
   }
 
+  /**
+   *
+   * @param event Action that allows going to guest report window
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeEventRepToGuestReport(ActionEvent event) throws IOException {
     Parent eventReportParent = FXMLLoader.load(getClass().getResource("ManReport.fxml"));
@@ -150,6 +168,8 @@ public class ManEventReport {
     homeRWindow.setScene(eventRepScene);
     homeRWindow.show();
   }
+
+  // Database handling
 
   private Connection conn = null;
   private Statement stmt = null;
@@ -181,6 +201,7 @@ public class ManEventReport {
   ObservableList<EventReservation> eventList = FXCollections.observableArrayList();
 
   //Method that populates the Guest tableview with the data from the database
+
   public void populateEventTableReport(){
     col_EvEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
     col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));

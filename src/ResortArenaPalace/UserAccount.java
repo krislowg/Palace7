@@ -1,7 +1,7 @@
 package ResortArenaPalace;
 
-/*Controller for the UserAccount.fxml file
-Scene where the Guest and the user can fill their credentials to access their accounts*/
+/* Controller for the UserAccount.fxml file
+Scene where the Guest and the user can fill their credentials to access their accounts */
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -49,6 +49,10 @@ public class UserAccount {
   @FXML
   private Label lbl_PasswordVal;
 
+  /**
+   *
+   * @param event Action that handles the password entry
+   */
   @FXML
   void passwordKeyRelease(KeyEvent event) {
     lbl_PasswordVal.setText(" ");
@@ -56,7 +60,7 @@ public class UserAccount {
   }
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event that indicates the move to reservation window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
@@ -79,7 +83,7 @@ public class UserAccount {
 
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event that indicates the move back to home window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML

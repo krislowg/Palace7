@@ -28,7 +28,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-//public class ManReport implements Initializable {
 public class ManReport {
 
   @FXML
@@ -111,7 +110,7 @@ public class ManReport {
 
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event that indicates the move to manager window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
@@ -124,7 +123,11 @@ public class ManReport {
     mSWindow.show();
   }
 
-  //Method to change scenes from Guest Report to Event Report
+  /**
+   *
+   * @param event Action that changes scenes from Guest Report to Event Report
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeGuRepEvReport(ActionEvent event) throws IOException {
     Parent manReportParent = FXMLLoader.load(getClass().getResource("ManEventReport.fxml"));
@@ -149,11 +152,9 @@ public class ManReport {
     tablev_Report.getItems().add(myGuest);
   }
 
-  //Method to cancel a selected reservation from the manager report
-
   /***
    *
-   * @param event Action that indicates the click to cancel reservation
+   * @param event Action that indicates the click to cancel  a selected reservation from the manager report
    */
   @FXML
   void cancelReservation(ActionEvent event) throws SQLException {
@@ -181,6 +182,7 @@ public class ManReport {
     }
   }
 
+  // Database management
 
   private Connection conn = null;
   private Statement stmt = null;
@@ -212,8 +214,6 @@ public class ManReport {
 
   ObservableList<Guest> glist = FXCollections.observableArrayList();
 
-  //@Override
-  // public void initialize(URL location, ResourceBundle resources) {
   public void populateGuestTableReport() {
     col_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
     col_FirstName.setCellValueFactory(new PropertyValueFactory<>("name"));

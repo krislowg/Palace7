@@ -36,6 +36,11 @@ public class ManagerLogin {
   @FXML
   private Button btn_GbackManTOHome;
 
+  /**
+   *
+   * @param event Action that allows going back to the home page
+   * @throws IOException The check exception thrown when working with input or output
+   */
   @FXML
   void changeManToHome(ActionEvent event) throws IOException {
     Parent manLoginParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));

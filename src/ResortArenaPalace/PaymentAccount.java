@@ -40,7 +40,7 @@ public class PaymentAccount {
 
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event that indicates the move to room availability window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
@@ -55,7 +55,7 @@ public class PaymentAccount {
 
   /***
    *
-   * @param event Event that indicates the move to another window
+   * @param event Event that allows showing a reservation confirmation
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
