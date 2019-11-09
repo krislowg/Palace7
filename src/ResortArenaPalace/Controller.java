@@ -48,6 +48,9 @@ public class Controller {
   @FXML
   private Tab tab_events;
 
+  @FXML
+  private ComboBox<String> cBox_Venue;
+
 
   @FXML
   private Label eventLabel;
@@ -144,6 +147,13 @@ public class Controller {
   private ObservableList<String> noguest = FXCollections.observableArrayList("1", "2",
       "3", "4", "5", "6", "7", "8", "9", "10");
 
+  //Array List for the comoboBox to pick the type of Venue
+  private ObservableList<String> cVenueType = FXCollections.observableArrayList("Conference", "Ballroom",
+      "Club", "Beach","Restaurant");
+
+
+
+
   /* Method to populate the number of rooms and guests inside the combobox */
   public void initialize(){
     room_pick.setItems(norooms);//sets the items in the ComboBox
@@ -154,6 +164,9 @@ public class Controller {
     noguests_pick.setItems(noguest);//sets the items in the ComboBox
     noguests_pick.setEditable(true);//Allows the user edit
     noguests_pick.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+    //Venue
+    cBox_Venue.setItems(cVenueType);//sets the items in the comboBox
+    cBox_Venue.getSelectionModel().selectFirst();//Sets a default value in the comboBox
   }
 
   /***
