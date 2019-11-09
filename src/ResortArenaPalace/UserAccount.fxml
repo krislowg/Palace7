@@ -30,9 +30,10 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="189.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="345.0" minHeight="10.0" prefHeight="345.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="117.66665903727214" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="38.33334096272786" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="387.0" minHeight="2.666656494140625" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="345.0" minHeight="10.0" prefHeight="229.33333333333337" vgrow="SOMETIMES" />
         </rowConstraints>
             <Label fx:id="lbl_UName" prefHeight="21.0" prefWidth="121.0" text="User name" textFill="#2a88c3" GridPane.rowIndex="2">
                <GridPane.margin>
@@ -42,7 +43,7 @@
             <Font size="24.0" />
          </font>
             </Label>
-            <Label fx:id="lbl_Password" text="Password" textFill="#2a88c3" GridPane.rowIndex="3">
+            <Label fx:id="lbl_Password" text="Password" textFill="#2a88c3" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="140.0" left="140.0" />
                </GridPane.margin>
@@ -50,7 +51,7 @@
             <Font size="24.0" />
          </font>
             </Label>
-            <PasswordField fx:id="pField_Password" promptText="enter password" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <PasswordField fx:id="pField_Password" promptText="enter password" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="140.0" right="150.0" />
                </GridPane.margin>
@@ -60,12 +61,13 @@
             <Insets right="150.0" />
          </GridPane.margin>
       </TextField>
-            <Button fx:id="btn_SignInUAccount" mnemonicParsing="false" onAction="#changeScreenUAccToReservat" text="Sign In" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button fx:id="btn_GoHomeFromUA" mnemonicParsing="false" onAction="#changeScreenUAccountToHome" text="Go Home" GridPane.rowIndex="3">
+            <Button fx:id="btn_SignInUAccount" mnemonicParsing="false" onAction="#changeScreenUAccToReservat" text="Sign In" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button fx:id="btn_GoHomeFromUA" mnemonicParsing="false" onAction="#changeScreenUAccountToHome" text="Go Home" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="30.0" />
          </GridPane.margin>
       </Button>
+      <Label fx:id="lbl_UserNaVal" textFill="#e13535" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       </GridPane>
          <Label fx:id="lbl_UAccount" layoutX="382.0" layoutY="38.0" text="User Account" textFill="#2a88c3">
             <font>

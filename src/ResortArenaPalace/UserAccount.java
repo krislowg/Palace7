@@ -42,6 +42,9 @@ public class UserAccount {
 
   @FXML
   private Button btn_GoHomeFromUA;
+  @FXML
+  private Label lbl_UserNaVal;
+
 
   /***
    *
@@ -50,12 +53,16 @@ public class UserAccount {
    */
   @FXML
   void changeScreenUAccToReservat(ActionEvent event) throws IOException {
-    Parent guestAcParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
-    Scene gAccountScene = new Scene(guestAcParent);
+    if (txtFld_UName.getText().trim().isEmpty()) {
+      lbl_UserNaVal.setText("User Name Required");
+    } else {
+      Parent guestAcParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
+      Scene gAccountScene = new Scene(guestAcParent);
 
-    Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    gAccWindow.setScene(gAccountScene);
-    gAccWindow.show();
+      Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      gAccWindow.setScene(gAccountScene);
+      gAccWindow.show();
+    }
   }
 
   /***
