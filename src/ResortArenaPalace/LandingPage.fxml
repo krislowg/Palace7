@@ -47,18 +47,24 @@
   </Tab>
   <Tab fx:id="tab_wellness" text="Wellness">
     <AnchorPane fx:id="wellnessLabel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-      <Label fx:id="wellLabel" layoutX="283.0" prefHeight="68.0" prefWidth="306.0" text="Wellness &amp; Spa" textAlignment="CENTER" textFill="#15d4a1" AnchorPane.topAnchor="0.0">
+      <Label fx:id="wellLabel" layoutX="387.0" prefHeight="68.0" prefWidth="306.0" text="Wellness &amp; Spa" textAlignment="CENTER" textFill="#15d4a1" AnchorPane.topAnchor="0.0">
         <font>
           <Font name="Monotype Corsiva" size="47.0" />
         </font>
       </Label>
-      <ImageView fx:id="gymPic" fitHeight="279.0" fitWidth="242.0" layoutX="493.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="gymPic" fitHeight="279.0" fitWidth="242.0" layoutX="675.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/gym.jpg" />
       </ImageView>
-      <ImageView fitHeight="145.0" fitWidth="236.0" layoutX="32.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="145.0" fitWidth="194.0" layoutX="32.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/spa.jpg" />
       </ImageView>
-         <TextArea layoutX="22.0" layoutY="245.0" prefHeight="212.0" prefWidth="279.0" text="Wellness Lectures                             $120&#10;Nutrition                                           $250&#10;Cosmetic Procedures                        $170&#10;Cyrotherapies                                   $230&#10;Energy Healing                                 $370&#10;Emotional Health                              $270&#10;Life Startegy Coaching                      $500&#10;Back &amp; Shoulder Massage                $270&#10;Neck &amp; Face Massage                       $170&#10;Reflexology                                        $285&#10;Well Being Massage                           $300&#10;Deep Tissue Massage                         $485&#10;" />
+         <TextArea editable="false" layoutX="22.0" layoutY="228.0" prefHeight="212.0" prefWidth="309.0" text="Wellness Lectures                             $120&#10;Nutrition                                           $250&#10;Cosmetic Procedures                        $170&#10;Cyrotherapies                                   $230&#10;Energy Healing                                 $370&#10;Emotional Health                              $270&#10;Life Startegy Coaching                      $500&#10;Back &amp; Shoulder Massage                $270&#10;Neck &amp; Face Massage                       $170&#10;Reflexology                                        $285&#10;Well Being Massage                           $300&#10;Deep Tissue Massage                         $485&#10;" wrapText="true" />
+         <TextArea editable="false" layoutX="607.0" layoutY="75.0" prefHeight="284.0" prefWidth="379.0" text="                         Fitness: 6:00 AM - 8:00 PM&#10;               Thermal Experience: 7:00 AM - 5:00 PM&#10;&#10;Group Fitness: 50 min class every two hours&#10;Yoga: One hour from 7:00 am-9:00 am &amp; 3:00 pm-8:00 pm&#10;Cycling: 50 min class every three hours&#10;Pilates Mat: One hour from 7:00 am-3:00 pm &#10;Flexibility: 10:00 am - 11:30 am &amp; 7:00 pm - 8:00 pm&#10;Boot Camps: 45 min class every two hours &#10;Rock Wall: 50 min class from 12:00 pm - 6:00 pm&#10;Meditation: 6:00 am - 9:00 am&#10;Dance: one hour class from 4:00 pm - 7:00 pm&#10;Aquagym: 45 min class every two hours&#10;&#10;The cardio and the machine are available for use from &#10;5:00 AM to 11:00 PM&#10;&#10;&#10;" wrapText="true" />
+         <ImageView fitHeight="150.0" fitWidth="216.0" layoutX="357.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../ResortPictures/yoga.jpg" />
+            </image></ImageView>
+         <TextField layoutX="200.0" layoutY="474.0" prefHeight="72.0" prefWidth="368.0" text="     To reserve a wellness appointment, contact us at: 123 456 789" />
     </AnchorPane>
   </Tab>
   <Tab fx:id="tab_events" text="Events">
@@ -70,7 +76,7 @@
       </ImageView>
          <AnchorPane layoutX="129.0" layoutY="32.0" prefHeight="453.0" prefWidth="575.0">
             <children>
-               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="161.0" />
+               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="154.0" />
                <Label layoutX="197.0" layoutY="75.0" prefHeight="30.0" prefWidth="116.0" text="First Name" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="20.0" />
@@ -171,7 +177,7 @@
                      <Image url="@../ResortPictures/night.jpg" />
                   </image>
                </ImageView>
-               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefHeight="25.0" prefWidth="159.0" />
+               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefWidth="150.0" />
             </children>
          </AnchorPane>
          <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
@@ -193,34 +199,20 @@
   </Tab>
   <Tab fx:id="tab_restaurant" text="Restaurant">
     <AnchorPane fx:id="dessertBtn" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-      <Label fx:id="resnameLable" layoutX="303.0" prefHeight="60.0" prefWidth="254.0" text="Palacios'Menu " textFill="#14d6a5">
+      <Label fx:id="resnameLable" layoutX="303.0" prefHeight="60.0" prefWidth="292.0" text="7 Palaces'Menu " textFill="#14d6a5">
         <font>
           <Font name="Monotype Corsiva" size="47.0" />
         </font>
       </Label>
-      <Button layoutX="71.0" layoutY="236.0" mnemonicParsing="false" text="Beverage" textFill="#13b4e1">
-        <font>
-          <Font name="Monotype Corsiva" size="18.0" />
-        </font>
-      </Button>
       <ImageView fx:id="beveragePic" fitHeight="161.0" fitWidth="218.0" layoutX="14.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/beverage.jpg" />
       </ImageView>
-      <ImageView fx:id="foodPic" fitHeight="185.0" fitWidth="254.0" layoutX="528.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="foodPic" fitHeight="185.0" fitWidth="254.0" layoutX="724.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/food.jpg" />
       </ImageView>
-      <ImageView fx:id="dessertPic" fitHeight="181.0" fitWidth="248.0" layoutX="254.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dessertPic" fitHeight="181.0" fitWidth="248.0" layoutX="348.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/dessert.jpg" />
       </ImageView>
-      <Button layoutX="603.0" layoutY="335.0" mnemonicParsing="false" text="Desserts" textAlignment="CENTER" textFill="#13b4e1">
-        <font>
-          <Font name="Monotype Corsiva" size="18.0" />
-        </font>
-      </Button>
-      <Button fx:id="foodBtn" layoutX="349.0" layoutY="132.0" mnemonicParsing="false" text="Food" textFill="#13b4e1">
-        <font>
-          <Font name="Monotype Corsiva" size="18.0" />
-        </font></Button>
     </AnchorPane>
   </Tab>
   <stylesheets>
