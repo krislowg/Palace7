@@ -30,10 +30,13 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="189.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="117.66665903727214" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="38.33334096272786" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="387.0" minHeight="2.666656494140625" prefHeight="30.0" vgrow="SOMETIMES" />
-         <RowConstraints maxHeight="345.0" minHeight="10.0" prefHeight="229.33333333333337" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="87.4444580078125" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="387.0" minHeight="10.0" prefHeight="41.77778625488281" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="387.0" minHeight="2.666656494140625" prefHeight="44.88888041178387" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="387.0" minHeight="2.666656494140625" prefHeight="58.55555216471353" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="345.0" minHeight="0.0" prefHeight="50.111114501953125" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="345.0" minHeight="10.0" prefHeight="91.88888549804688" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="345.0" minHeight="10.0" prefHeight="57.33332316080731" vgrow="SOMETIMES" />
         </rowConstraints>
             <Label fx:id="lbl_UName" prefHeight="21.0" prefWidth="121.0" text="User name" textFill="#2a88c3" GridPane.rowIndex="2">
                <GridPane.margin>
@@ -43,7 +46,7 @@
             <Font size="24.0" />
          </font>
             </Label>
-            <Label fx:id="lbl_Password" text="Password" textFill="#2a88c3" GridPane.rowIndex="4">
+            <Label fx:id="lbl_Password" text="Password" textFill="#2a88c3" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="140.0" left="140.0" />
                </GridPane.margin>
@@ -51,7 +54,7 @@
             <Font size="24.0" />
          </font>
             </Label>
-            <PasswordField fx:id="pField_Password" promptText="enter password" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <PasswordField fx:id="pField_Password" promptText="enter password" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="140.0" right="150.0" />
                </GridPane.margin>
@@ -61,13 +64,21 @@
             <Insets right="150.0" />
          </GridPane.margin>
       </TextField>
-            <Button fx:id="btn_SignInUAccount" mnemonicParsing="false" onAction="#changeScreenUAccToReservat" text="Sign In" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="btn_GoHomeFromUA" mnemonicParsing="false" onAction="#changeScreenUAccountToHome" text="Go Home" GridPane.rowIndex="4">
+            <Button fx:id="btn_SignInUAccount" mnemonicParsing="false" onAction="#changeScreenUAccToReservat" text="Sign In" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button fx:id="btn_GoHomeFromUA" mnemonicParsing="false" onAction="#changeScreenUAccountToHome" text="Go Home" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets left="30.0" />
          </GridPane.margin>
       </Button>
-      <Label fx:id="lbl_UserNaVal" textFill="#e13535" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label fx:id="lbl_UserNaVal" prefHeight="17.0" prefWidth="96.0" textFill="#e13535" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <font>
+            <Font size="7.0" />
+         </font></Label>
+      <Label fx:id="lbl_PasswordVal" prefHeight="24.0" prefWidth="91.0" textFill="#d12424" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Label>
       </GridPane>
          <Label fx:id="lbl_UAccount" layoutX="382.0" layoutY="38.0" text="User Account" textFill="#2a88c3">
             <font>

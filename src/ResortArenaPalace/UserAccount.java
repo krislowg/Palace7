@@ -45,6 +45,9 @@ public class UserAccount {
   @FXML
   private Label lbl_UserNaVal;
 
+  @FXML
+  private Label lbl_PasswordVal;
+
 
   /***
    *
@@ -53,9 +56,13 @@ public class UserAccount {
    */
   @FXML
   void changeScreenUAccToReservat(ActionEvent event) throws IOException {
-    if (txtFld_UName.getText().trim().isEmpty()) {
+    if (txtFld_UName.getText().trim().isEmpty() && pField_Password.getText().trim().isEmpty()) {
       lbl_UserNaVal.setText("User Name Required");
-    } else {
+      lbl_PasswordVal.setText("Password Required");
+    } else if(pField_Password.getText().trim().isEmpty()) {
+      lbl_PasswordVal.setText("Password Required");
+    }
+    else {
       Parent guestAcParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
       Scene gAccountScene = new Scene(guestAcParent);
 
