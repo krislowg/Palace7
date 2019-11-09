@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -162,6 +163,7 @@ public class ManReport{
 
   private Connection conn = null;
   private Statement stmt = null;
+
 
   public void initialize() {
     initializeDB();
