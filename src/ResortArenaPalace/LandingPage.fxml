@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.Controller">
   <Tab fx:id="tab_home" text="Home Page">
     <AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;">
       <ImageView fitHeight="575.0" fitWidth="1000.0" layoutY="-13.0" opacity="0.13" pickOnBounds="true">
@@ -47,23 +47,37 @@
   </Tab>
   <Tab fx:id="tab_wellness" text="Wellness">
     <AnchorPane fx:id="wellnessLabel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <ImageView fitHeight="669.0" fitWidth="1297.0" opacity="0.26" pickOnBounds="true" preserveRatio="true">
+        <image>
+          <Image url="@../ResortPictures/wellness4.jpg" />
+        </image>
+      </ImageView>
       <Label fx:id="wellLabel" layoutX="387.0" prefHeight="68.0" prefWidth="306.0" text="Wellness &amp; Spa" textAlignment="CENTER" textFill="#15d4a1" AnchorPane.topAnchor="0.0">
         <font>
           <Font name="Monotype Corsiva" size="47.0" />
         </font>
       </Label>
-      <ImageView fx:id="gymPic" fitHeight="279.0" fitWidth="242.0" layoutX="675.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="gymPic" fitHeight="279.0" fitWidth="242.0" layoutX="675.0" layoutY="397.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/gym.jpg" />
       </ImageView>
-      <ImageView fitHeight="145.0" fitWidth="194.0" layoutX="32.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="145.0" fitWidth="194.0" layoutX="32.0" layoutY="49.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/spa.jpg" />
       </ImageView>
-         <TextArea editable="false" layoutX="22.0" layoutY="228.0" prefHeight="212.0" prefWidth="309.0" text="Wellness Lectures                             $120&#10;Nutrition                                           $250&#10;Cosmetic Procedures                        $170&#10;Cyrotherapies                                   $230&#10;Energy Healing                                 $370&#10;Emotional Health                              $270&#10;Life Startegy Coaching                      $500&#10;Back &amp; Shoulder Massage                $270&#10;Neck &amp; Face Massage                       $170&#10;Reflexology                                        $285&#10;Well Being Massage                           $300&#10;Deep Tissue Massage                         $485&#10;" wrapText="true" />
-         <TextArea editable="false" layoutX="607.0" layoutY="75.0" prefHeight="284.0" prefWidth="379.0" text="                         Fitness: 6:00 AM - 8:00 PM&#10;               Thermal Experience: 7:00 AM - 5:00 PM&#10;&#10;Group Fitness: 50 min class every two hours&#10;Yoga: One hour from 7:00 am-9:00 am &amp; 3:00 pm-8:00 pm&#10;Cycling: 50 min class every three hours&#10;Pilates Mat: One hour from 7:00 am-3:00 pm &#10;Flexibility: 10:00 am - 11:30 am &amp; 7:00 pm - 8:00 pm&#10;Boot Camps: 45 min class every two hours &#10;Rock Wall: 50 min class from 12:00 pm - 6:00 pm&#10;Meditation: 6:00 am - 9:00 am&#10;Dance: one hour class from 4:00 pm - 7:00 pm&#10;Aquagym: 45 min class every two hours&#10;&#10;The cardio and the machine are available for use from &#10;5:00 AM to 11:00 PM&#10;&#10;&#10;" wrapText="true" />
-         <ImageView fitHeight="150.0" fitWidth="216.0" layoutX="357.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <TextArea editable="false" layoutX="22.0" layoutY="228.0" prefHeight="212.0" prefWidth="309.0" text="Wellness Lectures                             $120&#10;Nutrition                                           $250&#10;Cosmetic Procedures                        $170&#10;Cyrotherapies                                   $230&#10;Energy Healing                                 $370&#10;Emotional Health                              $270&#10;Life Startegy Coaching                      $500&#10;Back &amp; Shoulder Massage                $270&#10;Neck &amp; Face Massage                       $170&#10;Reflexology                                        $285&#10;Well Being Massage                           $300&#10;Deep Tissue Massage                         $485&#10;" wrapText="true">
+            <effect>
+               <InnerShadow />
+            </effect></TextArea>
+         <TextArea editable="false" layoutX="607.0" layoutY="75.0" prefHeight="284.0" prefWidth="379.0" text="                         Fitness: 6:00 AM - 8:00 PM&#10;               Thermal Experience: 7:00 AM - 5:00 PM&#10;&#10;Group Fitness: 50 min class every two hours&#10;Yoga: One hour from 7:00 am-9:00 am &amp; 3:00 pm-8:00 pm&#10;Cycling: 50 min class every three hours&#10;Pilates Mat: One hour from 7:00 am-3:00 pm &#10;Flexibility: 10:00 am - 11:30 am &amp; 7:00 pm - 8:00 pm&#10;Boot Camps: 45 min class every two hours &#10;Rock Wall: 50 min class from 12:00 pm - 6:00 pm&#10;Meditation: 6:00 am - 9:00 am&#10;Dance: one hour class from 4:00 pm - 7:00 pm&#10;Aquagym: 45 min class every two hours&#10;&#10;The cardio and the machine are available for use from &#10;5:00 AM to 11:00 PM&#10;&#10;&#10;" wrapText="true">
+            <effect>
+               <InnerShadow />
+            </effect></TextArea>
+         <ImageView fitHeight="150.0" fitWidth="216.0" layoutX="357.0" layoutY="178.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/yoga.jpg" />
             </ImageView>
-         <TextField layoutX="200.0" layoutY="474.0" prefHeight="72.0" prefWidth="368.0" text="     To reserve a wellness appointment, contact us at: 123 456 789" />
+         <TextField layoutX="200.0" layoutY="474.0" prefHeight="72.0" prefWidth="368.0" text="     To reserve a wellness appointment, contact us at: 123 456 789">
+            <effect>
+               <InnerShadow />
+            </effect></TextField>
     </AnchorPane>
   </Tab>
   <Tab fx:id="tab_events" text="Events">
@@ -72,7 +86,10 @@
           <Image url="@Login_PalmTree.jpg" />
       </ImageView>
          <AnchorPane layoutX="129.0" layoutY="32.0" prefHeight="453.0" prefWidth="575.0">
-               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="154.0" />
+               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="154.0">
+               <effect>
+                  <InnerShadow />
+               </effect></TextField>
                <Label layoutX="197.0" layoutY="75.0" prefHeight="30.0" prefWidth="116.0" text="First Name" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="20.0" />
@@ -89,8 +106,14 @@
                      <InnerShadow color="#2ee8cc" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <TextField layoutX="338.0" layoutY="124.0" prefHeight="25.0" prefWidth="154.0" />
-               <TextField layoutX="337.0" layoutY="165.0" prefHeight="25.0" prefWidth="155.0" />
+               <TextField layoutX="331.0" layoutY="124.0" prefHeight="25.0" prefWidth="155.0">
+               <effect>
+                  <InnerShadow />
+               </effect></TextField>
+               <TextField layoutX="330.0" layoutY="165.0" prefHeight="25.0" prefWidth="156.0">
+               <effect>
+                  <InnerShadow />
+               </effect></TextField>
                <Label layoutX="194.0" layoutY="164.0" prefHeight="23.0" prefWidth="103.0" text="Email" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
@@ -107,7 +130,10 @@
                      <InnerShadow color="#24d6c1" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <PasswordField layoutX="337.0" layoutY="214.0" prefHeight="25.0" prefWidth="155.0" />
+               <PasswordField layoutX="331.0" layoutY="214.0" prefHeight="25.0" prefWidth="154.0">
+               <effect>
+                  <InnerShadow />
+               </effect></PasswordField>
                <Label layoutX="194.0" layoutY="266.0" prefHeight="23.0" prefWidth="103.0" text="Date" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
@@ -116,7 +142,10 @@
                      <InnerShadow color="#1ceac1" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <DatePicker layoutX="334.0" layoutY="267.0" prefHeight="25.0" prefWidth="159.0" />
+               <DatePicker layoutX="334.0" layoutY="267.0" prefHeight="25.0" prefWidth="147.0">
+               <effect>
+                  <InnerShadow />
+               </effect></DatePicker>
                <Label layoutX="194.0" layoutY="305.0" prefHeight="28.0" prefWidth="86.0" text="No. People" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="15.0" />
@@ -125,7 +154,10 @@
                      <InnerShadow color="#24c8c0" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <TextField layoutX="334.0" layoutY="306.0" prefHeight="25.0" prefWidth="158.0" />
+               <TextField layoutX="334.0" layoutY="306.0" prefHeight="25.0" prefWidth="147.0">
+               <effect>
+                  <InnerShadow />
+               </effect></TextField>
                <Label layoutX="194.0" layoutY="349.0" prefHeight="23.0" prefWidth="103.0" text="Venue" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
@@ -157,51 +189,75 @@
                      <InnerShadow color="#2ad4d1" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <Button fx:id="eventReserveBtn" layoutX="464.0" layoutY="447.0" mnemonicParsing="false" text="Reserve" />
-               <ImageView fitHeight="123.0" fitWidth="207.0" layoutX="-60.0" layoutY="33.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+               <Button fx:id="eventReserveBtn" layoutX="464.0" layoutY="447.0" mnemonicParsing="false" onAction="#showConfirmation" text="Reserve" />
+               <ImageView fitHeight="123.0" fitWidth="207.0" layoutX="-60.0" layoutY="33.0" opacity="0.64" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../ResortPictures/beach.jpg" />
                   </image>
                </ImageView>
-               <ImageView fitHeight="116.0" fitWidth="221.0" layoutX="-58.0" layoutY="195.0" opacity="0.64" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="116.0" fitWidth="221.0" layoutX="-58.0" layoutY="195.0" opacity="0.74" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../ResortPictures/confrence.jpg" />
                </ImageView>
-               <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="-59.0" layoutY="340.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="-59.0" layoutY="340.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../ResortPictures/night.jpg" />
                </ImageView>
-               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefWidth="150.0" />
+               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefWidth="150.0">
+               <effect>
+                  <InnerShadow />
+               </effect></ComboBox>
+            <Label fx:id="confirmation" layoutX="209.0" layoutY="452.0" prefHeight="31.0" prefWidth="203.0" textFill="#26dab3" />
          </AnchorPane>
-         <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/birthday.jpg" />
          </ImageView>
-         <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="749.0" layoutY="205.0" opacity="0.73" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="147.0" fitWidth="200.0" layoutX="749.0" layoutY="205.0" opacity="0.96" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/wedding.jpg" />
          </ImageView>
-         <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="755.0" layoutY="364.0" opacity="0.69" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="755.0" layoutY="364.0" opacity="0.83" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/beach2.jpg" />
          </ImageView>
     </AnchorPane>
   </Tab>
   <Tab fx:id="tab_restaurant" text="Restaurant">
     <AnchorPane fx:id="dessertBtn" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-      <Label fx:id="resnameLable" layoutX="303.0" prefHeight="60.0" prefWidth="292.0" text="7 Palaces'Menu " textFill="#14d6a5">
+      <ImageView fitHeight="1416.0" fitWidth="1254.0" layoutX="-63.0" layoutY="-355.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+        <image>
+          <Image url="@Login_PalmTree.jpg" />
+        </image>
+      </ImageView>
+      <Label fx:id="resnameLable" layoutX="303.0" prefHeight="60.0" prefWidth="292.0" text="7 Palaces'Menu " textFill="#2a88c3">
         <font>
           <Font name="Monotype Corsiva" size="47.0" />
         </font>
+            <effect>
+               <InnerShadow color="#30edf0" height="1.23" radius="0.0" width="0.0" />
+            </effect>
       </Label>
-      <ImageView fx:id="beveragePic" fitHeight="161.0" fitWidth="224.0" layoutX="8.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="beveragePic" fitHeight="161.0" fitWidth="224.0" layoutX="8.0" layoutY="86.0" opacity="0.67" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/beverage.jpg" />
       </ImageView>
-      <ImageView fx:id="foodPic" fitHeight="185.0" fitWidth="264.0" layoutX="714.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="foodPic" fitHeight="185.0" fitWidth="264.0" layoutX="714.0" layoutY="16.0" opacity="0.82" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/food.jpg" />
       </ImageView>
-      <ImageView fx:id="dessertPic" fitHeight="181.0" fitWidth="248.0" layoutX="348.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dessertPic" fitHeight="181.0" fitWidth="248.0" layoutX="348.0" layoutY="368.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
         <Image url="@../ResortPictures/dessert.jpg" />
       </ImageView>
-         <TextArea editable="false" layoutX="273.0" layoutY="80.0" prefHeight="114.0" prefWidth="391.0" text="Breakfast: 5:00 AM – 11:00 AM&#10;Lunch: 11:00 AM – 5:00 PM&#10;Dinner: 6:00PM – 10:00 PM – Weekends: 6:00PM – 12:00 AM &#10;Weekends Brunch 12pm - 4pm &#10;For further information or for reservations, please call: 237 567 789&#10;" />
-         <TextArea layoutX="14.0" layoutY="263.0" prefHeight="236.0" prefWidth="264.0" text="Cocktails&#10;-&#9;New York&#9;&#9;&#9;        $20&#10;-&#9;Margarita&#9;&#9;&#9;        $25&#10;-&#9;Mojito&#9;&#9;&#9;&#9;$30&#10;-&#9;Manhattan&#9;&#9;&#9;$35&#9;&#10;-&#9;Tropical&#9;&#9;&#9;&#9;$45&#10;Drinks&#10;-&#9;Soda&#9;&#9;&#9;&#9;$5&#10;-&#9;Tropical Juice&#9;&#9;&#9;$15&#10;-&#9;Green Juice&#9;&#9;&#9;$20&#10;-&#9;Iced Tea&#9;&#9;&#9;        $7&#10;-&#9;Fruited Iced Tea&#9;        $17&#10;" />
-         <TextArea editable="false" layoutX="332.0" layoutY="217.0" prefHeight="124.0" prefWidth="257.0" text="Fancy Desserts:&#10;    -&#9;Merveilleux                             $25&#10;    -&#9;Délicieux                                 $20&#10;    -&#9;Orange almond cake              $22&#10;    -&#9;New York style cheesecake    $22 &#10;    -&#9;Paris Brest                               $25&#10;-&#9;Mille-Feuille                            $20&#10;" />
-         <TextArea editable="false" layoutX="654.0" layoutY="239.0" prefHeight="285.0" prefWidth="332.0" text="Appetizers&#10;-&#9;Spinach Artichoke Dip&#9;&#9;&#9;$5&#10;-&#9;Shrimp &amp; Calamari&#9;&#9;&#9;        $17&#10;-&#9;Stuffed Mushrooms&#9;&#9;&#9;        $9&#10;&#10;Salads &amp; Salads&#10;-&#9;House Salad&#9;&#9;&#9;&#9;        $25&#10;-&#9;Homemade soups&#9;&#9;&#9;        $15&#10;-&#9;Primavera Salad&#9;&#9;&#9;        $18&#10;&#10;Pasta &amp; Dishes &#10;-&#9;Seafood Alfredo&#9;&#9;&#9;        $30&#10;-&#9;Chicken Giardino&#9;&#9;&#9;        $25&#10;-&#9;Primavera&#9;&#9;&#9;&#9;                $23&#10;-&#9;Herbs Salmon&#9;&#9;&#9;&#9;        $27&#10;-&#9;Beef Bolognese &#9;&#9;&#9;&#9;$25&#10;" />
+         <TextArea editable="false" layoutX="273.0" layoutY="80.0" prefHeight="114.0" prefWidth="391.0" text="Breakfast: 5:00 AM – 11:00 AM&#10;Lunch: 11:00 AM – 5:00 PM&#10;Dinner: 6:00PM – 10:00 PM – Weekends: 6:00PM – 12:00 AM &#10;Weekends Brunch 12pm - 4pm &#10;For further information or for reservations, please call: 237 567 789&#10;">
+            <effect>
+               <InnerShadow />
+            </effect></TextArea>
+         <TextArea layoutX="14.0" layoutY="263.0" prefHeight="236.0" prefWidth="264.0" text="Cocktails&#10;-&#9;New York&#9;&#9;&#9;        $20&#10;-&#9;Margarita&#9;&#9;&#9;        $25&#10;-&#9;Mojito&#9;&#9;&#9;&#9;$30&#10;-&#9;Manhattan&#9;&#9;&#9;$35&#9;&#10;-&#9;Tropical&#9;&#9;&#9;&#9;$45&#10;Drinks&#10;-&#9;Soda&#9;&#9;&#9;&#9;$5&#10;-&#9;Tropical Juice&#9;&#9;&#9;$15&#10;-&#9;Green Juice&#9;&#9;&#9;$20&#10;-&#9;Iced Tea&#9;&#9;&#9;        $7&#10;-&#9;Fruited Iced Tea&#9;        $17&#10;">
+            <effect>
+               <InnerShadow />
+            </effect></TextArea>
+         <TextArea editable="false" layoutX="332.0" layoutY="217.0" prefHeight="124.0" prefWidth="257.0" text="Fancy Desserts:&#10;    -&#9;Merveilleux                             $25&#10;    -&#9;Délicieux                                 $20&#10;    -&#9;Orange almond cake              $22&#10;    -&#9;New York style cheesecake    $22 &#10;    -&#9;Paris Brest                               $25&#10;-&#9;Mille-Feuille                            $20&#10;">
+            <effect>
+               <InnerShadow />
+            </effect></TextArea>
+         <TextArea editable="false" layoutX="654.0" layoutY="239.0" prefHeight="285.0" prefWidth="332.0" text="Appetizers&#10;-&#9;Spinach Artichoke Dip&#9;&#9;&#9;$5&#10;-&#9;Shrimp &amp; Calamari&#9;&#9;&#9;        $17&#10;-&#9;Stuffed Mushrooms&#9;&#9;&#9;        $9&#10;&#10;Salads &amp; Salads&#10;-&#9;House Salad&#9;&#9;&#9;&#9;        $25&#10;-&#9;Homemade soups&#9;&#9;&#9;        $15&#10;-&#9;Primavera Salad&#9;&#9;&#9;        $18&#10;&#10;Pasta &amp; Dishes &#10;-&#9;Seafood Alfredo&#9;&#9;&#9;        $30&#10;-&#9;Chicken Giardino&#9;&#9;&#9;        $25&#10;-&#9;Primavera&#9;&#9;&#9;&#9;                $23&#10;-&#9;Herbs Salmon&#9;&#9;&#9;&#9;        $27&#10;-&#9;Beef Bolognese &#9;&#9;&#9;&#9;$25&#10;">
+            <effect>
+               <InnerShadow />
+            </effect></TextArea>
     </AnchorPane>
   </Tab>
   <stylesheets>

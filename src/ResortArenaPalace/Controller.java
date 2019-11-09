@@ -137,6 +137,17 @@ public class Controller {
   @FXML
   private Button foodBtn;
 
+  @FXML
+  private Label confirmation;
+
+
+    @FXML
+    void showConfirmation(ActionEvent event) {
+      confirmation.setText("Reservation has been Submitted.");
+    }
+
+
+
 
   //HOMEPAGE====================================================================================
 
