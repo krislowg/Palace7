@@ -35,7 +35,7 @@ The following steps need to be performed everytime in order to connect the datab
 * Click on the path where the project is located and be situated in the "res" folder. For example: C:/Users/hp/IdeaProjects/Palace7/res
 * Click OK
 * A window will pop up with two fields; Path and Driver
-* In Path add /Palace7 to it: C:/Users/hp/IdeaProjects/Palace7/res/Palace7
+* In Path add /palace to it: C:/Users/hp/IdeaProjects/Palace7/res/palace
 * In Driver, choose H2 and click Ok then Click Ok one more time
 * Now the database is connected
 
