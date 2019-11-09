@@ -33,7 +33,7 @@ The following steps need to be performed everytime in order to connect the datab
 * Click on this tab then click on "H2 Palace7" and remove it
 * After that click on the add sign the click on "Data Source from Path"
 
-
+![database pic2](https://user-images.githubusercontent.com/47893994/68534747-05c97f80-0306-11ea-9ec0-3a5dfc173a16.jpg)
 
 * Click on the path where the project is located and be situated in the "res" folder. For example: C:/Users/hp/IdeaProjects/Palace7/res
 * Click OK
