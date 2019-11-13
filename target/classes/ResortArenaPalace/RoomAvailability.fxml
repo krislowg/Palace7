@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="lbl_RoomAv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.RoomAvailability">
+<AnchorPane fx:id="lbl_RoomAv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.RoomAvailability">
   <ImageView fitHeight="650.0" fitWidth="1500.0" layoutY="-13.0" opacity="0.21" pickOnBounds="true">
     <Image url="@Login_PalmTree.jpg" />
   </ImageView>
@@ -48,14 +48,14 @@
   </Label>
   <Button fx:id="btn_Select1rm" layoutX="679.0" layoutY="110.0" mnemonicParsing="false" onAction="#changeR1toPay" text="Select Room" textFill="#8a23c2" />
   <Button fx:id="btn_GoHomeRA" layoutX="30.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeRAToHome" text="Go Home" />
-  <Button fx:id="btn_Select3rm" layoutX="679.0" layoutY="368.0" mnemonicParsing="false" onAction="#changeR1toPay" text="Select Room" textFill="#8a23c2" />
-  <Button id="selectB2" fx:id="btn_Select2rm" layoutX="679.0" layoutY="244.0" mnemonicParsing="false" onAction="#changeR1toPay" text="Select Room" textFill="#8a23c2" />
+  <Button fx:id="btn_Select3rm" layoutX="679.0" layoutY="368.0" mnemonicParsing="false" onAction="#changeR3toPay" text="Select Room" textFill="#8a23c2" />
+  <Button id="selectB2" fx:id="btn_Select2rm" layoutX="679.0" layoutY="244.0" mnemonicParsing="false" onAction="#changeR2toPay" text="Select Room" textFill="#8a23c2" />
   <TextArea id="text4" fx:id="r4Details" editable="false" layoutX="349.0" layoutY="481.0" prefHeight="99.0" prefWidth="308.0" text="-&#9;430 square meters&#10;-&#9;Ocean and sky view&#10;-&#9;Seating on a private balcony &#10;-&#9;2 adults and 2 children, or 3 adults and 1 child,&#10;-&#9;2 King and 2 Queen beds, &#10;-&#9;Master bathroom with bath tub, rain shower and Jacuzzi&#10;-&#9;Wi-Fi, two 55 inch interactive LED TV&#10;" wrapText="true">
     <font>
       <Font name="Times New Roman" size="13.0" />
     </font>
   </TextArea>
-  <Button fx:id="btn_Select4rm" layoutX="679.0" layoutY="503.0" mnemonicParsing="false" onAction="#changeR1toPay" text="Select Room" textFill="#8a23c2" />
+  <Button fx:id="btn_Select4rm" layoutX="679.0" layoutY="503.0" mnemonicParsing="false" onAction="#changeR4toPay" text="Select Room" textFill="#8a23c2" />
    <ImageView fitHeight="99.0" fitWidth="161.0" layoutX="121.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../ResortPictures/First_room.jpg" />

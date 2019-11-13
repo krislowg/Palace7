@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.UserReservationDetails">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.UserReservationDetails">
    <ImageView fitHeight="608.0" fitWidth="1000.0" layoutX="3.0" layoutY="-4.0" opacity="0.13" pickOnBounds="true">
       <image>
          <Image url="@Login_PalmTree.jpg" />
@@ -59,27 +59,27 @@
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="40.0" text="First Name: Emma">
+         <Label layoutX="9.0" layoutY="28.0" text="First Name: ">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="60.0" text="Last Name: Jones">
+         <Label layoutX="10.0" layoutY="60.0" text="Last Name: ">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="87.0" text="Email: emma.jones@example.com">
+         <Label layoutX="10.0" layoutY="87.0" text="Email:">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="12.0" layoutY="125.0" text="Payment: Visa">
+         <Label layoutX="11.0" layoutY="119.0" text="Payment: ">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="14.0" layoutY="152.0" text="Visa Credit**** **** **** 2040">
+         <Label layoutX="14.0" layoutY="146.0" text="Visa Credit**** **** **** 2040">
             <font>
                <Font size="18.0" />
             </font>
@@ -89,32 +89,77 @@
                <Font size="18.0" />
             </font>
          </Label>
+         <Label fx:id="firstName" layoutX="110.0" layoutY="28.0" prefHeight="27.0" prefWidth="114.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="lastName" layoutX="110.0" layoutY="60.0" prefHeight="27.0" prefWidth="114.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="email" layoutX="71.0" layoutY="87.0" prefHeight="27.0" prefWidth="211.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="paymentType" layoutX="85.0" layoutY="119.0" prefHeight="27.0" prefWidth="86.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
       </children>
    </Pane>
    <Pane fx:id="roomPane" layoutX="699.0" layoutY="157.0" prefHeight="225.0" prefWidth="293.0">
       <children>
          <ListView opacity="0.75" prefHeight="225.0" prefWidth="293.0" />
-         <Label layoutX="11.0" layoutY="1.0" text="No Guests: 9">
+         <Label layoutX="11.0" layoutY="1.0" text="No Guests:">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="28.0" text="No Rooms: 3">
+         <Label layoutX="10.0" layoutY="28.0" text="No Rooms:">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="11.0" layoutY="55.0" text="Room Type: Luxury">
+         <Label layoutX="11.0" layoutY="55.0" text="Room Type: ">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="157.0" text="Check In: 12/01/2019">
+         <Label layoutX="10.0" layoutY="157.0" text="Check In: ">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label layoutX="10.0" layoutY="184.0" text="Check out: 01/01/2020">
+         <Label layoutX="10.0" layoutY="184.0" text="Check out: ">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="numberGuests" layoutX="99.0" layoutY="1.0" prefHeight="27.0" prefWidth="70.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="numberRooms" layoutX="99.0" layoutY="28.0" prefHeight="27.0" prefWidth="70.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="roomType" layoutX="112.0" layoutY="55.0" prefHeight="27.0" prefWidth="86.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="checkInDate" layoutX="97.0" layoutY="157.0" prefHeight="27.0" prefWidth="131.0">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Label fx:id="checkOutDate" layoutX="97.0" layoutY="184.0" prefHeight="27.0" prefWidth="131.0">
             <font>
                <Font size="18.0" />
             </font>

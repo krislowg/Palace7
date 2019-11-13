@@ -56,6 +56,34 @@ public class UserReservationDetails {
   @FXML
   private Text cancelText;
 
+    @FXML
+    private Label firstName;
+
+    @FXML
+    private Label lastName;
+
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label paymentType;
+
+    @FXML
+    private Label numberGuests;
+
+    @FXML
+    private Label numberRooms;
+
+    @FXML
+    private Label roomType;
+
+    @FXML
+    private Label checkInDate;
+
+    @FXML
+    private Label checkOutDate;
+
+  public static GuestReservation details;
   /***
    *
    * @param event Event that indicates the move to the home window
@@ -74,6 +102,27 @@ public class UserReservationDetails {
   @FXML
   void initialize() {
     cancelText.setVisible(false);
+    firstName.setText(details.getName());
+    lastName.setText(details.getlName());
+    email.setText(details.getEmail());
+    paymentType.setText("details.getPaymentType()");
+    numberGuests.setText(Integer.toString(details.getNum_p()));
+    numberRooms.setText(Integer.toString(details.getNum_r()));
+    roomType.setText(details.getRoomType());
+    checkInDate.setText(details.getChkIn());
+    checkOutDate.setText(details.getChkOut());
+//    Integer.toString(details.getNum_p());
+//      numberGuests.setText(details.getNoPeople());
+//      numberRooms.setText(details.getNoRooms());
+
+    //change expiration date to datepicker
+    //pull info
+    //check info
+    //push to db
+    //on room availability add sold out functionality
+    //add cancel reservation to homepage "email and password pull"
+    //work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date cannot be before start date (how to block out old dates on datepicker)/ if nothing selected label.settext("must select ~~")), room availability on date, add cancel reservation on landingpage.
+    //edit management to add management and encrypt password
   }
 
   /***
@@ -92,7 +141,9 @@ public class UserReservationDetails {
     cancelText.setVisible(true);
   }
 
-
+  public void sendText4(GuestReservation details){
+      this.details = details;
+  }
 
 /*
   @FXML

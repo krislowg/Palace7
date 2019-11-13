@@ -18,12 +18,26 @@ public class ConfirmMessage {
   @FXML
   private Button OkayBtn;
 
+  public static GuestReservation finalDataSet;
+
   /**
    * @param event  Event that indicates the move to room availability window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
   void userDetails(ActionEvent event) throws IOException {
+    GuestReservation showData = finalDataSet;
+    //System.out.println(roomChoice.getRoomType());
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
+    try {
+      loader.load();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    UserReservationDetails y = loader.getController();
+    y.sendText4(showData);
+
     Parent userAccountParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
     Scene roomAvScene = new Scene(userAccountParent);
 
@@ -33,6 +47,10 @@ public class ConfirmMessage {
 
   }
 
+  void sendText3(GuestReservation finalDataSet){
+    this.finalDataSet = finalDataSet;
+    System.out.println(finalDataSet.getRoomType());
+  }
 }
 
 

@@ -1,6 +1,9 @@
 package ResortArenaPalace;
 
 import java.io.IOException;
+
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,13 +63,122 @@ public class RoomAvailability {
     @FXML
     private Button btn_Select4rm;
 
+    public static GuestReservation roomInfo;
+
+    /***
+     *
+     * @param roomInfos
+     */
+    void sendText(GuestReservation roomInfos){
+    //    System.out.println(roomInfo.getCheckIn());//testing
+        //this.roomInfo = roomInfo;
+        this.roomInfo = roomInfos;
+        System.out.println(roomInfo);
+        //return roomInfo;
+    }
+
     /***
      *
      * @param event Event that indicates the move to payment scene
      * @throws IOException The check exception thrown when working with input or output
      */
     @FXML
-    void changeR1toPay(ActionEvent event) throws IOException {
+     void changeR1toPay(ActionEvent event) throws IOException {
+        GuestReservation roomChoice = new GuestReservation(roomInfo, "Luxury");
+        //System.out.println(roomChoice.getRoomType());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PaymentAccount y = loader.getController();
+        y.sendText2(roomChoice);
+
+        Parent paymentAccountParent = FXMLLoader.load(getClass().getResource("PaymentAccount.fxml"));
+        Scene roomAvScene = new Scene(paymentAccountParent);
+
+        Stage payWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        payWindow.setScene(roomAvScene);
+        payWindow.show();
+//        System.out.println(roomInfo);
+//        System.out.println(roomChoice);
+    }
+
+    /***
+     *
+     * @param event Event that indicates the move to payment scene
+     * @throws IOException The check exception thrown when working with input or output
+     */
+    @FXML
+    void changeR2toPay(ActionEvent event) throws IOException {
+        GuestReservation roomChoice = new GuestReservation(roomInfo,"Underwater");
+        //System.out.println(roomChoice.getRoomType());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PaymentAccount y = loader.getController();
+        y.sendText2(roomChoice);
+
+        Parent paymentAccountParent = FXMLLoader.load(getClass().getResource("PaymentAccount.fxml"));
+        Scene roomAvScene = new Scene(paymentAccountParent);
+
+        Stage payWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        payWindow.setScene(roomAvScene);
+        payWindow.show();
+    }
+
+    /***
+     *
+     * @param event Event that indicates the move to payment scene
+     * @throws IOException The check exception thrown when working with input or output
+     */
+    @FXML
+    void changeR3toPay(ActionEvent event) throws IOException {
+        GuestReservation roomChoice = new GuestReservation(roomInfo,"Superior");
+        //System.out.println(roomChoice.getRoomType());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PaymentAccount y = loader.getController();
+        y.sendText2(roomChoice);
+
+        Parent paymentAccountParent = FXMLLoader.load(getClass().getResource("PaymentAccount.fxml"));
+        Scene roomAvScene = new Scene(paymentAccountParent);
+
+        Stage payWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        payWindow.setScene(roomAvScene);
+        payWindow.show();
+    }
+
+    /***
+     *
+     * @param event Event that indicates the move to payment scene
+     * @throws IOException The check exception thrown when working with input or output
+     */
+    @FXML
+    void changeR4toPay(ActionEvent event) throws IOException {
+        GuestReservation roomChoice = new GuestReservation(roomInfo,"Grand");
+        //System.out.println(roomChoice.getRoomType());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PaymentAccount y = loader.getController();
+        y.sendText2(roomChoice);
+
         Parent paymentAccountParent = FXMLLoader.load(getClass().getResource("PaymentAccount.fxml"));
         Scene roomAvScene = new Scene(paymentAccountParent);
 

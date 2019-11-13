@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.PaymentAccount">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.PaymentAccount">
   <ImageView fitHeight="1371.0" fitWidth="1317.0" layoutY="-280.0" opacity="0.19" pickOnBounds="true" preserveRatio="true">
     <image>
       <Image url="@Login_PalmTree.jpg" />
     </image>
   </ImageView>
-  <Label layoutX="405.0" layoutY="29.0" prefHeight="51.0" prefWidth="177.0" text="Book Room" textFill="#2a88c3">
+  <Label layoutX="405.0" layoutY="29.0" prefHeight="58.0" prefWidth="257.0" text="Book Room" textFill="#2a88c3">
     <font>
       <Font name="Monotype Corsiva" size="40.0" />
     </font>
@@ -82,23 +82,23 @@
          <InnerShadow color="#4ceece" height="3.21" radius="0.3025" width="0.0" />
       </effect>
   </Label>
-  <TextField layoutX="195.0" layoutY="148.0">
+  <TextField fx:id="firstName" layoutX="195.0" layoutY="148.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
-  <TextField layoutX="195.0" layoutY="199.0">
+  <TextField fx:id="lastName" layoutX="195.0" layoutY="199.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
-  <TextField layoutX="195.0" layoutY="244.0">
+  <TextField fx:id="userEmail" layoutX="195.0" layoutY="244.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
-  <TextField layoutX="195.0" layoutY="286.0">
+  <TextField fx:id="userName" layoutX="195.0" layoutY="286.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
-  <PasswordField layoutX="195.0" layoutY="343.0">
+  <PasswordField fx:id="userPass" layoutX="195.0" layoutY="343.0">
       <effect>
          <InnerShadow />
       </effect></PasswordField>
@@ -116,7 +116,7 @@
       <effect>
          <InnerShadow color="#2fe8c9" height="1.23" radius="0.0" width="0.0" />
       </effect></Label>
-  <Label layoutX="500.0" layoutY="230.0" prefHeight="25.0" prefWidth="107.0" text="Expiration Date" textFill="#2b88c2">
+  <Label layoutX="497.0" layoutY="244.0" prefHeight="25.0" prefWidth="107.0" text="Expiration Date" textFill="#2b88c2">
       <font>
          <Font name="System Bold" size="14.0" />
       </font>
@@ -141,19 +141,15 @@
       <effect>
          <InnerShadow />
       </effect></ChoiceBox>
-  <TextField layoutX="654.0" layoutY="184.0">
+  <TextField fx:id="ccNo" layoutX="654.0" layoutY="184.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
-  <TextField layoutX="654.0" layoutY="230.0">
+  <TextField fx:id="ccvCode" layoutX="654.0" layoutY="288.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
-  <TextField layoutX="654.0" layoutY="288.0">
-      <effect>
-         <InnerShadow />
-      </effect></TextField>
-  <TextField layoutX="654.0" layoutY="343.0">
+  <TextField fx:id="coupCode" layoutX="654.0" layoutY="343.0">
       <effect>
          <InnerShadow />
       </effect></TextField>
@@ -162,6 +158,18 @@
          <InnerShadow color="#3ac1ad" />
       </effect></Button>
   <Label fx:id="lbl_RoomConf" layoutX="140.0" layoutY="683.0" prefHeight="21.0" prefWidth="186.0" />
+   <ChoiceBox fx:id="expMonth" layoutX="654.0" layoutY="244.0" prefHeight="25.0" prefWidth="69.0" />
+   <ChoiceBox fx:id="expYear" layoutX="723.0" layoutY="244.0" prefHeight="25.0" prefWidth="80.0" />
+   <Label layoutX="675.0" layoutY="224.0" text="Month">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Label layoutX="749.0" layoutY="224.0" text="Year">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
   <stylesheets>
     <URL value="@ArenaStyle.css" />
   </stylesheets>
