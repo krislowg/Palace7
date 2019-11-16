@@ -99,12 +99,12 @@
                <Font size="18.0" />
             </font>
          </Label>
-         <Label fx:id="email" layoutX="71.0" layoutY="87.0" prefHeight="27.0" prefWidth="211.0">
+         <Label fx:id="email" layoutX="71.0" layoutY="87.0" prefHeight="27.0" prefWidth="223.0">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Label fx:id="paymentType" layoutX="85.0" layoutY="119.0" prefHeight="27.0" prefWidth="86.0">
+         <Label fx:id="paymentType" layoutX="85.0" layoutY="119.0" prefHeight="27.0" prefWidth="162.0">
             <font>
                <Font size="18.0" />
             </font>
@@ -149,7 +149,7 @@
                <Font size="18.0" />
             </font>
          </Label>
-         <Label fx:id="roomType" layoutX="112.0" layoutY="55.0" prefHeight="27.0" prefWidth="86.0">
+         <Label fx:id="roomType" layoutX="112.0" layoutY="55.0" prefHeight="27.0" prefWidth="131.0">
             <font>
                <Font size="18.0" />
             </font>
