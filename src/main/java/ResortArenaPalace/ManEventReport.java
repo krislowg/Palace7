@@ -3,6 +3,7 @@ package ResortArenaPalace;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -110,17 +111,66 @@ public class ManEventReport {
   private Button btn_LogOut;
 
 
+  private ObservableList<EventReservation> eventReport = FXCollections.observableArrayList();//Table view related
+
   /***
    *
    * @param event Action that creates a new event reservation and adds it to the report
    */
   @FXML
   void addEvent(ActionEvent event) {
-    EventReservation myEReport = new EventReservation((txt_Email.getText()), txt_Fname.getText(),
-        txt_EvType.getText(), txt_EvDate.getText(), Integer.parseInt(txt_EvPeople.getText()), (txt_Venue.getText()),
-        txt_EvCatering.getText(),txt_DJ.getText(), txt_PartyPlanner.getText(), txt_Password.getText());
-        tablev_EventReport.getItems().add(myEReport);
+    // Getting values from text field and combobox in Manager Event Report and storing them in a
+    // variable
+    String e_Email = txt_Email.getText();
+    String e_FullName = txt_Fname.getText();
+    String e_Type = txt_EvType.getText();
+    String e_Date = txt_EvDate.getText();
+    int e_People = Integer.parseInt(txt_EvPeople.getText());
+    String e_Venue = txt_Venue.getText();
+    String e_Catering = txt_EvCatering.getText();
+    String e_DJ = txt_DJ.getText();
+    String e_PartyPlanner = txt_PartyPlanner.getText();
+    String e_Password = txt_Password.getText();
+
+    EventReservation newEvent = new EventReservation(e_Email, e_FullName, e_Type, e_Date, e_People, e_Venue, e_Catering,
+        e_DJ, e_PartyPlanner, e_Password);
+
+    eventReport.add(newEvent);
+    tablev_EventReport.setItems(eventReport);
+
+    try {
+
+      // Inserts the given values into the DataBase EVENTRESERVATION table
+      System.out.println("Attempting to INSERT");
+      String sql =
+          "INSERT INTO EVENTRESERVATION(EMAIL,FNAME,EVENT,PASSWORD,EVENTDATE,NOPEOPLE,VENUE,CATERING,DJ,PARTYPLANNER)"
+              + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+
+      PreparedStatement ps = conn.prepareStatement(sql); // bugfound
+      ps.setString(1, e_Email);
+      ps.setString(2, e_FullName);
+      ps.setString(3, e_Type);
+      ps.setString(4, e_Password);
+      ps.setString(5, e_Date);
+      ps.setString(6, String.valueOf(e_People));
+      ps.setString(7, e_Venue);
+      ps.setString(8, e_Catering);
+      ps.setString(9, e_DJ);
+      ps.setString(10, e_PartyPlanner);
+
+      ps.executeUpdate(); // Updates the values in the EVENTRESERVATION table
+      System.out.println("Inserted!");
+
+      // STEP 4: Clean-up environment
+      stmt.close(); // Closes the statements and the connections
+      conn.close();
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
   }
+
 
   /**
    *
@@ -176,6 +226,7 @@ public class ManEventReport {
 
   public void initialize() {
     initializeDB();
+    settingUpColumns();
     populateEventTableReport();
   }
 
@@ -198,11 +249,7 @@ public class ManEventReport {
     }
   }
 
-  ObservableList<EventReservation> eventList = FXCollections.observableArrayList();
-
-  //Method that populates the Guest tableview with the data from the database
-
-  public void populateEventTableReport(){
+  private void settingUpColumns(){
     col_EvEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
     col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
     col_EventType.setCellValueFactory(new PropertyValueFactory<>("event"));
@@ -213,6 +260,14 @@ public class ManEventReport {
     col_DJ.setCellValueFactory(new PropertyValueFactory<>("dj"));
     col_PartyPlanner.setCellValueFactory(new PropertyValueFactory<>("partyPlanner"));
     col_EvPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+  }
+
+  private ObservableList<EventReservation> eventList = FXCollections.observableArrayList();
+
+  //Method that populates the Guest tableview with the data from the database
+
+  private void populateEventTableReport(){
+
     try {
       String sql = "SELECT * FROM EVENTRESERVATION";
       ResultSet rs = stmt.executeQuery(sql);
