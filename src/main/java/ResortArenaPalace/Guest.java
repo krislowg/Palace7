@@ -1,8 +1,7 @@
 package ResortArenaPalace;
 
-public class Guest {
+public class Guest extends User{
 
-  private String email;
   private String name;
   private String lastName;
   private int noPeople;
@@ -10,18 +9,8 @@ public class Guest {
   private String checkIn;
   private String checkOut;
   private String roomType;
-  private String password;
 
   // Getters and Setters methods for guest attributes
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
   public String getName() {
     return name;
   }
@@ -78,14 +67,6 @@ public class Guest {
     this.roomType = roomType;
   }
 
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
   /***
    *  Constructor
    *
@@ -102,7 +83,7 @@ public class Guest {
 
   public Guest(String email, String name, String lastName, int noPeople, int noRooms,
       String checkIn, String checkOut, String roomType, String password) {
-    this.email = email;
+    super(email, password);
     this.name = name;
     this.lastName = lastName;
     this.noPeople = noPeople;
@@ -110,7 +91,6 @@ public class Guest {
     this.checkIn = checkIn;
     this.checkOut = checkOut;
     this.roomType = roomType;
-    this.password = password;
   }
 
 }
