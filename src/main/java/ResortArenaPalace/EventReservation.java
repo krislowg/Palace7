@@ -2,9 +2,8 @@ package ResortArenaPalace;
 
 import java.util.Date;
 
-public class EventReservation {
+public class EventReservation extends User{
 
-  private String email;
   private String fName;
   private String event;
   private String eventDate;
@@ -13,18 +12,8 @@ public class EventReservation {
   private String catering;
   private String dj;
   private String partyPlanner;
-  private String password;
 
   // Getters and Setters methods for the event reservation attributes
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
   public String getfName() {
     return fName;
   }
@@ -89,14 +78,6 @@ public class EventReservation {
     this.partyPlanner = partyPlanner;
   }
 
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
   /***
    * Constructor
    *
@@ -114,7 +95,7 @@ public class EventReservation {
 
   EventReservation(String email, String fName, String event, String eventDate, int noPeople,
       String venue, String catering, String dj, String partyPlanner, String password) {
-    this.email = email;
+    super(email, password);
     this.fName = fName;
     this.event = event;
     this.eventDate = eventDate;
@@ -123,7 +104,6 @@ public class EventReservation {
     this.catering = catering;
     this.dj = dj;
     this.partyPlanner = partyPlanner;
-    this.password = password;
   }
 
 }

@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -110,6 +111,29 @@ public class ManEventReport {
   @FXML
   private Button btn_LogOut;
 
+  @FXML
+  private ComboBox<String> cbox_EventType;
+
+  @FXML
+  private ComboBox<String> cbox_Venue;
+
+  @FXML
+  private ComboBox<String> cbox_Catering;
+
+  @FXML
+  private ComboBox<String> cbox_Dj;
+
+  @FXML
+  private ComboBox<String> cbox_PartyPlanner;
+
+  private ObservableList<String> eventType = FXCollections.observableArrayList("Wedding", "Conference",
+      "Celebration", "Sweet 16");
+
+  private ObservableList<String> venuePick = FXCollections.observableArrayList("Ballroom", "Conf. R.",
+      "Beach", "Restaurant", "Club");
+
+  private ObservableList<String> yesNo = FXCollections.observableArrayList("YES", "NO");
+
 
   private ObservableList<EventReservation> eventReport = FXCollections.observableArrayList();//Table view related
 
@@ -123,13 +147,13 @@ public class ManEventReport {
     // variable
     String e_Email = txt_Email.getText();
     String e_FullName = txt_Fname.getText();
-    String e_Type = txt_EvType.getText();
+    String e_Type = cbox_EventType.getValue();
     String e_Date = txt_EvDate.getText();
     int e_People = Integer.parseInt(txt_EvPeople.getText());
-    String e_Venue = txt_Venue.getText();
-    String e_Catering = txt_EvCatering.getText();
-    String e_DJ = txt_DJ.getText();
-    String e_PartyPlanner = txt_PartyPlanner.getText();
+    String e_Venue = cbox_Venue.getValue();
+    String e_Catering = cbox_Catering.getValue();
+    String e_DJ = cbox_Dj.getValue();
+    String e_PartyPlanner = cbox_PartyPlanner.getValue();
     String e_Password = txt_Password.getText();
 
     EventReservation newEvent = new EventReservation(e_Email, e_FullName, e_Type, e_Date, e_People, e_Venue, e_Catering,
@@ -225,6 +249,27 @@ public class ManEventReport {
   private Statement stmt = null;
 
   public void initialize() {
+    cbox_EventType.setItems(eventType);//sets the items in the ComboBox
+    cbox_EventType.setEditable(true);//Allows the user edit
+    cbox_EventType.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+
+    cbox_Venue.setItems(venuePick);
+    cbox_Venue.setEditable(true);
+    cbox_Venue.getSelectionModel().selectFirst();
+
+    cbox_Catering.setItems(yesNo);
+    cbox_Catering.setEditable(true);
+    cbox_Catering.getSelectionModel();
+
+    cbox_Dj.setItems(yesNo);
+    cbox_Dj.setEditable(true);
+    cbox_Dj.getSelectionModel();
+
+    cbox_PartyPlanner.setItems(yesNo);
+    cbox_PartyPlanner.setEditable(true);
+    cbox_PartyPlanner.getSelectionModel();
+
+
     initializeDB();
     settingUpColumns();
     populateEventTableReport();
@@ -286,6 +331,4 @@ public class ManEventReport {
 
     tablev_EventReport.setItems(eventList);
   }
-
-
 }
