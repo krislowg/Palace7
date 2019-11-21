@@ -83,19 +83,10 @@ public class ManReport {
   private TextField txt_Lname;
 
   @FXML
-  private TextField txt_Npeople;
-
-  @FXML
-  private TextField txt_nRooms;
-
-  @FXML
   private TextField txt_CheckIn;
 
   @FXML
   private TextField txt_CheckOut;
-
-  @FXML
-  private TextField txt_RoomType;
 
   @FXML
   private TextField txt_Email;
@@ -154,8 +145,7 @@ public class ManReport {
   private ObservableList<String> noGuestReport = FXCollections.observableArrayList("1", "2",
       "3", "4", "5", "6", "7", "8", "9", "10");
 
-  private ObservableList<String> roomTypes = FXCollections.observableArrayList("Luxury", "Underwater",
-      "Arena", "Superior", "GrandArena");
+  private ObservableList<String> roomTypes = FXCollections.observableArrayList("Luxury", "Underwater", "Superior", "GrandArena");
 
 
   ObservableList<Guest> guestReport = FXCollections.observableArrayList();//Table view related
