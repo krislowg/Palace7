@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -39,11 +40,8 @@
   <TextField fx:id="txt_password" layoutX="876.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="code" />
   <TextField fx:id="txt_Fname" layoutX="225.0" layoutY="459.0" prefHeight="31.0" prefWidth="130.0" promptText="First name" />
   <TextField fx:id="txt_Lname" layoutX="355.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Last Name" />
-  <TextField fx:id="txt_Npeople" layoutX="454.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. People" />
-  <TextField fx:id="txt_nRooms" layoutX="530.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="N. Rooms" />
   <TextField fx:id="txt_CheckIn" layoutX="606.0" layoutY="459.0" prefHeight="31.0" prefWidth="83.0" promptText="Check In" />
   <TextField fx:id="txt_CheckOut" layoutX="686.0" layoutY="459.0" prefHeight="31.0" prefWidth="89.0" promptText="Check Out" />
-  <TextField fx:id="txt_RoomType" layoutX="775.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" promptText="Room Type" />
   <TextField fx:id="txt_Email" layoutX="23.0" layoutY="459.0" prefHeight="31.0" prefWidth="201.0" promptText="Email" />
   <Button fx:id="btn_AddGuest" layoutX="446.0" layoutY="540.0" mnemonicParsing="false" onAction="#addGuest" text="Add New Guest" />
    <Button fx:id="btn_GRepToEvReport" layoutX="824.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeGuRepEvReport" prefHeight="31.0" prefWidth="147.0" text="Event Report" />
@@ -52,6 +50,9 @@
          <Font size="24.0" />
       </font>
    </Label>
+   <ComboBox fx:id="cbox_NoPeople" layoutX="448.0" layoutY="459.0" prefHeight="31.0" prefWidth="83.0" />
+   <ComboBox fx:id="cbox_NoRoom" layoutX="531.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" />
+   <ComboBox fx:id="cbox_RoomType" layoutX="775.0" layoutY="459.0" prefHeight="31.0" prefWidth="99.0" />
   <stylesheets>
     <URL value="@ArenaStyle.css" />
   </stylesheets>

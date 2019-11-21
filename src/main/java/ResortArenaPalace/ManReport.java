@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -99,12 +100,20 @@ public class ManReport {
   @FXML
   private TextField txt_Email;
 
-
   @FXML
   private Button btn_AddGuest;
 
   @FXML
   private Button btn_GRepToEvReport;
+
+  @FXML
+  private ComboBox<String> cbox_NoPeople;
+
+  @FXML
+  private ComboBox<String> cbox_NoRoom;
+
+  @FXML
+  private ComboBox<String> cbox_RoomType;
 
 
   /***
@@ -137,6 +146,18 @@ public class ManReport {
     mRWindow.show();
   }
 
+  //Array list for the comboBox to pick the number of rooms
+  private ObservableList<String> noRoomsReport = FXCollections.observableArrayList("1", "2",
+      "3", "4", "5", "6", "7", "8", "9", "10");
+
+  //Array list for the comboBox to pick the number of guests
+  private ObservableList<String> noGuestReport = FXCollections.observableArrayList("1", "2",
+      "3", "4", "5", "6", "7", "8", "9", "10");
+
+  private ObservableList<String> roomTypes = FXCollections.observableArrayList("Luxury", "Underwater",
+      "Arena", "Superior", "GrandArena");
+
+
   ObservableList<Guest> guestReport = FXCollections.observableArrayList();//Table view related
   /***
    *
@@ -150,11 +171,11 @@ public class ManReport {
     String g_email = txt_Email.getText();
     String g_FirstName = txt_Fname.getText();
     String g_LastName = txt_Lname.getText();
-    int g_NoPeople = Integer.parseInt(txt_Npeople.getText());
-    int g_NoRooms = Integer.parseInt(txt_nRooms.getText());
+    int g_NoPeople = Integer.parseInt(cbox_NoPeople.getValue());
+    int g_NoRooms = Integer.parseInt(cbox_NoRoom.getValue());
     String g_CheckIn = txt_CheckIn.getText();
     String g_Checkout = txt_CheckOut.getText();
-    String g_RoomType = txt_RoomType.getText();
+    String g_RoomType = cbox_RoomType.getValue();
     String g_password = txt_password.getText();
 
     Guest newGuest = new Guest(g_email, g_FirstName, g_LastName, g_NoPeople, g_NoRooms, g_CheckIn, g_Checkout,
@@ -247,6 +268,19 @@ public class ManReport {
     col_CheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
     col_RType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
     col_Password.setCellValueFactory(new PropertyValueFactory<>("password"));
+
+    cbox_NoPeople.setItems(noGuestReport);//sets the items in the ComboBox
+    cbox_NoPeople.setEditable(true);//Allows the user edit
+    cbox_NoPeople.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+
+    cbox_NoRoom.setItems(noRoomsReport);//sets the items in the ComboBox
+    cbox_NoRoom.setEditable(true);//Allows the user edit
+    cbox_NoRoom.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+
+    cbox_RoomType.setItems(roomTypes);//sets the items in the ComboBox
+    cbox_RoomType.setEditable(true);//Allows the user edit
+    cbox_RoomType.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+
     initializeDB();
     populateGuestTableReport();
   }
