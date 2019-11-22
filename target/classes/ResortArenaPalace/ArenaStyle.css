@@ -13,3 +13,17 @@
 .button:hover {
     -fx-background-color: linear-gradient(#8BD9C7, #0076BE);
 }
+
+.tab{
+    -fx-background-color: #0076BE;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+
+}
+.tab-label{
+    -fx-text-fill: white;
+    -fx-font-family: sans-serif;
+}
+.tab:hover{
+    -fx-background-color: rgba(110, 96, 116, 0.44);
+}

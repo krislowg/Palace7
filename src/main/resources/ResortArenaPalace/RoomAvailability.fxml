@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="lbl_RoomAv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.RoomAvailability">
+<AnchorPane fx:id="lbl_RoomAv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.RoomAvailability">
   <ImageView fitHeight="650.0" fitWidth="1500.0" layoutY="-13.0" opacity="0.21" pickOnBounds="true">
     <Image url="@Login_PalmTree.jpg" />
   </ImageView>
@@ -33,7 +33,7 @@
    <TextArea fx:id="r1Details" editable="false" layoutX="21.0" layoutY="-5.0" prefHeight="111.0" prefWidth="301.0" text="-&#9;165 square meter&#10;-&#9;Pool and garden views&#10;-&#9;Two adults &#10;-&#9;Master bedroom and bathroom&#10;-&#9;Master bathroom with a Jacuzzi&#10;-&#9;Wi-Fi, a 42 inch and 32 inch interactive HD TVs" wrapText="true">
      <Font name="Book Antiqua" size="13.0" />
    </TextArea>
-      <Label layoutX="370.0" layoutY="147.0" prefHeight="27.0" prefWidth="72.0" text="\$50,000" textFill="#2a88c3">
+      <Label layoutX="370.0" layoutY="147.0" prefHeight="27.0" prefWidth="72.0" text="\$102,000" textFill="#2a88c3">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
@@ -113,7 +113,7 @@
       <font>
          <Font name="System Bold Italic" size="12.0" />
       </font></Label>
-   <Label layoutX="696.0" layoutY="477.0" prefHeight="27.0" prefWidth="72.0" text="\$102,00" textFill="#2a88c3">
+   <Label layoutX="696.0" layoutY="477.0" prefHeight="27.0" prefWidth="72.0" text="\$50,000" textFill="#2a88c3">
       <font>
          <Font name="System Bold Italic" size="12.0" />
       </font></Label>
