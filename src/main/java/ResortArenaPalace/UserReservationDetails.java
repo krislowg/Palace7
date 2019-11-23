@@ -99,9 +99,12 @@ public class UserReservationDetails {
     rDWindow.show();
   }
 
+
+
   @FXML
   void initialize() {
     cancelText.setVisible(false);
+    /*
     firstName.setText(details.getName());
     lastName.setText(details.getlName());
     email.setText(details.getEmail());
@@ -111,6 +114,9 @@ public class UserReservationDetails {
     roomType.setText(details.getRoomType());
     checkInDate.setText(details.getChkIn());
     checkOutDate.setText(details.getChkOut());
+     */
+  }
+
 //    Integer.toString(details.getNum_p());
 //      numberGuests.setText(details.getNoPeople());
 //      numberRooms.setText(details.getNoRooms());
@@ -123,7 +129,6 @@ public class UserReservationDetails {
     //add cancel reservation to homepage "email and password pull"
     //work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date cannot be before start date (how to block out old dates on datepicker)/ if nothing selected label.settext("must select ~~")), room availability on date, add cancel reservation on landingpage.
     //edit management to add management and encrypt password
-  }
 
   /***
    *
