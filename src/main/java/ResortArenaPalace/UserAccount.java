@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -92,6 +95,11 @@ public class UserAccount {
             gAccWindow.show();
           } else {
             System.out.println("Not Changing Scene");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Login Error");
+            alert.setHeaderText("This Email/Password is incorrect.");
+            alert.setContentText(null);
+            Optional<ButtonType> action = alert.showAndWait();
           }
 
 
