@@ -37,7 +37,10 @@ public class ManEventReport {
   private TableColumn<EventReservation, String> col_EvEmail;
 
   @FXML
-  private TableColumn<EventReservation, String> col_FullName;
+  private TableColumn<EventReservation, String> col_Name;
+
+  /*@FXML
+  private TableColumn<EventReservation, String> col_FullName; */
 
   @FXML
   private TableColumn<EventReservation, String> col_EventType;
@@ -64,10 +67,13 @@ public class ManEventReport {
   private TableColumn<EventReservation, String> col_EvPassword;
 
   @FXML
-  private TextField txt_PartyPlanner;
+  private TextField txt_Name;
 
   @FXML
-  private TextField txt_Fname;
+  private TextField txt_PartyPlanner;
+
+  /*@FXML
+  private TextField txt_Fname;*/
 
   @FXML
   private TextField txt_EvType;
@@ -146,7 +152,8 @@ public class ManEventReport {
     // Getting values from text field and combobox in Manager Event Report and storing them in a
     // variable
     String e_Email = txt_Email.getText();
-    String e_FullName = txt_Fname.getText();
+    String e_FullName = txt_Name.getText();
+    //String e_FullName = txt_Fname.getText();
     String e_Type = cbox_EventType.getValue();
     String e_Date = txt_EvDate.getText();
     int e_People = Integer.parseInt(txt_EvPeople.getText());
@@ -194,7 +201,6 @@ public class ManEventReport {
     }
 
   }
-
 
   /**
    *
@@ -296,7 +302,8 @@ public class ManEventReport {
 
   private void settingUpColumns(){
     col_EvEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-    col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
+    col_Name.setCellValueFactory(new PropertyValueFactory<>("fName"));
+    //col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
     col_EventType.setCellValueFactory(new PropertyValueFactory<>("event"));
     col_EvDate.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
     col_EvNPeople.setCellValueFactory(new PropertyValueFactory<>("noPeople"));
@@ -318,7 +325,7 @@ public class ManEventReport {
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next()) {
 
-        eventList.add(new EventReservation(rs.getString("EMAIL"),rs.getString("FNAME"),
+        eventList.add(new EventReservation(rs.getString("EMAIL"), rs.getString("FNAME"),
             rs.getString("EVENT"), rs.getString("EVENTDATE"), Integer.parseInt(rs.getString("NOPEOPLE")),
             (rs.getString("VENUE")), rs.getString("CATERING"),
             rs.getString("DJ"), rs.getString("PARTYPLANNER"),

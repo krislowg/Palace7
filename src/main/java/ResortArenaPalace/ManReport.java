@@ -181,7 +181,7 @@ public class ManReport {
       System.out.println("Attempting to INSERT");
       String sql =
           "INSERT INTO GUEST(EMAIL,NAME,LASTNAME,NOPEOPLE,NOROOMS,CHECKIN,CHECKOUT,ROOMTYPE,PASSWORD)"
-              + "VALUES (?,?,?,?,?,?,?,?,?)"; // 'AUDIO','APPLE','IPOD'
+              + "VALUES (?,?,?,?,?,?,?,?,?)";
       // "SELECT * FROM PRODUCT";
       PreparedStatement ps = conn.prepareStatement(sql); // bugfound
       ps.setString(1, g_email);
