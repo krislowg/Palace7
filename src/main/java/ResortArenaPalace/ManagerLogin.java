@@ -43,6 +43,12 @@ public class ManagerLogin {
   @FXML
   private Button btn_GbackManTOHome;
 
+  @FXML
+  private Label lbl_UserNaVal;
+
+  @FXML
+  private Label lbl_PasswordVal;
+
   /**
    * @param event Action that allows going back to the home page
    * @throws IOException The check exception thrown when working with input or output
@@ -66,10 +72,10 @@ public class ManagerLogin {
   void changeManToReport(ActionEvent event) throws IOException {
     if (txtField_MUName.getText().trim().isEmpty() && passfld_MUPassword.getText().trim()
         .isEmpty()) {
-      lbl_MUName.setText("User Name Required");
-      lbl_MUPassword.setText("Password Required");
+      lbl_UserNaVal.setText("User Name Required");
+      lbl_PasswordVal.setText("Password Required");
     } else if (passfld_MUPassword.getText().trim().isEmpty()) {
-      lbl_MUPassword.setText("Password Required");
+      lbl_PasswordVal.setText("Password Required");
     } else {
       if (userLogIn()) {
         System.out.println("Changing Scene");
