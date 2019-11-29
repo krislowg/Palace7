@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.BarChartEx">
+  <children>
+    <BarChart fx:id="barChart_Booking" layoutX="65.0" layoutY="89.0" prefHeight="425.0" prefWidth="862.0" title="Booking Overview">
+      <xAxis>
+        <CategoryAxis label="Months" side="BOTTOM" fx:id="x_Months" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis fx:id="y_Reservation" label="Reservations" side="LEFT" />
+      </yAxis>
+    </BarChart>
+  </children>
+</AnchorPane>

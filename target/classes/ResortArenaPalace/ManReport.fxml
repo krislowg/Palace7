@@ -35,7 +35,7 @@
     </font>
   </Label>
   <Button fx:id="btn_CancelR" layoutX="275.0" layoutY="540.0" mnemonicParsing="false" onAction="#cancelReservation" text="Cancel Reservation" />
-  <Button fx:id="btn_SoldOut" layoutX="590.0" layoutY="540.0" mnemonicParsing="false" text="Sold Out" />
+  <Button fx:id="btn_SummaryGuest" layoutX="835.0" layoutY="540.0" mnemonicParsing="false" onAction="#changeRepToBarChart" prefHeight="31.0" prefWidth="130.0" text="Summary" />
   <Button fx:id="btn_BackRepToMan" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#changeRepToManLog" prefHeight="31.0" prefWidth="147.0" text="Go Home" />
   <TextField fx:id="txt_password" layoutX="876.0" layoutY="459.0" prefHeight="31.0" prefWidth="76.0" promptText="code" />
   <TextField fx:id="txt_Fname" layoutX="225.0" layoutY="459.0" prefHeight="31.0" prefWidth="130.0" promptText="First name" />
