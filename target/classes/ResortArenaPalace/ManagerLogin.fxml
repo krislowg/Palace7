@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.ManagerLogin">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.ManagerLogin">
    <ImageView fitHeight="600.0" fitWidth="1000.0" opacity="0.37" pickOnBounds="true">
          <Image url="@Login_PalmTree.jpg" />
    </ImageView>
@@ -27,6 +27,16 @@
                <Font size="24.0" />
             </font>
        </Label>
+      <Label fx:id="lbl_UserNaVal" layoutX="282.0" layoutY="125.0" prefHeight="35.0" prefWidth="114.0" textFill="#e13535">
+         <font>
+            <Font size="7.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_PasswordVal" layoutX="282.0" layoutY="235.0" prefHeight="35.0" prefWidth="114.0" textFill="#e13535">
+         <font>
+            <Font size="7.0" />
+         </font>
+      </Label>
    </AnchorPane>
   <Label fx:id="lbl_ManagerLog" layoutX="389.0" layoutY="60.0" text="Manager Login" textFill="#2a88c3">
     <font>

@@ -18,20 +18,19 @@
       <TableView fx:id="tablev_EventReport" layoutX="36.0" layoutY="123.0" prefHeight="322.0" prefWidth="929.0">
          <columns>
             <TableColumn fx:id="col_EvEmail" prefWidth="146.0" text="Email" />
-            <TableColumn fx:id="col_FullName" minWidth="0.0" prefWidth="0.0" text="Full Name" />
-            <TableColumn fx:id="col_EventType" prefWidth="145.0" text="Event Type" />
-            <TableColumn fx:id="col_EvDate" prefWidth="100.0" text="Date" />
+         <TableColumn fx:id="col_Name" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="col_EventType" prefWidth="93.0" text="Event Type" />
+            <TableColumn fx:id="col_EvDate" prefWidth="88.0" text="Date" />
             <TableColumn fx:id="col_EvNPeople" prefWidth="98.0" text="N. People" />
-            <TableColumn fx:id="col_EvVenue" prefWidth="75.0" text="Venue" />
-            <TableColumn fx:id="col_EvCatering" prefWidth="88.0" text="Catering" />
-            <TableColumn fx:id="col_DJ" prefWidth="66.0" text="DJ" />
-            <TableColumn fx:id="col_PartyPlanner" prefWidth="129.0" text="Party Planner" />
+            <TableColumn fx:id="col_EvVenue" prefWidth="85.0" text="Venue" />
+            <TableColumn fx:id="col_EvCatering" prefWidth="85.0" text="Catering" />
+            <TableColumn fx:id="col_DJ" text="DJ" />
+            <TableColumn fx:id="col_PartyPlanner" prefWidth="69.0" text="Party Planner" />
             <TableColumn fx:id="col_EvPassword" prefWidth="81.0" text="Code" />
          </columns>
       </TableView>
-      <TextField fx:id="txt_Fname" layoutX="354.0" layoutY="550.0" prefHeight="31.0" prefWidth="1.0" promptText="Full name" />
-      <TextField fx:id="txt_EvDate" layoutX="330.0" layoutY="469.0" prefHeight="31.0" prefWidth="99.0" promptText="Date" />
-      <TextField fx:id="txt_EvPeople" layoutX="429.0" layoutY="469.0" prefHeight="31.0" prefWidth="137.0" promptText="N. people" />
+      <TextField fx:id="txt_EvDate" layoutX="376.0" layoutY="469.0" prefHeight="31.0" prefWidth="99.0" promptText="Date" />
+      <TextField fx:id="txt_EvPeople" layoutX="475.0" layoutY="469.0" prefHeight="31.0" prefWidth="91.0" promptText="N. people" />
       <TextField fx:id="txt_Email" layoutX="33.0" layoutY="469.0" prefHeight="31.0" prefWidth="161.0" promptText="Email" />
       <TextField fx:id="txt_Password" layoutX="878.0" layoutY="469.0" prefHeight="31.0" prefWidth="76.0" promptText="Code" />
       <Label fx:id="lbl_TitleReport" layoutX="405.0" layoutY="31.0" prefHeight="35.0" prefWidth="256.0" text="Resort Arena Palace">
@@ -49,9 +48,10 @@
          </font>
       </Label>
       <Button fx:id="btn_LogOut" layoutX="818.0" layoutY="33.0" mnemonicParsing="false" onAction="#changeEvRepToHome" prefHeight="31.0" prefWidth="147.0" text="Log Out" />
-   <ComboBox fx:id="cbox_EventType" layoutX="194.0" layoutY="469.0" prefHeight="31.0" prefWidth="137.0" />
+   <ComboBox fx:id="cbox_EventType" layoutX="285.0" layoutY="469.0" prefHeight="31.0" prefWidth="91.0" />
    <ComboBox fx:id="cbox_Venue" layoutX="566.0" layoutY="469.0" prefHeight="31.0" prefWidth="83.0" />
    <ComboBox fx:id="cbox_Catering" layoutX="649.0" layoutY="469.0" prefHeight="31.0" prefWidth="91.0" />
    <ComboBox fx:id="cbox_Dj" layoutX="737.0" layoutY="469.0" prefHeight="31.0" prefWidth="70.0" />
    <ComboBox fx:id="cbox_PartyPlanner" layoutX="803.0" layoutY="469.0" prefHeight="31.0" prefWidth="76.0" />
+   <TextField fx:id="txt_Name" layoutX="194.0" layoutY="469.0" prefHeight="31.0" prefWidth="91.0" />
 </AnchorPane>

@@ -68,7 +68,7 @@ public class ManReport {
   private Button btn_CancelR;
 
   @FXML
-  private Button btn_SoldOut;
+  private Button btn_SummaryGuest;
 
   @FXML
   private Button btn_BackRepToMan;
@@ -137,6 +137,17 @@ public class ManReport {
     mRWindow.show();
   }
 
+  @FXML
+  void changeRepToBarChart(ActionEvent event) throws IOException {
+    Parent eventRepParent = FXMLLoader.load(getClass().getResource("BarChartEx.fxml"));
+    //Parent eventRepParent = FXMLLoader.load(getClass().getResource("BarChartEx.fxml"));
+    Scene evRepScene = new Scene(eventRepParent);
+
+    Stage barChartWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    barChartWindow.setScene(evRepScene);
+    barChartWindow.show();
+  }
+
   //Array list for the comboBox to pick the number of rooms
   private ObservableList<String> noRoomsReport = FXCollections.observableArrayList("1", "2",
       "3", "4", "5", "6", "7", "8", "9", "10");
@@ -148,7 +159,7 @@ public class ManReport {
   private ObservableList<String> roomTypes = FXCollections.observableArrayList("Luxury", "Underwater", "Superior", "GrandArena");
 
 
-  ObservableList<Guest> guestReport = FXCollections.observableArrayList();//Table view related
+  private ObservableList<Guest> guestReport = FXCollections.observableArrayList();//Table view related
   /***
    *
    * @param event Action that indicates the click on the button to add a guest
@@ -181,7 +192,7 @@ public class ManReport {
       System.out.println("Attempting to INSERT");
       String sql =
           "INSERT INTO GUEST(EMAIL,NAME,LASTNAME,NOPEOPLE,NOROOMS,CHECKIN,CHECKOUT,ROOMTYPE,PASSWORD)"
-              + "VALUES (?,?,?,?,?,?,?,?,?)"; // 'AUDIO','APPLE','IPOD'
+              + "VALUES (?,?,?,?,?,?,?,?,?)";
       // "SELECT * FROM PRODUCT";
       PreparedStatement ps = conn.prepareStatement(sql); // bugfound
       ps.setString(1, g_email);

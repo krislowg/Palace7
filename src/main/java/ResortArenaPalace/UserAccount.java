@@ -101,9 +101,6 @@ public class UserAccount {
             alert.setContentText(null);
             Optional<ButtonType> action = alert.showAndWait();
           }
-
-
-
     }
   }
 
