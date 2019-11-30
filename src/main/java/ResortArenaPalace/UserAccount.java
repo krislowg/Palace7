@@ -28,51 +28,35 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-
-
-
 public class UserAccount {
 
+  @FXML private GridPane UsAccountPane;
 
-  @FXML
-  private GridPane UsAccountPane;
+  @FXML private Label lbl_UName;
 
-  @FXML
-  private Label lbl_UName;
+  @FXML private Label lbl_Password;
 
-  @FXML
-  private Label lbl_Password;
+  @FXML private PasswordField pField_Password;
 
-  @FXML
-  private PasswordField pField_Password;
+  @FXML private TextField txtFld_UName;
 
-  @FXML
-  private TextField txtFld_UName;
+  @FXML private Label lbl_UAccount;
 
-  @FXML
-  private Label lbl_UAccount;
+  @FXML private Button btn_SignInUAccount;
 
-  @FXML
-  private Button btn_SignInUAccount;
+  @FXML private Button btn_GoHomeFromUA;
+  @FXML private Label lbl_UserNaVal;
 
-  @FXML
-  private Button btn_GoHomeFromUA;
-  @FXML
-  private Label lbl_UserNaVal;
+  @FXML private Label lbl_PasswordVal;
 
-  @FXML
-  private Label lbl_PasswordVal;
-
-  /**
-   * @param event Action that handles the password entry
-   */
+  /** @param event Action that handles the password entry */
   @FXML
   void passwordKeyRelease(KeyEvent event) {
     lbl_PasswordVal.setText(" ");
-
   }
 
-  /***
+  /**
+   * *
    *
    * @param event Event that indicates the move to reservation window
    * @throws IOException The check exception thrown when working with input or output
@@ -85,26 +69,28 @@ public class UserAccount {
     } else if (pField_Password.getText().trim().isEmpty()) {
       lbl_PasswordVal.setText("Password Required");
     } else {
-          if(userLogIn()){
-            System.out.println("Changing Scene");
-            Parent guestAcParent = FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
-            Scene gAccountScene = new Scene(guestAcParent);
+      if (userLogIn()) {
+        System.out.println("Changing Scene");
+        Parent guestAcParent =
+            FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
+        Scene gAccountScene = new Scene(guestAcParent);
 
-            Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            gAccWindow.setScene(gAccountScene);
-            gAccWindow.show();
-          } else {
-            System.out.println("Not Changing Scene");
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Login Error");
-            alert.setHeaderText("This Email/Password is incorrect.");
-            alert.setContentText(null);
-            Optional<ButtonType> action = alert.showAndWait();
-          }
+        Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        gAccWindow.setScene(gAccountScene);
+        gAccWindow.show();
+      } else {
+        System.out.println("Not Changing Scene");
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Login Error");
+        alert.setHeaderText("This Email/Password is incorrect.");
+        alert.setContentText(null);
+        Optional<ButtonType> action = alert.showAndWait();
+      }
     }
   }
 
-  /***
+  /**
+   * *
    *
    * @param event Event that indicates the move back to home window
    * @throws IOException The check exception thrown when working with input or output
@@ -119,9 +105,6 @@ public class UserAccount {
     uAccWindow.setScene(userAccScene);
     uAccWindow.show();
   }
-
-
-
 
   public String myEmail;
   public String myName;
@@ -150,27 +133,22 @@ public class UserAccount {
       pstmt.setString(1, email);
       pstmt.setString(2, password);
       rs = pstmt.executeQuery();
-      /**********************************************************
-      sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
-      pstmt = conn.prepareStatement(sql);
-      ResultSet rs2 = pstmt.executeQuery();
-      while(rs2.next()){
-        myEmail = rs2.getString("EMAIL");
-        myName = rs2.getString("NAME");
-        myLName = rs2.getString("LASTNAME");
-        myNoPeople = rs2.getString("NOPEOPLE");
-        myNoRooms = rs2.getString("NOROOMS");
-        myCheckIn = rs2.getString("CHECKIN");
-        myCheckOut = rs2.getString("CHECKOUT");
-        myRoomType = rs2.getString("ROOMTYPE");
-        myPassword = rs2.getString("PASSWORD");
-        System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n" + myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" + myPassword);
-      }
-********************************************************/
+      /**
+       * ******************************************************** sql = "SELECT * FROM guest WHERE
+       * email = " + "\'" + email + "\';"; pstmt = conn.prepareStatement(sql); ResultSet rs2 =
+       * pstmt.executeQuery(); while(rs2.next()){ myEmail = rs2.getString("EMAIL"); myName =
+       * rs2.getString("NAME"); myLName = rs2.getString("LASTNAME"); myNoPeople =
+       * rs2.getString("NOPEOPLE"); myNoRooms = rs2.getString("NOROOMS"); myCheckIn =
+       * rs2.getString("CHECKIN"); myCheckOut = rs2.getString("CHECKOUT"); myRoomType =
+       * rs2.getString("ROOMTYPE"); myPassword = rs2.getString("PASSWORD");
+       * System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n" +
+       * myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" + myPassword);
+       * } ******************************************************
+       */
       if (!rs.next()) {
         System.out.println("Wrong email/password!");
         return false;
-      } else{
+      } else {
         System.out.println("Login succesful!");
         return true;
       }
@@ -178,20 +156,19 @@ public class UserAccount {
       System.out.println("Could not login");
       e.printStackTrace();
     }
-      return true;
+    return true;
   }
 
-
-/*
-  public void initialize(){
-    initializeDB();
-  }
-*/
+  /*
+    public void initialize(){
+      initializeDB();
+    }
+  */
   // Database management
   private Connection conn = null;
   private Statement stmt = null;
 
-  private void initializeDB(){
+  private void initializeDB() {
     final String JDBC_DRIVER = "org.h2.Driver";
     final String DB_URL = "jdbc:h2:./res/palace";
     final String USER = "";
@@ -207,8 +184,6 @@ public class UserAccount {
       e.printStackTrace();
       Alert a = new Alert(Alert.AlertType.ERROR);
       a.show();
-
     }
   }
-
 }

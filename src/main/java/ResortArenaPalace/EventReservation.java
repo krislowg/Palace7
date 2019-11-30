@@ -9,9 +9,9 @@ public class EventReservation extends User{
   private String eventDate;
   private int noPeople;
   private String venue;
-  private String catering;
-  private String dj;
-  private String partyPlanner;
+  private Boolean catering;
+  private Boolean dj;
+  private Boolean partyPlanner;
 
   // Getters and Setters methods for the event reservation attributes
   public String getfName() {
@@ -54,27 +54,27 @@ public class EventReservation extends User{
     this.venue = venue;
   }
 
-  public String getCatering() {
+  public Boolean getCatering() {
     return catering;
   }
 
-  public void setCatering(String catering) {
+  public void setCatering(Boolean catering) {
     this.catering = catering;
   }
 
-  public String getDj() {
+  public Boolean getDj() {
     return dj;
   }
 
-  public void setDj(String dj) {
+  public void setDj(Boolean dj) {
     this.dj = dj;
   }
 
-  public String getPartyPlanner() {
+  public Boolean getPartyPlanner() {
     return partyPlanner;
   }
 
-  public void setPartyPlanner(String partyPlanner) {
+  public void setPartyPlanner(Boolean partyPlanner) {
     this.partyPlanner = partyPlanner;
   }
 
@@ -93,8 +93,8 @@ public class EventReservation extends User{
    * @param password A secret phrase chosen by the user; it is used for the login
    */
 
-  EventReservation(String email, String fName, String event, String eventDate, int noPeople,
-      String venue, String catering, String dj, String partyPlanner, String password) {
+  EventReservation(String email, String fName, String event, String password, String eventDate, int noPeople,
+      String venue, Boolean catering, Boolean dj, Boolean partyPlanner) {
     super(email, password);
     this.fName = fName;
     this.event = event;

@@ -1,6 +1,6 @@
 package ResortArenaPalace;
 
-public class Guest extends User{
+public class Guest extends User {
 
   private String name;
   private String lastName;
@@ -67,22 +67,29 @@ public class Guest extends User{
     this.roomType = roomType;
   }
 
-  /***
-   *  Constructor
+  /**
+   * * Constructor
    *
-   * @param email   String that represents the email address of the guest
-   * @param name    Refers to the fist name of the guest
-   * @param lastName  Refers to the family name of the guest
-   * @param noPeople  Number that represents how many people will reside in the hotel
-   * @param noRooms   Corresponds to the umber of rooms that will be booked during the guest's stay
-   * @param checkIn   Date when the guest will come in
-   * @param checkOut  Date when the guest will go
-   * @param roomType  Refers to the style of the room chosen during the reservation
-   * @param password  A secret phrase chosen by the user; it is used for the login
+   * @param email String that represents the email address of the guest
+   * @param name Refers to the fist name of the guest
+   * @param lastName Refers to the family name of the guest
+   * @param noPeople Number that represents how many people will reside in the hotel
+   * @param noRooms Corresponds to the umber of rooms that will be booked during the guest's stay
+   * @param checkIn Date when the guest will come in
+   * @param checkOut Date when the guest will go
+   * @param roomType Refers to the style of the room chosen during the reservation
+   * @param password A secret phrase chosen by the user; it is used for the login
    */
-
-  public Guest(String email, String name, String lastName, int noPeople, int noRooms,
-      String checkIn, String checkOut, String roomType, String password) {
+  public Guest(
+      String email,
+      String name,
+      String lastName,
+      int noPeople,
+      int noRooms,
+      String checkIn,
+      String checkOut,
+      String roomType,
+      String password) {
     super(email, password);
     this.name = name;
     this.lastName = lastName;
@@ -92,5 +99,4 @@ public class Guest extends User{
     this.checkOut = checkOut;
     this.roomType = roomType;
   }
-
 }

@@ -24,14 +24,11 @@ import javafx.stage.Stage;
 
 public class BarChartEx {
 
-  @FXML
-  private BarChart<String, Integer> barChart_Booking;
+  @FXML private BarChart<String, Integer> barChart_Booking;
 
-  @FXML
-  private CategoryAxis x_Months;
+  @FXML private CategoryAxis x_Months;
 
-  @FXML
-  private NumberAxis y_Reservation;
+  @FXML private NumberAxis y_Reservation;
 
   private Connection conn = null;
   private Statement stmt = null;
@@ -61,7 +58,7 @@ public class BarChartEx {
     }
   }
 
-  public void countJanuary(){
+  public void countJanuary() {
     String string1;
     int jan_count = 0;
     int feb_count = 0;
@@ -81,30 +78,18 @@ public class BarChartEx {
       while (rs.next()) {
         string1 = rs.getString("CHECKIN");
         System.out.println(string1);
-        if(string1.substring(0, 2).equals("01"))
-          jan_count++;
-        else if(string1.substring(0, 2).equals("02"))
-          feb_count++;
-        else if(string1.substring(0, 2).equals("03"))
-          mar_count++;
-        else if(string1.substring(0, 2).equals("04"))
-          apr_count++;
-        else if(string1.substring(0, 2).equals("05"))
-          may_count++;
-        else if(string1.substring(0, 2).equals("06"))
-          jun_count++;
-        else if(string1.substring(0, 2).equals("07"))
-          jul_count++;
-        else if(string1.substring(0, 2).equals("08"))
-          aug_count++;
-        else if(string1.substring(0, 2).equals("09"))
-          sep_count++;
-        else if(string1.substring(0, 2).equals("10"))
-          oct_count++;
-        else if(string1.substring(0, 2).equals("11"))
-          nov_count++;
-        else if(string1.substring(0, 2).equals("12"))
-          dec_count++;
+        if (string1.substring(0, 2).equals("01")) jan_count++;
+        else if (string1.substring(0, 2).equals("02")) feb_count++;
+        else if (string1.substring(0, 2).equals("03")) mar_count++;
+        else if (string1.substring(0, 2).equals("04")) apr_count++;
+        else if (string1.substring(0, 2).equals("05")) may_count++;
+        else if (string1.substring(0, 2).equals("06")) jun_count++;
+        else if (string1.substring(0, 2).equals("07")) jul_count++;
+        else if (string1.substring(0, 2).equals("08")) aug_count++;
+        else if (string1.substring(0, 2).equals("09")) sep_count++;
+        else if (string1.substring(0, 2).equals("10")) oct_count++;
+        else if (string1.substring(0, 2).equals("11")) nov_count++;
+        else if (string1.substring(0, 2).equals("12")) dec_count++;
       }
       System.out.println(jan_count);
       System.out.println(feb_count);
@@ -122,11 +107,24 @@ public class BarChartEx {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    loadBarChart(jan_count, feb_count, mar_count, apr_count, may_count, jun_count, jul_count,
-        aug_count, sep_count, oct_count, nov_count, dec_count);
+    loadBarChart(
+        jan_count, feb_count, mar_count, apr_count, may_count, jun_count, jul_count, aug_count,
+        sep_count, oct_count, nov_count, dec_count);
   }
 
-  public void loadBarChart(int jan, int feb, int mar, int apr, int may, int jun, int jul, int aug, int sep, int oct, int nov, int dec){
+  public void loadBarChart(
+      int jan,
+      int feb,
+      int mar,
+      int apr,
+      int may,
+      int jun,
+      int jul,
+      int aug,
+      int sep,
+      int oct,
+      int nov,
+      int dec) {
     XYChart.Series setGuest = new XYChart.Series<>();
     setGuest.getData().add(new XYChart.Data("January", jan));
     setGuest.getData().add(new XYChart.Data("February", feb));

@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -11,6 +12,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -43,6 +45,7 @@
       </Label>
       <Label layoutX="298.0" layoutY="399.0" text="No. Guests" />
       <Label layoutX="443.0" layoutY="399.0" text="No. rooms" />
+         <Label fx:id="check_avail_error" layoutX="405.0" layoutY="467.0" text="Please Review Information and Try Again" textFill="RED" />
     </AnchorPane>
   </Tab>
   <Tab fx:id="tab_wellness" text="Wellness">
@@ -83,12 +86,12 @@
       <ImageView fitHeight="2500.0" fitWidth="1500.0" layoutX="-122.0" layoutY="-173.0" opacity="0.27" pickOnBounds="true" preserveRatio="true">
           <Image url="@Login_PalmTree.jpg" />
       </ImageView>
-         <AnchorPane layoutX="129.0" layoutY="32.0" prefHeight="453.0" prefWidth="575.0">
-               <TextField layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="154.0">
+         <AnchorPane fx:id="event_type" layoutX="129.0" layoutY="32.0" prefHeight="453.0" prefWidth="575.0">
+               <TextField fx:id="first_name" layoutX="332.0" layoutY="77.0" prefHeight="25.0" prefWidth="155.0">
                <effect>
                   <InnerShadow />
                </effect></TextField>
-               <Label layoutX="197.0" layoutY="75.0" prefHeight="30.0" prefWidth="116.0" text="First Name" textFill="#2a88c3">
+               <Label layoutX="204.0" layoutY="75.0" prefHeight="30.0" prefWidth="116.0" text="First Name" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="20.0" />
                   </font>
@@ -96,7 +99,7 @@
                      <InnerShadow color="#25dfc6" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <Label layoutX="194.0" layoutY="123.0" prefHeight="23.0" prefWidth="103.0" text="Last Name" textFill="#2a88c3">
+               <Label layoutX="204.0" layoutY="123.0" prefHeight="23.0" prefWidth="103.0" text="Last Name" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
                   </font>
@@ -104,15 +107,15 @@
                      <InnerShadow color="#2ee8cc" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <TextField layoutX="331.0" layoutY="124.0" prefHeight="25.0" prefWidth="155.0">
+               <TextField fx:id="last_name" layoutX="331.0" layoutY="124.0" prefHeight="25.0" prefWidth="155.0">
                <effect>
                   <InnerShadow />
                </effect></TextField>
-               <TextField fx:id="txtF_Email" layoutX="330.0" layoutY="165.0" prefHeight="25.0" prefWidth="156.0">
+               <TextField fx:id="txtF_Email" layoutX="330.0" layoutY="165.0" prefHeight="25.0" prefWidth="155.0">
                <effect>
                   <InnerShadow />
                </effect></TextField>
-               <Label layoutX="194.0" layoutY="164.0" prefHeight="23.0" prefWidth="103.0" text="Email" textFill="#2a88c3">
+               <Label layoutX="204.0" layoutY="164.0" prefHeight="23.0" prefWidth="103.0" text="Email" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
                   </font>
@@ -120,7 +123,7 @@
                      <InnerShadow color="#1bd8d5" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <Label layoutX="194.0" layoutY="213.0" prefHeight="23.0" prefWidth="103.0" text="Password" textFill="#2a88c3">
+               <Label layoutX="204.0" layoutY="204.0" prefHeight="23.0" prefWidth="103.0" text="Password" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
                   </font>
@@ -128,11 +131,11 @@
                      <InnerShadow color="#24d6c1" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <PasswordField layoutX="331.0" layoutY="214.0" prefHeight="25.0" prefWidth="154.0">
+               <PasswordField fx:id="password" layoutX="332.0" layoutY="206.0" prefHeight="25.0" prefWidth="154.0">
                <effect>
                   <InnerShadow />
                </effect></PasswordField>
-               <Label layoutX="194.0" layoutY="266.0" prefHeight="23.0" prefWidth="103.0" text="Date" textFill="#2a88c3">
+               <Label layoutX="204.0" layoutY="253.0" prefHeight="23.0" prefWidth="103.0" text="Date" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
                   </font>
@@ -140,23 +143,23 @@
                      <InnerShadow color="#1ceac1" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <DatePicker layoutX="334.0" layoutY="267.0" prefHeight="25.0" prefWidth="147.0">
+               <DatePicker fx:id="event_date" layoutX="330.0" layoutY="255.0" prefHeight="25.0" prefWidth="155.0">
                <effect>
                   <InnerShadow />
                </effect></DatePicker>
-               <Label layoutX="194.0" layoutY="305.0" prefHeight="28.0" prefWidth="86.0" text="No. People" textFill="#2a88c3">
+               <Label layoutX="203.0" layoutY="297.0" prefHeight="28.0" prefWidth="86.0" text="No. People" textFill="#2a88c3">
                   <font>
-                     <Font name="System Bold" size="15.0" />
+                     <Font name="System Bold" size="16.0" />
                   </font>
                   <effect>
                      <InnerShadow color="#24c8c0" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <TextField layoutX="334.0" layoutY="306.0" prefHeight="25.0" prefWidth="147.0">
+               <TextField fx:id="even_no_people" layoutX="334.0" layoutY="299.0" prefHeight="25.0" prefWidth="155.0">
                <effect>
                   <InnerShadow />
                </effect></TextField>
-               <Label layoutX="194.0" layoutY="349.0" prefHeight="23.0" prefWidth="103.0" text="Venue" textFill="#2a88c3">
+               <Label layoutX="204.0" layoutY="339.0" prefHeight="23.0" prefWidth="103.0" text="Venue" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold" size="19.0" />
                   </font>
@@ -164,17 +167,17 @@
                      <InnerShadow color="#28d7da" height="1.23" radius="0.0" width="0.0" />
                   </effect>
                </Label>
-               <CheckBox layoutX="332.0" layoutY="403.0" mnemonicParsing="false" text="Catering" textFill="#2a88c3">
+               <CheckBox fx:id="catering" layoutX="330.0" layoutY="413.0" mnemonicParsing="false" text="Catering" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold Italic" size="13.0" />
                   </font>
                </CheckBox>
-               <CheckBox layoutX="446.0" layoutY="403.0" mnemonicParsing="false" text="DJ" textFill="#2a88c3">
+               <CheckBox fx:id="dj" layoutX="444.0" layoutY="413.0" mnemonicParsing="false" text="DJ" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold Italic" size="13.0" />
                   </font>
                </CheckBox>
-               <CheckBox layoutX="179.0" layoutY="403.0" mnemonicParsing="false" text="Party Planner" textFill="#2a88c3">
+               <CheckBox fx:id="party_planner" layoutX="180.0" layoutY="413.0" mnemonicParsing="false" text="Party Planner" textFill="#2a88c3">
                   <font>
                      <Font name="System Bold Italic" size="13.0" />
                   </font>
@@ -197,18 +200,36 @@
                <ImageView fitHeight="126.0" fitWidth="199.0" layoutX="-59.0" layoutY="340.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../ResortPictures/night.jpg" />
                </ImageView>
-               <ComboBox fx:id="cBox_Venue" layoutX="332.0" layoutY="351.0" prefWidth="150.0">
+               <ComboBox fx:id="cBox_Venue" layoutX="333.0" layoutY="340.0" prefWidth="155.0">
                <effect>
                   <InnerShadow />
                </effect></ComboBox>
-            <Label fx:id="confirmation" layoutX="-40.0" layoutY="-2.0" prefHeight="45.0" prefWidth="378.0" textFill="#26dab3">
+            <Label fx:id="confirmation" layoutX="-189.0" layoutY="42.0" prefHeight="45.0" prefWidth="378.0" textFill="#26dab3">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label fx:id="lbl_EmailVal" layoutX="332.0" layoutY="187.0" prefHeight="31.0" prefWidth="153.0" textFill="#f03131">
+            <Label fx:id="lbl_EmailVal" layoutX="332.0" layoutY="187.0" prefHeight="31.0" prefWidth="155.0" textFill="#f03131">
                <font>
                   <Font size="18.0" />
                </font></Label>
+            <ChoiceBox fx:id="event_types" layoutX="332.0" layoutY="377.0" prefWidth="155.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ChoiceBox>
+            <Label layoutX="204.0" layoutY="376.0" text="Event Type" textFill="#2a88c3">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="rec_field2" layoutX="491.0" layoutY="129.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field1" layoutX="491.0" layoutY="83.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field3" layoutX="491.0" layoutY="169.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field4" layoutX="491.0" layoutY="210.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field5" layoutX="491.0" layoutY="259.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field6" layoutX="491.0" layoutY="303.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field7" layoutX="491.0" layoutY="344.0" text="Required Field" textFill="RED" />
+            <Label fx:id="rec_field8" layoutX="491.0" layoutY="381.0" text="Required Field" textFill="RED" />
          </AnchorPane>
          <ImageView fitHeight="132.0" fitWidth="217.0" layoutX="755.0" layoutY="48.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
                <Image url="@../ResortPictures/birthday.jpg" />

@@ -22,32 +22,23 @@ import javafx.stage.Stage;
 
 public class ManagerLogin {
 
-  @FXML
-  private Label lbl_ManagerLog;
+  @FXML private Label lbl_ManagerLog;
 
-  @FXML
-  private Label lbl_MUName;
+  @FXML private Label lbl_MUName;
 
-  @FXML
-  private TextField txtField_MUName;
+  @FXML private TextField txtField_MUName;
 
-  @FXML
-  private Label lbl_MUPassword;
+  @FXML private Label lbl_MUPassword;
 
-  @FXML
-  private PasswordField passfld_MUPassword;
+  @FXML private PasswordField passfld_MUPassword;
 
-  @FXML
-  private Button btn_ManagerSignIn;
+  @FXML private Button btn_ManagerSignIn;
 
-  @FXML
-  private Button btn_GbackManTOHome;
+  @FXML private Button btn_GbackManTOHome;
 
-  @FXML
-  private Label lbl_UserNaVal;
+  @FXML private Label lbl_UserNaVal;
 
-  @FXML
-  private Label lbl_PasswordVal;
+  @FXML private Label lbl_PasswordVal;
 
   /**
    * @param event Action that allows going back to the home page
@@ -63,15 +54,16 @@ public class ManagerLogin {
     mLogWindow.show();
   }
 
-  /***
+  /**
+   * *
    *
    * @param event Event that indicates the move to another window
    * @throws IOException The check exception thrown when working with input or output
    */
   @FXML
   void changeManToReport(ActionEvent event) throws IOException {
-    if (txtField_MUName.getText().trim().isEmpty() && passfld_MUPassword.getText().trim()
-        .isEmpty()) {
+    if (txtField_MUName.getText().trim().isEmpty()
+        && passfld_MUPassword.getText().trim().isEmpty()) {
       lbl_UserNaVal.setText("User Name Required");
       lbl_PasswordVal.setText("Password Required");
     } else if (passfld_MUPassword.getText().trim().isEmpty()) {
@@ -93,7 +85,6 @@ public class ManagerLogin {
         alert.setContentText(null);
         Optional<ButtonType> action = alert.showAndWait();
       }
-
     }
   }
 
@@ -101,22 +92,17 @@ public class ManagerLogin {
   boolean userLogIn() {
     System.out.println("Log in pressed");
 
-System.out.println("Attempting to login");
-System.out.println(txtField_MUName.getText());
-System.out.println(passfld_MUPassword.getText());
-  if(txtField_MUName.getText().equals("admin") && passfld_MUPassword.getText().equals("password")) {
-    System.out.println("Login succesful!");
-    return true;
+    System.out.println("Attempting to login");
+    System.out.println(txtField_MUName.getText());
+    System.out.println(passfld_MUPassword.getText());
+    if (txtField_MUName.getText().equals("admin")
+        && passfld_MUPassword.getText().equals("password")) {
+      System.out.println("Login succesful!");
+      return true;
 
-  } else {
-    System.out.println("Wrong username/password!");
-    return false;
+    } else {
+      System.out.println("Wrong username/password!");
+      return false;
+    }
   }
-
-
-
-
-
-  }
-
 }

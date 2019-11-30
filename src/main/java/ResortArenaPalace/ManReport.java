@@ -31,83 +31,58 @@ import javafx.stage.Stage;
 
 public class ManReport {
 
-  @FXML
-  private TableView<Guest> tablev_Report;
+  @FXML private TableView<Guest> tablev_Report;
 
-  @FXML
-  private TableColumn<Guest, String> col_FirstName;
+  @FXML private TableColumn<Guest, String> col_FirstName;
 
-  @FXML
-  private TableColumn<Guest, String> col_LastName;
+  @FXML private TableColumn<Guest, String> col_LastName;
 
-  @FXML
-  private TableColumn<Guest, Integer> col_NPeople;
+  @FXML private TableColumn<Guest, Integer> col_NPeople;
 
-  @FXML
-  private TableColumn<Guest, Integer> col_Nrooms;
+  @FXML private TableColumn<Guest, Integer> col_Nrooms;
 
-  @FXML
-  private TableColumn<Guest, String> col_CheckIn;
+  @FXML private TableColumn<Guest, String> col_CheckIn;
 
-  @FXML
-  private TableColumn<Guest, String> col_CheckOut;
+  @FXML private TableColumn<Guest, String> col_CheckOut;
 
-  @FXML
-  private TableColumn<Guest, String> col_RType;
+  @FXML private TableColumn<Guest, String> col_RType;
 
-  @FXML
-  private TableColumn<Guest, String> col_Email;
+  @FXML private TableColumn<Guest, String> col_Email;
 
-  @FXML
-  private TableColumn<Guest, String> col_Password;
+  @FXML private TableColumn<Guest, String> col_Password;
 
-  @FXML
-  private Label lbl_TitleReport;
+  @FXML private Label lbl_TitleReport;
 
-  @FXML
-  private Button btn_CancelR;
+  @FXML private Button btn_CancelR;
 
-  @FXML
-  private Button btn_SummaryGuest;
+  @FXML private Button btn_SummaryGuest;
 
-  @FXML
-  private Button btn_BackRepToMan;
+  @FXML private Button btn_BackRepToMan;
 
-  @FXML
-  private TextField txt_password;
+  @FXML private TextField txt_password;
 
-  @FXML
-  private TextField txt_Fname;
+  @FXML private TextField txt_Fname;
 
-  @FXML
-  private TextField txt_Lname;
+  @FXML private TextField txt_Lname;
 
-  @FXML
-  private TextField txt_CheckIn;
+  @FXML private TextField txt_CheckIn;
 
-  @FXML
-  private TextField txt_CheckOut;
+  @FXML private TextField txt_CheckOut;
 
-  @FXML
-  private TextField txt_Email;
+  @FXML private TextField txt_Email;
 
-  @FXML
-  private Button btn_AddGuest;
+  @FXML private Button btn_AddGuest;
 
-  @FXML
-  private Button btn_GRepToEvReport;
+  @FXML private Button btn_GRepToEvReport;
 
-  @FXML
-  private ComboBox<String> cbox_NoPeople;
+  @FXML private ComboBox<String> cbox_NoPeople;
 
-  @FXML
-  private ComboBox<String> cbox_NoRoom;
+  @FXML private ComboBox<String> cbox_NoRoom;
 
-  @FXML
-  private ComboBox<String> cbox_RoomType;
+  @FXML private ComboBox<String> cbox_RoomType;
 
-
-  /***
+  /**
+   * *
    *
    * @param event Event that indicates the move to manager window
    * @throws IOException The check exception thrown when working with input or output
@@ -123,7 +98,6 @@ public class ManReport {
   }
 
   /**
-   *
    * @param event Action that changes scenes from Guest Report to Event Report
    * @throws IOException The check exception thrown when working with input or output
    */
@@ -140,7 +114,7 @@ public class ManReport {
   @FXML
   void changeRepToBarChart(ActionEvent event) throws IOException {
     Parent eventRepParent = FXMLLoader.load(getClass().getResource("BarChartEx.fxml"));
-    //Parent eventRepParent = FXMLLoader.load(getClass().getResource("BarChartEx.fxml"));
+    // Parent eventRepParent = FXMLLoader.load(getClass().getResource("BarChartEx.fxml"));
     Scene evRepScene = new Scene(eventRepParent);
 
     Stage barChartWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -148,19 +122,21 @@ public class ManReport {
     barChartWindow.show();
   }
 
-  //Array list for the comboBox to pick the number of rooms
-  private ObservableList<String> noRoomsReport = FXCollections.observableArrayList("1", "2",
-      "3", "4", "5", "6", "7", "8", "9", "10");
+  // Array list for the comboBox to pick the number of rooms
+  private ObservableList<String> noRoomsReport =
+      FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 
-  //Array list for the comboBox to pick the number of guests
-  private ObservableList<String> noGuestReport = FXCollections.observableArrayList("1", "2",
-      "3", "4", "5", "6", "7", "8", "9", "10");
+  // Array list for the comboBox to pick the number of guests
+  private ObservableList<String> noGuestReport =
+      FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
 
-  private ObservableList<String> roomTypes = FXCollections.observableArrayList("Luxury", "Underwater", "Superior", "GrandArena");
+  private ObservableList<String> roomTypes =
+      FXCollections.observableArrayList("Luxury", "Underwater", "Superior", "GrandArena");
 
-
-  private ObservableList<Guest> guestReport = FXCollections.observableArrayList();//Table view related
-  /***
+  private ObservableList<Guest> guestReport =
+      FXCollections.observableArrayList(); // Table view related
+  /**
+   * *
    *
    * @param event Action that indicates the click on the button to add a guest
    */
@@ -179,10 +155,19 @@ public class ManReport {
     String g_RoomType = cbox_RoomType.getValue();
     String g_password = txt_password.getText();
 
-    Guest newGuest = new Guest(g_email, g_FirstName, g_LastName, g_NoPeople, g_NoRooms, g_CheckIn, g_Checkout,
-        g_RoomType, g_password);
+    Guest newGuest =
+        new Guest(
+            g_email,
+            g_FirstName,
+            g_LastName,
+            g_NoPeople,
+            g_NoRooms,
+            g_CheckIn,
+            g_Checkout,
+            g_RoomType,
+            g_password);
 
-    //settingUpColumns();
+    // settingUpColumns();
     guestReport.add(newGuest);
     tablev_Report.setItems(guestReport);
 
@@ -223,9 +208,11 @@ public class ManReport {
     tablev_Report.getItems().add(myGuest);*/
   }
 
-  /***
+  /**
+   * *
    *
-   * @param event Action that indicates the click to cancel  a selected reservation from the manager report
+   * @param event Action that indicates the click to cancel a selected reservation from the manager
+   *     report
    */
   @FXML
   void cancelReservation(ActionEvent event) {
@@ -258,7 +245,6 @@ public class ManReport {
   private Connection conn = null;
   private Statement stmt = null;
 
-
   public void initialize() {
     col_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
     col_FirstName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -270,17 +256,17 @@ public class ManReport {
     col_RType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
     col_Password.setCellValueFactory(new PropertyValueFactory<>("password"));
 
-    cbox_NoPeople.setItems(noGuestReport);//sets the items in the ComboBox
-    cbox_NoPeople.setEditable(true);//Allows the user edit
-    cbox_NoPeople.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+    cbox_NoPeople.setItems(noGuestReport); // sets the items in the ComboBox
+    cbox_NoPeople.setEditable(true); // Allows the user edit
+    cbox_NoPeople.getSelectionModel().selectFirst(); // Sets a default value in the ComboBox
 
-    cbox_NoRoom.setItems(noRoomsReport);//sets the items in the ComboBox
-    cbox_NoRoom.setEditable(true);//Allows the user edit
-    cbox_NoRoom.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+    cbox_NoRoom.setItems(noRoomsReport); // sets the items in the ComboBox
+    cbox_NoRoom.setEditable(true); // Allows the user edit
+    cbox_NoRoom.getSelectionModel().selectFirst(); // Sets a default value in the ComboBox
 
-    cbox_RoomType.setItems(roomTypes);//sets the items in the ComboBox
-    cbox_RoomType.setEditable(true);//Allows the user edit
-    cbox_RoomType.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+    cbox_RoomType.setItems(roomTypes); // sets the items in the ComboBox
+    cbox_RoomType.setEditable(true); // Allows the user edit
+    cbox_RoomType.getSelectionModel().selectFirst(); // Sets a default value in the ComboBox
 
     initializeDB();
     populateGuestTableReport();
@@ -314,11 +300,17 @@ public class ManReport {
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next()) {
 
-        glist.add(new Guest(rs.getString("EMAIL"), rs.getString("NAME"),
-            rs.getString("LASTNAME"), Integer.parseInt(rs.getString("NOPEOPLE")),
-            Integer.parseInt(rs.getString("NOROOMS")), rs.getString("CHECKIN"),
-            rs.getString("CHECKOUT"), rs.getString("ROOMTYPE"),
-            rs.getString("PASSWORD")));
+        glist.add(
+            new Guest(
+                rs.getString("EMAIL"),
+                rs.getString("NAME"),
+                rs.getString("LASTNAME"),
+                Integer.parseInt(rs.getString("NOPEOPLE")),
+                Integer.parseInt(rs.getString("NOROOMS")),
+                rs.getString("CHECKIN"),
+                rs.getString("CHECKOUT"),
+                rs.getString("ROOMTYPE"),
+                rs.getString("PASSWORD")));
       }
 
     } catch (SQLException e) {
@@ -327,57 +319,57 @@ public class ManReport {
 
     tablev_Report.setItems(glist);
   }
-   /*Kristy is working on populating the Guest list for the Manager Report
-  private Connection conn = null;
-  private Statement stmt = null;
-  public void initialize() {
-    initializeDB();
-    populateGuestTableReport();
-  }
-  private void initializeDB() {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/test";
-    final String USER = "";
-    final String PASS = "";
-    System.out.println("Attempting to connect to database");
-    try {
-      Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
-      stmt = conn.createStatement();
-      System.out.println("Successfully connected to database!");
-    } catch (Exception e) {
-      e.printStackTrace();
-      Alert a = new Alert(Alert.AlertType.ERROR);
-      a.show();
+  /*Kristy is working on populating the Guest list for the Manager Report
+    private Connection conn = null;
+    private Statement stmt = null;
+    public void initialize() {
+      initializeDB();
+      populateGuestTableReport();
     }
-  }
-  ObservableList<Guest> glist = FXCollections.observableArrayList();
-  //@Override
- // public void initialize(URL location, ResourceBundle resources) {
-    public void populateGuestTableReport(){
+    private void initializeDB() {
+      final String JDBC_DRIVER = "org.h2.Driver";
+      final String DB_URL = "jdbc:h2:./res/test";
+      final String USER = "";
+      final String PASS = "";
+      System.out.println("Attempting to connect to database");
       try {
-        String sql = "SELECT * FROM GUEST";
-        ResultSet rs = stmt.executeQuery(sql);
-        while (rs.next()) {
-          glist.add(new Guest(rs.getString("email"),rs.getString("name"),
-              rs.getString("lastName"), Integer.parseInt(rs.getString("noPeople")),
-              Integer.parseInt(rs.getString("noRooms")), rs.getString("checkIn"),
-              rs.getString("checkOut"), rs.getString("roomType"),
-              rs.getString("password") ));
-        }
-        } catch (SQLException e) {
+        Class.forName(JDBC_DRIVER);
+        conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        stmt = conn.createStatement();
+        System.out.println("Successfully connected to database!");
+      } catch (Exception e) {
         e.printStackTrace();
+        Alert a = new Alert(Alert.AlertType.ERROR);
+        a.show();
       }
-      col_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
-      col_FirstName.setCellValueFactory(new PropertyValueFactory<>("name"));
-      col_LastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-      col_NPeople.setCellValueFactory(new PropertyValueFactory<>("noPeople"));
-      col_Nrooms.setCellValueFactory(new PropertyValueFactory<>("noRooms"));
-      col_CheckIn.setCellValueFactory(new PropertyValueFactory<>("checkIn"));
-      col_CheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
-      col_RType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
-      col_Password.setCellValueFactory(new PropertyValueFactory<>("password"));
-      tablev_Report.setItems(glist);
     }
-*/
+    ObservableList<Guest> glist = FXCollections.observableArrayList();
+    //@Override
+   // public void initialize(URL location, ResourceBundle resources) {
+      public void populateGuestTableReport(){
+        try {
+          String sql = "SELECT * FROM GUEST";
+          ResultSet rs = stmt.executeQuery(sql);
+          while (rs.next()) {
+            glist.add(new Guest(rs.getString("email"),rs.getString("name"),
+                rs.getString("lastName"), Integer.parseInt(rs.getString("noPeople")),
+                Integer.parseInt(rs.getString("noRooms")), rs.getString("checkIn"),
+                rs.getString("checkOut"), rs.getString("roomType"),
+                rs.getString("password") ));
+          }
+          } catch (SQLException e) {
+          e.printStackTrace();
+        }
+        col_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_FirstName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_LastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        col_NPeople.setCellValueFactory(new PropertyValueFactory<>("noPeople"));
+        col_Nrooms.setCellValueFactory(new PropertyValueFactory<>("noRooms"));
+        col_CheckIn.setCellValueFactory(new PropertyValueFactory<>("checkIn"));
+        col_CheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
+        col_RType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+        col_Password.setCellValueFactory(new PropertyValueFactory<>("password"));
+        tablev_Report.setItems(glist);
+      }
+  */
 }

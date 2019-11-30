@@ -20,71 +20,49 @@ import javafx.stage.Stage;
 
 public class UserReservationDetails {
 
-  @FXML
-  private Label lbl_TitleReservation;
+  @FXML private Label lbl_TitleReservation;
 
-  @FXML
-  private TextArea txtA_ReservationDet;
+  @FXML private TextArea txtA_ReservationDet;
 
-  @FXML
-  private Button btn_CancelR;
+  @FXML private Button btn_CancelR;
 
-  @FXML
-  private Button btn_SignOut;
+  @FXML private Button btn_SignOut;
 
-  @FXML
-  private ImageView roomImage;
+  @FXML private ImageView roomImage;
 
-  @FXML
-  private Label thankMessage;
+  @FXML private Label thankMessage;
 
+  @FXML private Pane infoPane;
 
-  @FXML
-  private Pane infoPane;
+  @FXML private Pane roomPane;
 
+  @FXML private Text rmText;
 
-  @FXML
-  private Pane roomPane;
+  @FXML private Text infoText;
 
-  @FXML
-  private Text rmText;
+  @FXML private Text cancelText;
 
-  @FXML
-  private Text infoText;
+  @FXML private Label firstName;
 
+  @FXML private Label lastName;
 
-  @FXML
-  private Text cancelText;
+  @FXML private Label email;
 
-    @FXML
-    private Label firstName;
+  @FXML private Label paymentType;
 
-    @FXML
-    private Label lastName;
+  @FXML private Label numberGuests;
 
-    @FXML
-    private Label email;
+  @FXML private Label numberRooms;
 
-    @FXML
-    private Label paymentType;
+  @FXML private Label roomType;
 
-    @FXML
-    private Label numberGuests;
+  @FXML private Label checkInDate;
 
-    @FXML
-    private Label numberRooms;
-
-    @FXML
-    private Label roomType;
-
-    @FXML
-    private Label checkInDate;
-
-    @FXML
-    private Label checkOutDate;
+  @FXML private Label checkOutDate;
 
   public static GuestReservation details;
-  /***
+  /**
+   * *
    *
    * @param event Event that indicates the move to the home window
    * @throws IOException The check exception thrown when working with input or output
@@ -98,8 +76,6 @@ public class UserReservationDetails {
     rDWindow.setScene(ReservationScene);
     rDWindow.show();
   }
-
-
 
   @FXML
   void initialize() {
@@ -117,20 +93,24 @@ public class UserReservationDetails {
      */
   }
 
-//    Integer.toString(details.getNum_p());
-//      numberGuests.setText(details.getNoPeople());
-//      numberRooms.setText(details.getNoRooms());
+  //    Integer.toString(details.getNum_p());
+  //      numberGuests.setText(details.getNoPeople());
+  //      numberRooms.setText(details.getNoRooms());
 
-    //change expiration date to datepicker
-    //pull info
-    //check info
-    //push to db
-    //on room availability add sold out functionality
-    //add cancel reservation to homepage "email and password pull"
-    //work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date cannot be before start date (how to block out old dates on datepicker)/ if nothing selected label.settext("must select ~~")), room availability on date, add cancel reservation on landingpage.
-    //edit management to add management and encrypt password
+  // change expiration date to datepicker
+  // pull info
+  // check info
+  // push to db
+  // on room availability add sold out functionality
+  // add cancel reservation to homepage "email and password pull"
+  // work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date
+  // cannot be before start date (how to block out old dates on datepicker)/ if nothing selected
+  // label.settext("must select ~~")), room availability on date, add cancel reservation on
+  // landingpage.
+  // edit management to add management and encrypt password
 
-  /***
+  /**
+   * *
    *
    * @param event Event related to canceling a reservation
    * @throws IOException The check exception thrown when working with input or output
@@ -146,11 +126,11 @@ public class UserReservationDetails {
     cancelText.setVisible(true);
   }
 
-  public void sendText4(GuestReservation details){
-      this.details = details;
+  public void sendText4(GuestReservation details) {
+    this.details = details;
   }
 
-/*
+  /*
   @FXML
   void cancelReservation(ActionEvent event) throws SQLException {
     System.out.println("Cancel Reservation Pressed");

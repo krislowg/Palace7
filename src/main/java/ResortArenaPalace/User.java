@@ -20,11 +20,8 @@ public class User {
     this.password = password;
   }
 
-  User (String email, String password){
+  User(String email, String password) {
     this.email = email;
     this.password = password;
   }
-
-
-
 }

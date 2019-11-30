@@ -7,7 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.Optional;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,120 +33,89 @@ import javafx.stage.Stage;
 
 public class ManEventReport {
 
-  @FXML
-  private TableView<EventReservation> tablev_EventReport;
+  @FXML private TableView<EventReservation> tablev_EventReport;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_EvEmail;
+  @FXML private TableColumn<EventReservation, String> col_EvEmail;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_Name;
+  @FXML private TableColumn<EventReservation, String> col_Name;
 
   /*@FXML
   private TableColumn<EventReservation, String> col_FullName; */
 
-  @FXML
-  private TableColumn<EventReservation, String> col_EventType;
+  @FXML private TableColumn<EventReservation, String> col_EventType;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_EvDate;
+  @FXML private TableColumn<EventReservation, String> col_EvDate;
 
-  @FXML
-  private TableColumn<EventReservation, Integer> col_EvNPeople;
+  @FXML private TableColumn<EventReservation, Integer> col_EvNPeople;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_EvVenue;
+  @FXML private TableColumn<EventReservation, String> col_EvVenue;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_EvCatering;
+  @FXML private TableColumn<EventReservation, Boolean> col_EvCatering;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_DJ;
+  @FXML private TableColumn<EventReservation, Boolean> col_DJ;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_PartyPlanner;
+  @FXML private TableColumn<EventReservation, Boolean> col_PartyPlanner;
 
-  @FXML
-  private TableColumn<EventReservation, String> col_EvPassword;
+  @FXML private TableColumn<EventReservation, String> col_EvPassword;
 
-  @FXML
-  private TextField txt_Name;
+  @FXML private TextField txt_Name;
 
-  @FXML
-  private TextField txt_PartyPlanner;
+  @FXML private TextField txt_PartyPlanner;
 
   /*@FXML
   private TextField txt_Fname;*/
 
-  @FXML
-  private TextField txt_EvType;
+  @FXML private TextField txt_EvType;
 
-  @FXML
-  private TextField txt_EvDate;
+  @FXML private TextField txt_EvDate;
 
-  @FXML
-  private TextField txt_EvPeople;
+  @FXML private TextField txt_EvPeople;
 
-  @FXML
-  private TextField txt_Venue;
+  @FXML private TextField txt_Venue;
 
-  @FXML
-  private TextField txt_EvCatering;
+  @FXML private TextField txt_EvCatering;
 
-  @FXML
-  private TextField txt_DJ;
+  @FXML private TextField txt_DJ;
 
-  @FXML
-  private TextField txt_Email;
+  @FXML private TextField txt_Email;
 
-  @FXML
-  private TextField txt_Password;
+  @FXML private TextField txt_Password;
 
-  @FXML
-  private Label lbl_TitleReport;
+  @FXML private Label lbl_TitleReport;
 
-  @FXML
-  private Button btn_CancelEvent;
+  @FXML private Button btn_CancelEvent;
 
-  @FXML
-  private Button btn_SoldOut;
+  @FXML private Button btn_SoldOut;
 
-  @FXML
-  private Button btn_BackEVRepToGuestRep;
+  @FXML private Button btn_BackEVRepToGuestRep;
 
-  @FXML
-  private Button btn_AddEvent;
+  @FXML private Button btn_AddEvent;
 
-  @FXML
-  private Button btn_LogOut;
+  @FXML private Button btn_LogOut;
 
-  @FXML
-  private ComboBox<String> cbox_EventType;
+  @FXML private ComboBox<String> cbox_EventType;
 
-  @FXML
-  private ComboBox<String> cbox_Venue;
+  @FXML private ComboBox<String> cbox_Venue;
 
-  @FXML
-  private ComboBox<String> cbox_Catering;
+  @FXML private ComboBox<String> cbox_Catering;
 
-  @FXML
-  private ComboBox<String> cbox_Dj;
+  @FXML private ComboBox<String> cbox_Dj;
 
-  @FXML
-  private ComboBox<String> cbox_PartyPlanner;
+  @FXML private ComboBox<String> cbox_PartyPlanner;
 
-  private ObservableList<String> eventType = FXCollections.observableArrayList("Wedding", "Conference",
-      "Celebration", "Sweet 16");
+  private ObservableList<String> eventType =
+      FXCollections.observableArrayList("Wedding", "Conference", "Celebration", "Sweet 16");
 
-  private ObservableList<String> venuePick = FXCollections.observableArrayList("Ballroom", "Conf. R.",
-      "Beach", "Restaurant", "Club");
+  private ObservableList<String> venuePick =
+      FXCollections.observableArrayList("Ballroom", "Conf. R.", "Beach", "Restaurant", "Club");
 
   private ObservableList<String> yesNo = FXCollections.observableArrayList("YES", "NO");
 
+  private ObservableList<EventReservation> eventReport =
+      FXCollections.observableArrayList(); // Table view related
 
-  private ObservableList<EventReservation> eventReport = FXCollections.observableArrayList();//Table view related
-
-  /***
+  /**
+   * *
    *
    * @param event Action that creates a new event reservation and adds it to the report
    */
@@ -153,18 +125,43 @@ public class ManEventReport {
     // variable
     String e_Email = txt_Email.getText();
     String e_FullName = txt_Name.getText();
-    //String e_FullName = txt_Fname.getText();
+    // String e_FullName = txt_Fname.getText();
     String e_Type = cbox_EventType.getValue();
-    String e_Date = txt_EvDate.getText();
+    String e_Password = txt_Password.getText();
+    String e_Date = String.valueOf(txt_EvDate.getText());
     int e_People = Integer.parseInt(txt_EvPeople.getText());
     String e_Venue = cbox_Venue.getValue();
-    String e_Catering = cbox_Catering.getValue();
-    String e_DJ = cbox_Dj.getValue();
-    String e_PartyPlanner = cbox_PartyPlanner.getValue();
-    String e_Password = txt_Password.getText();
+    Boolean e_Catering = null;
+    if (cbox_Catering.getValue().equals("YES")) {
+      e_Catering = true;
+    } else {
+      e_Catering = false;
+    }
+    Boolean e_DJ = null;
+    if (cbox_Dj.getValue().equals("YES")) {
+      e_DJ = true;
+    } else {
+      e_DJ = false;
+    }
+    Boolean e_PartyPlanner = null;
+    if (cbox_PartyPlanner.getValue().equals("YES")) {
+      e_PartyPlanner = true;
+    } else {
+      e_PartyPlanner = false;
+    }
 
-    EventReservation newEvent = new EventReservation(e_Email, e_FullName, e_Type, e_Date, e_People, e_Venue, e_Catering,
-        e_DJ, e_PartyPlanner, e_Password);
+    EventReservation newEvent =
+        new EventReservation(
+            e_Email,
+            e_FullName,
+            e_Type,
+            e_Password,
+            e_Date,
+            e_People,
+            e_Venue,
+            e_Catering,
+            e_DJ,
+            e_PartyPlanner);
 
     eventReport.add(newEvent);
     tablev_EventReport.setItems(eventReport);
@@ -185,42 +182,63 @@ public class ManEventReport {
       ps.setString(5, e_Date);
       ps.setString(6, String.valueOf(e_People));
       ps.setString(7, e_Venue);
-      ps.setString(8, e_Catering);
-      ps.setString(9, e_DJ);
-      ps.setString(10, e_PartyPlanner);
+      ps.setBoolean(8, e_Catering);
+      ps.setBoolean(9, e_DJ);
+      ps.setBoolean(10, e_PartyPlanner);
 
       ps.executeUpdate(); // Updates the values in the EVENTRESERVATION table
       System.out.println("Inserted!");
 
       // STEP 4: Clean-up environment
-      stmt.close(); // Closes the statements and the connections
-      conn.close();
+
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    try {
+      String sql = "SELECT * FROM EVENTRESERVATION";
+      ResultSet rs = stmt.executeQuery(sql);
+      while (rs.next()) {
+        if (rs.last()) {
+          eventList.add(
+              new EventReservation(
+                  rs.getString("EMAIL"),
+                  rs.getString("FNAME"),
+                  rs.getString("EVENT"),
+                  rs.getString("PASSWORD"),
+                  rs.getString("EVENTDATE"),
+                  Integer.parseInt(rs.getString("NOPEOPLE")),
+                  (rs.getString("VENUE")),
+                  rs.getBoolean("CATERING"),
+                  rs.getBoolean("DJ"),
+                  rs.getBoolean("PARTYPLANNER")));
+        }
+      }
 
     } catch (SQLException e) {
       e.printStackTrace();
     }
 
+    tablev_EventReport.setItems(eventList);
   }
 
-  /**
-   *
-   * @param event Action that cancels the reservation of an event
-   */
+  /** @param event Action that cancels the reservation of an event */
   @FXML
   void cancelEvent(ActionEvent event) {
-    Alert alert = new Alert (AlertType.CONFIRMATION);
+    Alert alert = new Alert(AlertType.CONFIRMATION);
     alert.setTitle("Cancel Event");
     alert.setHeaderText("Are you sure you want to CANCEL this Event?");
     alert.setContentText(null);
     Optional<ButtonType> action = alert.showAndWait();
 
-    if(action.get() == ButtonType.OK) {
-      tablev_EventReport.getItems().removeAll(tablev_EventReport.getSelectionModel().getSelectedItem());
+    if (action.get() == ButtonType.OK) {
+      tablev_EventReport
+          .getItems()
+          .removeAll(tablev_EventReport.getSelectionModel().getSelectedItem());
     }
   }
 
   /**
-   *
    * @param event Action that allows getting back to the home page
    * @throws IOException The check exception thrown when working with input or output
    */
@@ -235,7 +253,6 @@ public class ManEventReport {
   }
 
   /**
-   *
    * @param event Action that allows going to guest report window
    * @throws IOException The check exception thrown when working with input or output
    */
@@ -255,9 +272,9 @@ public class ManEventReport {
   private Statement stmt = null;
 
   public void initialize() {
-    cbox_EventType.setItems(eventType);//sets the items in the ComboBox
-    cbox_EventType.setEditable(true);//Allows the user edit
-    cbox_EventType.getSelectionModel().selectFirst();//Sets a default value in the ComboBox
+    cbox_EventType.setItems(eventType); // sets the items in the ComboBox
+    cbox_EventType.setEditable(true); // Allows the user edit
+    cbox_EventType.getSelectionModel().selectFirst(); // Sets a default value in the ComboBox
 
     cbox_Venue.setItems(venuePick);
     cbox_Venue.setEditable(true);
@@ -274,7 +291,6 @@ public class ManEventReport {
     cbox_PartyPlanner.setItems(yesNo);
     cbox_PartyPlanner.setEditable(true);
     cbox_PartyPlanner.getSelectionModel();
-
 
     initializeDB();
     settingUpColumns();
@@ -300,10 +316,10 @@ public class ManEventReport {
     }
   }
 
-  private void settingUpColumns(){
+  private void settingUpColumns() {
     col_EvEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
     col_Name.setCellValueFactory(new PropertyValueFactory<>("fName"));
-    //col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
+    // col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
     col_EventType.setCellValueFactory(new PropertyValueFactory<>("event"));
     col_EvDate.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
     col_EvNPeople.setCellValueFactory(new PropertyValueFactory<>("noPeople"));
@@ -316,20 +332,27 @@ public class ManEventReport {
 
   private ObservableList<EventReservation> eventList = FXCollections.observableArrayList();
 
-  //Method that populates the Guest tableview with the data from the database
+  // Method that populates the Guest tableview with the data from the database
 
-  private void populateEventTableReport(){
+  private void populateEventTableReport() {
 
     try {
       String sql = "SELECT * FROM EVENTRESERVATION";
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next()) {
 
-        eventList.add(new EventReservation(rs.getString("EMAIL"), rs.getString("FNAME"),
-            rs.getString("EVENT"), rs.getString("EVENTDATE"), Integer.parseInt(rs.getString("NOPEOPLE")),
-            (rs.getString("VENUE")), rs.getString("CATERING"),
-            rs.getString("DJ"), rs.getString("PARTYPLANNER"),
-            rs.getString("PASSWORD") ));
+        eventList.add(
+            new EventReservation(
+                rs.getString("EMAIL"),
+                rs.getString("FNAME"),
+                rs.getString("EVENT"),
+                rs.getString("PASSWORD"),
+                rs.getString("EVENTDATE"),
+                Integer.parseInt(rs.getString("NOPEOPLE")),
+                (rs.getString("VENUE")),
+                rs.getBoolean("CATERING"),
+                rs.getBoolean("DJ"),
+                rs.getBoolean("PARTYPLANNER")));
       }
 
     } catch (SQLException e) {
