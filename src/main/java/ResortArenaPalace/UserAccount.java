@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Optional;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +56,8 @@ public class UserAccount {
     lbl_PasswordVal.setText(" ");
   }
 
+
+
   /**
    * *
    *
@@ -71,13 +74,42 @@ public class UserAccount {
     } else {
       if (userLogIn()) {
         System.out.println("Changing Scene");
+        String email = txtFld_UName.getText();
+
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
+        try {
+          Loader.load();
+        } catch (IOException ex) {
+          System.out.println("NOPE_______________________________");
+        }
+        UserReservationDetails set = Loader.getController();
+        set.setText(txtFld_UName.getText());
+        UserReservationDetails display = Loader.getController();
+        display.setText(email);
+
+        Parent p = Loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(p));
+        stage.show();
+        Stage stage1 = (Stage) btn_SignInUAccount.getScene().getWindow();
+        stage1.close();
+
+
+
+
+
+
+/*
         Parent guestAcParent =
             FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
         Scene gAccountScene = new Scene(guestAcParent);
 
         Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
         gAccWindow.setScene(gAccountScene);
-        gAccWindow.show();
+        gAccWindow.showAndWait();
+
+ */
       } else {
         System.out.println("Not Changing Scene");
         Alert alert = new Alert(AlertType.ERROR);
@@ -133,8 +165,7 @@ public class UserAccount {
       pstmt.setString(1, email);
       pstmt.setString(2, password);
       rs = pstmt.executeQuery();
-      /**
-       * ******************************************************** sql = "SELECT * FROM guest WHERE
+      /********************************************************** sql = "SELECT * FROM guest WHERE
        * email = " + "\'" + email + "\';"; pstmt = conn.prepareStatement(sql); ResultSet rs2 =
        * pstmt.executeQuery(); while(rs2.next()){ myEmail = rs2.getString("EMAIL"); myName =
        * rs2.getString("NAME"); myLName = rs2.getString("LASTNAME"); myNoPeople =
@@ -143,8 +174,7 @@ public class UserAccount {
        * rs2.getString("ROOMTYPE"); myPassword = rs2.getString("PASSWORD");
        * System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n" +
        * myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" + myPassword);
-       * } ******************************************************
-       */
+       * } *******************************************************/
       if (!rs.next()) {
         System.out.println("Wrong email/password!");
         return false;

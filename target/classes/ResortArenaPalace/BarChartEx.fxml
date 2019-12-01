@@ -6,13 +6,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.BarChartEx">
-    <BarChart fx:id="barChart_Booking" layoutX="65.0" layoutY="89.0" prefHeight="425.0" prefWidth="862.0" title="Booking Overview">
-      <xAxis>
-        <CategoryAxis label="Months" side="BOTTOM" fx:id="x_Months" />
-      </xAxis>
-      <yAxis>
-        <NumberAxis fx:id="y_Reservation" label="Reservations" side="LEFT" />
-      </yAxis>
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ResortArenaPalace.BarChartEx">
+    <BarChart fx:id="barChart_Booking" layoutX="65.0" layoutY="89.0" prefHeight="425.0" prefWidth="862.0"
+              title="Booking Overview">
+        <xAxis>
+            <CategoryAxis label="Months" side="BOTTOM" fx:id="x_Months"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="y_Reservation" label="Reservations" side="LEFT"/>
+        </yAxis>
     </BarChart>
 </AnchorPane>
