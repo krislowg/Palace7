@@ -28,65 +28,45 @@ import javafx.stage.Stage;
 
 public class UserReservationDetails implements Initializable {
 
-  @FXML
-  private Label lbl_TitleReservation;
+  @FXML private Label lbl_TitleReservation;
 
-  @FXML
-  private TextArea txtA_ReservationDet;
+  @FXML private TextArea txtA_ReservationDet;
 
-  @FXML
-  private Button btn_CancelR;
+  @FXML private Button btn_CancelR;
 
-  @FXML
-  private Button btn_SignOut;
+  @FXML private Button btn_SignOut;
 
-  @FXML
-  private ImageView roomImage;
+  @FXML private ImageView roomImage;
 
-  @FXML
-  private Label thankMessage;
+  @FXML private Label thankMessage;
 
-  @FXML
-  private Pane infoPane;
+  @FXML private Pane infoPane;
 
-  @FXML
-  private Pane roomPane;
+  @FXML private Pane roomPane;
 
-  @FXML
-  private Text rmText;
+  @FXML private Text rmText;
 
-  @FXML
-  private Text infoText;
+  @FXML private Text infoText;
 
-  @FXML
-  private Text cancelText;
+  @FXML private Text cancelText;
 
-  @FXML
-  private Label firstName;
+  @FXML private Label firstName;
 
-  @FXML
-  private Label lastName;
+  @FXML private Label lastName;
 
-  @FXML
-  private Label email;
+  @FXML private Label email;
 
-  @FXML
-  private Label paymentType;
+  @FXML private Label paymentType;
 
-  @FXML
-  private Label numberGuests;
+  @FXML private Label numberGuests;
 
-  @FXML
-  private Label numberRooms;
+  @FXML private Label numberRooms;
 
-  @FXML
-  private Label roomType;
+  @FXML private Label roomType;
 
-  @FXML
-  private Label checkInDate;
+  @FXML private Label checkInDate;
 
-  @FXML
-  private Label checkOutDate;
+  @FXML private Label checkOutDate;
 
   public String myEmail;
   public String myName;
@@ -116,7 +96,6 @@ public class UserReservationDetails implements Initializable {
     rDWindow.show();
   }
 
-
   @FXML
   public void initialize(URL url, ResourceBundle rb) {
     cancelText.setVisible(false);
@@ -124,21 +103,17 @@ public class UserReservationDetails implements Initializable {
     email.setText(myEmail);
   }
 
-
-
-
-
   public void setText(String email) {
-    //this.email.setText(email);
+    // this.email.setText(email);
     System.out.println("Email is " + email);
     myEmail = email;
     this.email.setText(myEmail);
     try {
       initializeDB();
       String sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
-      //ResultSet rs = null;
+      // ResultSet rs = null;
       PreparedStatement pstmt = conn.prepareStatement(sql);
-      //sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
+      // sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
       pstmt = conn.prepareStatement(sql);
       ResultSet rs2 = pstmt.executeQuery();
       while (rs2.next()) {
@@ -152,8 +127,23 @@ public class UserReservationDetails implements Initializable {
         myRoomType = rs2.getString("ROOMTYPE");
         myPassword = rs2.getString("PASSWORD");
         System.out.println(
-            myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n" + myNoRooms + "\n"
-                + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" + myPassword);
+            myEmail
+                + "\n"
+                + myName
+                + "\n"
+                + myLName
+                + "\n"
+                + myNoPeople
+                + "\n"
+                + myNoRooms
+                + "\n"
+                + myCheckIn
+                + "\n"
+                + myCheckOut
+                + "\n"
+                + myRoomType
+                + "\n"
+                + myPassword);
       }
       firstName.setText(myName);
       lastName.setText(myLName);
@@ -169,42 +159,42 @@ public class UserReservationDetails implements Initializable {
       e.printStackTrace();
     }
   }
-    //    Integer.toString(details.getNum_p());
-    //      numberGuests.setText(details.getNoPeople());
-    //      numberRooms.setText(details.getNoRooms());
+  //    Integer.toString(details.getNum_p());
+  //      numberGuests.setText(details.getNoPeople());
+  //      numberRooms.setText(details.getNoRooms());
 
-    // change expiration date to datepicker
-    // pull info
-    // check info
-    // push to db
-    // on room availability add sold out functionality
-    // add cancel reservation to homepage "email and password pull"
-    // work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date
-    // cannot be before start date (how to block out old dates on datepicker)/ if nothing selected
-    // label.settext("must select ~~")), room availability on date, add cancel reservation on
-    // landingpage.
-    // edit management to add management and encrypt password
+  // change expiration date to datepicker
+  // pull info
+  // check info
+  // push to db
+  // on room availability add sold out functionality
+  // add cancel reservation to homepage "email and password pull"
+  // work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date
+  // cannot be before start date (how to block out old dates on datepicker)/ if nothing selected
+  // label.settext("must select ~~")), room availability on date, add cancel reservation on
+  // landingpage.
+  // edit management to add management and encrypt password
 
-    /**
-     * *
-     *
-     * @param event Event related to canceling a reservation
-     * @throws IOException The check exception thrown when working with input or output
-     */
-    @FXML
-    void cancelReservation (ActionEvent event) throws IOException {
-      System.out.println("Cancel Reservation Pressed");
-      roomImage.setVisible(false);
-      infoPane.setVisible(false);
-      roomPane.setVisible(false);
-      infoText.setVisible(false);
-      rmText.setVisible(false);
-      cancelText.setVisible(true);
-    }
+  /**
+   * *
+   *
+   * @param event Event related to canceling a reservation
+   * @throws IOException The check exception thrown when working with input or output
+   */
+  @FXML
+  void cancelReservation(ActionEvent event) throws IOException {
+    System.out.println("Cancel Reservation Pressed");
+    roomImage.setVisible(false);
+    infoPane.setVisible(false);
+    roomPane.setVisible(false);
+    infoText.setVisible(false);
+    rmText.setVisible(false);
+    cancelText.setVisible(true);
+  }
 
-    public void sendText4 (GuestReservation details){
-      this.details = details;
-    }
+  public void sendText4(GuestReservation details) {
+    this.details = details;
+  }
 
   /*
   @FXML
@@ -230,8 +220,6 @@ public class UserReservationDetails implements Initializable {
     }
     tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
   }*/
-
-
 
   // Database management
   private Connection conn = null;

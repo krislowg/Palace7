@@ -56,8 +56,6 @@ public class UserAccount {
     lbl_PasswordVal.setText(" ");
   }
 
-
-
   /**
    * *
    *
@@ -95,21 +93,16 @@ public class UserAccount {
         Stage stage1 = (Stage) btn_SignInUAccount.getScene().getWindow();
         stage1.close();
 
+        /*
+               Parent guestAcParent =
+                   FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
+               Scene gAccountScene = new Scene(guestAcParent);
 
+               Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+               gAccWindow.setScene(gAccountScene);
+               gAccWindow.showAndWait();
 
-
-
-
-/*
-        Parent guestAcParent =
-            FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
-        Scene gAccountScene = new Scene(guestAcParent);
-
-        Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        gAccWindow.setScene(gAccountScene);
-        gAccWindow.showAndWait();
-
- */
+        */
       } else {
         System.out.println("Not Changing Scene");
         Alert alert = new Alert(AlertType.ERROR);
@@ -165,7 +158,8 @@ public class UserAccount {
       pstmt.setString(1, email);
       pstmt.setString(2, password);
       rs = pstmt.executeQuery();
-      /********************************************************** sql = "SELECT * FROM guest WHERE
+      /**
+       * ******************************************************** sql = "SELECT * FROM guest WHERE
        * email = " + "\'" + email + "\';"; pstmt = conn.prepareStatement(sql); ResultSet rs2 =
        * pstmt.executeQuery(); while(rs2.next()){ myEmail = rs2.getString("EMAIL"); myName =
        * rs2.getString("NAME"); myLName = rs2.getString("LASTNAME"); myNoPeople =
@@ -174,7 +168,8 @@ public class UserAccount {
        * rs2.getString("ROOMTYPE"); myPassword = rs2.getString("PASSWORD");
        * System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n" +
        * myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" + myPassword);
-       * } *******************************************************/
+       * } ******************************************************
+       */
       if (!rs.next()) {
         System.out.println("Wrong email/password!");
         return false;

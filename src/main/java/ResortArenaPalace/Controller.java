@@ -184,7 +184,23 @@ public class Controller {
                 dj.isSelected(),
                 party_planner.isSelected());
         System.out.println(newEvent);
-      } catch (SQLException | ClassNotFoundException e) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("UserEventDetails.fxml"));
+        Parent tableViewParent = loader.load();
+
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        //access the controller and call a method
+        UserEventDetails controller = loader.getController();
+        controller.sendEvent(newEvent);
+
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
+        // open new scene, and send through newEvent to confirmation screen
+      } catch (SQLException | ClassNotFoundException | IOException e) {
         e.printStackTrace();
       }
     }
@@ -293,17 +309,18 @@ public class Controller {
       // System.out.println(i);
       if (i <= 0) {
         loader.setLocation(getClass().getResource("RoomAvailability.fxml"));
-        try {
-          loader.load();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        RoomAvailability y = loader.getController();
-        y.sendText(roomInfo);
+        Parent tableViewParent = loader.load();
+//        try {
+//          loader.load();
+//        } catch (IOException e) {
+//          e.printStackTrace();
+//        }
+        Scene roomAvScene = new Scene(tableViewParent);
+        RoomAvailability controller = loader.getController();
+        controller.sendText(roomInfo);
 
-        Parent roomAvailableParent =
-            FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
-        Scene roomAvScene = new Scene(roomAvailableParent);
+//        Parent roomAvailableParent =
+//            FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
 
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         window.setScene(roomAvScene);

@@ -2,7 +2,7 @@ package ResortArenaPalace;
 
 import java.util.Date;
 
-public class EventReservation extends User{
+public class EventReservation extends User {
 
   private String fName;
   private String event;
@@ -78,23 +78,31 @@ public class EventReservation extends User{
     this.partyPlanner = partyPlanner;
   }
 
-  /***
-   * Constructor
+  /**
+   * * Constructor
    *
-   * @param email  String that represents the email address of the guest
+   * @param email String that represents the email address of the guest
    * @param fName Refers to the fist name of the guest
    * @param event Type of ceremony the guest wants to have
    * @param eventDate Time when the ceremony will have place
    * @param noPeople Number of people that will attend the ceremony
-   * @param venue  Place where the event will have place
+   * @param venue Place where the event will have place
    * @param catering Provision of food and drinks needed for the event
-   * @param dj  Music type
+   * @param dj Music type
    * @param partyPlanner Planning of the ceremony
    * @param password A secret phrase chosen by the user; it is used for the login
    */
-
-  EventReservation(String email, String fName, String event, String password, String eventDate, int noPeople,
-      String venue, Boolean catering, Boolean dj, Boolean partyPlanner) {
+  EventReservation(
+      String email,
+      String fName,
+      String event,
+      String password,
+      String eventDate,
+      int noPeople,
+      String venue,
+      Boolean catering,
+      Boolean dj,
+      Boolean partyPlanner) {
     super(email, password);
     this.fName = fName;
     this.event = event;
@@ -105,5 +113,4 @@ public class EventReservation extends User{
     this.dj = dj;
     this.partyPlanner = partyPlanner;
   }
-
 }

@@ -191,7 +191,6 @@ public class ManEventReport {
 
       // STEP 4: Clean-up environment
 
-
     } catch (SQLException e) {
       e.printStackTrace();
     }
