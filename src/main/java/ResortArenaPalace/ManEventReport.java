@@ -62,9 +62,6 @@ public class ManEventReport {
 
   @FXML private TextField txt_PartyPlanner;
 
-  /*@FXML
-  private TextField txt_Fname;*/
-
   @FXML private TextField txt_EvType;
 
   @FXML private TextField txt_EvDate;
@@ -114,6 +111,16 @@ public class ManEventReport {
   private ObservableList<EventReservation> eventReport =
       FXCollections.observableArrayList(); // Table view related
 
+  @FXML
+  void changeEvRepToChart(ActionEvent event) throws IOException {
+    Parent eventReportParent = FXMLLoader.load(getClass().getResource("EventChart.fxml"));
+    Scene evRepScene = new Scene(eventReportParent);
+
+    Stage eventChartWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    eventChartWindow.setScene(evRepScene);
+    eventChartWindow.show();
+  }
+
   /**
    * *
    *
@@ -123,102 +130,111 @@ public class ManEventReport {
   void addEvent(ActionEvent event) {
     // Getting values from text field and combobox in Manager Event Report and storing them in a
     // variable
-    String e_Email = txt_Email.getText();
-    String e_FullName = txt_Name.getText();
-    // String e_FullName = txt_Fname.getText();
-    String e_Type = cbox_EventType.getValue();
-    String e_Password = txt_Password.getText();
-    String e_Date = String.valueOf(txt_EvDate.getText());
-    int e_People = Integer.parseInt(txt_EvPeople.getText());
-    String e_Venue = cbox_Venue.getValue();
-    Boolean e_Catering = null;
-    if (cbox_Catering.getValue().equals("YES")) {
-      e_Catering = true;
+    if (txt_Email.getText().trim().isEmpty() || txt_EvDate.getText().trim().isEmpty()) {
+      Alert alert = new Alert(AlertType.ERROR);
+      alert.setTitle("Error");
+      alert.setHeaderText("You must fill all the fields");
+      alert.setContentText(null);
+      Optional<ButtonType> action = alert.showAndWait();
     } else {
-      e_Catering = false;
-    }
-    Boolean e_DJ = null;
-    if (cbox_Dj.getValue().equals("YES")) {
-      e_DJ = true;
-    } else {
-      e_DJ = false;
-    }
-    Boolean e_PartyPlanner = null;
-    if (cbox_PartyPlanner.getValue().equals("YES")) {
-      e_PartyPlanner = true;
-    } else {
-      e_PartyPlanner = false;
-    }
-
-    EventReservation newEvent =
-        new EventReservation(
-            e_Email,
-            e_FullName,
-            e_Type,
-            e_Password,
-            e_Date,
-            e_People,
-            e_Venue,
-            e_Catering,
-            e_DJ,
-            e_PartyPlanner);
-
-    eventReport.add(newEvent);
-    tablev_EventReport.setItems(eventReport);
-
-    try {
-
-      // Inserts the given values into the DataBase EVENTRESERVATION table
-      System.out.println("Attempting to INSERT");
-      String sql =
-          "INSERT INTO EVENTRESERVATION(EMAIL,FNAME,EVENT,PASSWORD,EVENTDATE,NOPEOPLE,VENUE,CATERING,DJ,PARTYPLANNER)"
-              + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-
-      PreparedStatement ps = conn.prepareStatement(sql); // bugfound
-      ps.setString(1, e_Email);
-      ps.setString(2, e_FullName);
-      ps.setString(3, e_Type);
-      ps.setString(4, e_Password);
-      ps.setString(5, e_Date);
-      ps.setString(6, String.valueOf(e_People));
-      ps.setString(7, e_Venue);
-      ps.setBoolean(8, e_Catering);
-      ps.setBoolean(9, e_DJ);
-      ps.setBoolean(10, e_PartyPlanner);
-
-      ps.executeUpdate(); // Updates the values in the EVENTRESERVATION table
-      System.out.println("Inserted!");
-
-      // STEP 4: Clean-up environment
-
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    try {
-      String sql = "SELECT * FROM EVENTRESERVATION";
-      ResultSet rs = stmt.executeQuery(sql);
-      while (rs.next()) {
-        if (rs.last()) {
-          eventList.add(
-              new EventReservation(
-                  rs.getString("EMAIL"),
-                  rs.getString("FNAME"),
-                  rs.getString("EVENT"),
-                  rs.getString("PASSWORD"),
-                  rs.getString("EVENTDATE"),
-                  Integer.parseInt(rs.getString("NOPEOPLE")),
-                  (rs.getString("VENUE")),
-                  rs.getBoolean("CATERING"),
-                  rs.getBoolean("DJ"),
-                  rs.getBoolean("PARTYPLANNER")));
-        }
+      String e_Email = txt_Email.getText();
+      String e_FullName = txt_Name.getText();
+      // String e_FullName = txt_Fname.getText();
+      String e_Type = cbox_EventType.getValue();
+      String e_Password = txt_Password.getText();
+      String e_Date = String.valueOf(txt_EvDate.getText());
+      int e_People = Integer.parseInt(txt_EvPeople.getText());
+      String e_Venue = cbox_Venue.getValue();
+      Boolean e_Catering = null;
+      if (cbox_Catering.getValue().equals("YES")) {
+        e_Catering = true;
+      } else if (cbox_Catering.getValue().equals("NO") || cbox_Catering.getValue().equals("NO ")) {
+        e_Catering = false;
+      }
+      Boolean e_DJ = null;
+      if (cbox_Dj.getValue().equals("YES")) {
+        e_DJ = true;
+      } else if (cbox_Dj.getValue().equals("NO") || cbox_Dj.getValue().equals("NO ")) {
+        e_DJ = false;
+      }
+      Boolean e_PartyPlanner = null;
+      if (cbox_PartyPlanner.getValue().equals("YES")) {
+        e_PartyPlanner = true;
+      } else if (cbox_PartyPlanner.getValue().equals("NO")
+          || cbox_PartyPlanner.getValue().equals("NO ")) {
+        e_PartyPlanner = false;
       }
 
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+      EventReservation newEvent =
+          new EventReservation(
+              e_Email,
+              e_FullName,
+              e_Type,
+              e_Password,
+              e_Date,
+              e_People,
+              e_Venue,
+              e_Catering,
+              e_DJ,
+              e_PartyPlanner);
 
-    tablev_EventReport.setItems(eventList);
+      eventReport.add(newEvent);
+      tablev_EventReport.setItems(eventReport);
+
+      try {
+
+        // Inserts the given values into the DataBase EVENTRESERVATION table
+        System.out.println("Attempting to INSERT");
+        String sql =
+            "INSERT INTO EVENTRESERVATION(EMAIL,FNAME,EVENT,PASSWORD,EVENTDATE,NOPEOPLE,VENUE,CATERING,DJ,PARTYPLANNER)"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+
+        PreparedStatement ps = conn.prepareStatement(sql); // bugfound
+        ps.setString(1, e_Email);
+        ps.setString(2, e_FullName);
+        ps.setString(3, e_Type);
+        ps.setString(4, e_Password);
+        ps.setString(5, e_Date);
+        ps.setString(6, String.valueOf(e_People));
+        ps.setString(7, e_Venue);
+        ps.setBoolean(8, e_Catering);
+        ps.setBoolean(9, e_DJ);
+        ps.setBoolean(10, e_PartyPlanner);
+
+        ps.executeUpdate(); // Updates the values in the EVENTRESERVATION table
+        System.out.println("Inserted!");
+
+        // STEP 4: Clean-up environment
+
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+      try {
+        String sql = "SELECT * FROM EVENTRESERVATION";
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+          if (rs.last()) {
+            eventList.add(
+                new EventReservation(
+                    rs.getString("EMAIL"),
+                    rs.getString("FNAME"),
+                    rs.getString("EVENT"),
+                    rs.getString("PASSWORD"),
+                    rs.getString("EVENTDATE"),
+                    Integer.parseInt(rs.getString("NOPEOPLE")),
+                    rs.getString("VENUE"),
+                    rs.getBoolean("CATERING"),
+                    rs.getBoolean("DJ"),
+                    rs.getBoolean("PARTYPLANNER")));
+          }
+        }
+
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+
+      tablev_EventReport.setItems(eventList);
+    }
   }
 
   /** @param event Action that cancels the reservation of an event */
@@ -231,6 +247,19 @@ public class ManEventReport {
     Optional<ButtonType> action = alert.showAndWait();
 
     if (action.get() == ButtonType.OK) {
+      try {
+        System.out.println("Deleting Event Info");
+        EventReservation eventReservation = tablev_EventReport.getSelectionModel().getSelectedItem();
+        String selectedEvent = eventReservation.getEmail();
+        String sql = "DELETE FROM EVENTRESERVATION WHERE EMAIL = " + "\'" + selectedEvent + "\';";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.execute();
+        System.out.println("Event Deleted!");
+
+      } catch (SQLException e) {
+        System.out.println("Could not delete event");
+        e.printStackTrace();
+      }
       tablev_EventReport
           .getItems()
           .removeAll(tablev_EventReport.getSelectionModel().getSelectedItem());
@@ -317,7 +346,7 @@ public class ManEventReport {
 
   private void settingUpColumns() {
     col_EvEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-    col_Name.setCellValueFactory(new PropertyValueFactory<>("fName"));
+    //col_Name.setCellValueFactory(new PropertyValueFactory<>("fName"));
     // col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
     col_EventType.setCellValueFactory(new PropertyValueFactory<>("event"));
     col_EvDate.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
@@ -349,9 +378,9 @@ public class ManEventReport {
                 rs.getString("EVENTDATE"),
                 Integer.parseInt(rs.getString("NOPEOPLE")),
                 (rs.getString("VENUE")),
-                rs.getBoolean("CATERING"),
-                rs.getBoolean("DJ"),
-                rs.getBoolean("PARTYPLANNER")));
+                Boolean.parseBoolean(rs.getString("CATERING")),
+                Boolean.parseBoolean(rs.getString("DJ")),
+                Boolean.parseBoolean(rs.getString("PARTYPLANNER"))));
       }
 
     } catch (SQLException e) {

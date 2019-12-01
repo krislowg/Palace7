@@ -71,6 +71,9 @@ public class ManReport {
 
   @FXML private TextField txt_Email;
 
+  @FXML
+  private Label txt_ErrorFillFields;
+
   @FXML private Button btn_AddGuest;
 
   @FXML private Button btn_GRepToEvReport;
@@ -133,8 +136,7 @@ public class ManReport {
   private ObservableList<String> roomTypes =
       FXCollections.observableArrayList("Luxury", "Underwater", "Superior", "GrandArena");
 
-  private ObservableList<Guest> guestReport =
-      FXCollections.observableArrayList(); // Table view related
+  private ObservableList<Guest> guestReport = FXCollections.observableArrayList(); // Table view related
   /**
    * *
    *
@@ -142,70 +144,77 @@ public class ManReport {
    */
   @FXML
   void addGuest(ActionEvent event) {
+    if (txt_Email.getText().trim().isEmpty() || txt_CheckIn.getText().trim().isEmpty()) {
+      Alert alert = new Alert(AlertType.ERROR);
+      alert.setTitle("Error");
+      alert.setHeaderText("You must fill all the fields");
+      alert.setContentText(null);
+      Optional<ButtonType> action = alert.showAndWait();
+    } else {
+      // Getting values from text field and combobox in Product Line tab and storing them in a
+      // variable
+      String g_email = txt_Email.getText();
+      String g_FirstName = txt_Fname.getText();
+      String g_LastName = txt_Lname.getText();
+      int g_NoPeople = Integer.parseInt(cbox_NoPeople.getValue());
+      int g_NoRooms = Integer.parseInt(cbox_NoRoom.getValue());
+      String g_CheckIn = txt_CheckIn.getText();
+      String g_Checkout = txt_CheckOut.getText();
+      String g_RoomType = cbox_RoomType.getValue();
+      String g_password = txt_password.getText();
 
-    // Getting values from text field and combobox in Product Line tab and storing them in a
-    // variable
-    String g_email = txt_Email.getText();
-    String g_FirstName = txt_Fname.getText();
-    String g_LastName = txt_Lname.getText();
-    int g_NoPeople = Integer.parseInt(cbox_NoPeople.getValue());
-    int g_NoRooms = Integer.parseInt(cbox_NoRoom.getValue());
-    String g_CheckIn = txt_CheckIn.getText();
-    String g_Checkout = txt_CheckOut.getText();
-    String g_RoomType = cbox_RoomType.getValue();
-    String g_password = txt_password.getText();
+      Guest newGuest =
+          new Guest(
+              g_email,
+              g_FirstName,
+              g_LastName,
+              g_NoPeople,
+              g_NoRooms,
+              g_CheckIn,
+              g_Checkout,
+              g_RoomType,
+              g_password);
 
-    Guest newGuest =
-        new Guest(
-            g_email,
-            g_FirstName,
-            g_LastName,
-            g_NoPeople,
-            g_NoRooms,
-            g_CheckIn,
-            g_Checkout,
-            g_RoomType,
-            g_password);
+      // settingUpColumns();
+      guestReport.add(newGuest);
+      tablev_Report.setItems(guestReport);
 
-    // settingUpColumns();
-    guestReport.add(newGuest);
-    tablev_Report.setItems(guestReport);
+      try {
 
-    try {
+        // Inserts the given values into the DataBase ProdDB. (Product Table)
+        System.out.println("Attempting to INSERT");
+        String sql =
+            "INSERT INTO GUEST(EMAIL,NAME,LASTNAME,NOPEOPLE,NOROOMS,CHECKIN,CHECKOUT,ROOMTYPE,PASSWORD)"
+                + "VALUES (?,?,?,?,?,?,?,?,?)";
+        // "SELECT * FROM PRODUCT";
+        PreparedStatement ps = conn.prepareStatement(sql); // bugfound
+        ps.setString(1, g_email);
+        ps.setString(2, g_FirstName);
+        ps.setString(3, g_LastName);
+        ps.setString(4, String.valueOf(g_NoPeople));
+        ps.setString(5, String.valueOf(g_NoRooms));
+        ps.setString(6, g_CheckIn);
+        ps.setString(7, g_Checkout);
+        ps.setString(8, g_RoomType);
+        ps.setString(9, g_password);
 
-      // Inserts the given values into the DataBase ProdDB. (Product Table)
-      System.out.println("Attempting to INSERT");
-      String sql =
-          "INSERT INTO GUEST(EMAIL,NAME,LASTNAME,NOPEOPLE,NOROOMS,CHECKIN,CHECKOUT,ROOMTYPE,PASSWORD)"
-              + "VALUES (?,?,?,?,?,?,?,?,?)";
-      // "SELECT * FROM PRODUCT";
-      PreparedStatement ps = conn.prepareStatement(sql); // bugfound
-      ps.setString(1, g_email);
-      ps.setString(2, g_FirstName);
-      ps.setString(3, g_LastName);
-      ps.setString(4, String.valueOf(g_NoPeople));
-      ps.setString(5, String.valueOf(g_NoRooms));
-      ps.setString(6, g_CheckIn);
-      ps.setString(7, g_Checkout);
-      ps.setString(8, g_RoomType);
-      ps.setString(9, g_password);
+        ps.executeUpdate(); // Updates the values in the Product table
+        System.out.println("Inserted!");
 
-      ps.executeUpdate(); // Updates the values in the Product table
-      System.out.println("Inserted!");
+        // STEP 4: Clean-up environment
+        stmt.close(); // Closes the statements and the connections
+        conn.close();
 
-      // STEP 4: Clean-up environment
-      stmt.close(); // Closes the statements and the connections
-      conn.close();
-
-    } catch (SQLException e) {
-      e.printStackTrace();
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+      /*Guest myGuest = new Guest((txt_Email.getText()), txt_Fname.getText(),
+          txt_Lname.getText(), Integer.parseInt(txt_Npeople.getText()),
+          Integer.parseInt(txt_nRooms.getText()),
+          txt_CheckIn.getText(), txt_CheckOut.getText(), txt_RoomType.getText(),
+          txt_password.getText());
+      tablev_Report.getItems().add(myGuest);*/
     }
-    /*Guest myGuest = new Guest((txt_Email.getText()), txt_Fname.getText(),
-        txt_Lname.getText(), Integer.parseInt(txt_Npeople.getText()),
-        Integer.parseInt(txt_nRooms.getText()),
-        txt_CheckIn.getText(), txt_CheckOut.getText(), txt_RoomType.getText(),
-        txt_password.getText());
-    tablev_Report.getItems().add(myGuest);*/
   }
 
   /**
@@ -319,57 +328,4 @@ public class ManReport {
 
     tablev_Report.setItems(glist);
   }
-  /*Kristy is working on populating the Guest list for the Manager Report
-    private Connection conn = null;
-    private Statement stmt = null;
-    public void initialize() {
-      initializeDB();
-      populateGuestTableReport();
-    }
-    private void initializeDB() {
-      final String JDBC_DRIVER = "org.h2.Driver";
-      final String DB_URL = "jdbc:h2:./res/test";
-      final String USER = "";
-      final String PASS = "";
-      System.out.println("Attempting to connect to database");
-      try {
-        Class.forName(JDBC_DRIVER);
-        conn = DriverManager.getConnection(DB_URL, USER, PASS);
-        stmt = conn.createStatement();
-        System.out.println("Successfully connected to database!");
-      } catch (Exception e) {
-        e.printStackTrace();
-        Alert a = new Alert(Alert.AlertType.ERROR);
-        a.show();
-      }
-    }
-    ObservableList<Guest> glist = FXCollections.observableArrayList();
-    //@Override
-   // public void initialize(URL location, ResourceBundle resources) {
-      public void populateGuestTableReport(){
-        try {
-          String sql = "SELECT * FROM GUEST";
-          ResultSet rs = stmt.executeQuery(sql);
-          while (rs.next()) {
-            glist.add(new Guest(rs.getString("email"),rs.getString("name"),
-                rs.getString("lastName"), Integer.parseInt(rs.getString("noPeople")),
-                Integer.parseInt(rs.getString("noRooms")), rs.getString("checkIn"),
-                rs.getString("checkOut"), rs.getString("roomType"),
-                rs.getString("password") ));
-          }
-          } catch (SQLException e) {
-          e.printStackTrace();
-        }
-        col_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        col_FirstName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_LastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        col_NPeople.setCellValueFactory(new PropertyValueFactory<>("noPeople"));
-        col_Nrooms.setCellValueFactory(new PropertyValueFactory<>("noRooms"));
-        col_CheckIn.setCellValueFactory(new PropertyValueFactory<>("checkIn"));
-        col_CheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
-        col_RType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
-        col_Password.setCellValueFactory(new PropertyValueFactory<>("password"));
-        tablev_Report.setItems(glist);
-      }
-  */
 }

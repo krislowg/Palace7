@@ -1,13 +1,11 @@
 package ResortArenaPalace;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,33 +13,30 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.SortEvent;
 import javafx.stage.Stage;
 
-public class BarChartEx {
-
-  @FXML private BarChart<String, Integer> barChart_Booking;
-
-  @FXML private CategoryAxis x_Months;
-
-  @FXML private NumberAxis y_Reservation;
+public class EventChart {
 
   @FXML
-  private Button btn_GuestChart;
+  private BarChart<String, Integer> eventBarChart;
 
   @FXML
-  void changeGuestChartToReport(ActionEvent event) throws IOException {
-    Parent barChartParent = FXMLLoader.load(getClass().getResource("ManReport.fxml"));
-    Scene guestRepScene = new Scene(barChartParent);
+  private Button btn_GoBackEvChart;
 
-    Stage homeRWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    homeRWindow.setScene(guestRepScene);
-    homeRWindow.show();
+  @FXML
+  private Button btn_SummaryEvent;
+
+  @FXML
+  void changeEventChartToEvReport(ActionEvent event) throws IOException {
+    Parent evChartParent = FXMLLoader.load(getClass().getResource("ManEventReport.fxml"));
+    Scene evManReportScene = new Scene(evChartParent);
+
+    Stage eventReportWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    eventReportWindow.setScene(evManReportScene);
+    eventReportWindow.show();
   }
 
   private Connection conn = null;
@@ -50,7 +45,7 @@ public class BarChartEx {
   public void initialize() {
 
     initializeDB();
-    countJanuary();
+    countMonth();
   }
 
   private void initializeDB() {
@@ -72,7 +67,7 @@ public class BarChartEx {
     }
   }
 
-  public void countJanuary() {
+  public void countMonth() {
     String string1;
     int jan_count = 0;
     int feb_count = 0;
@@ -87,10 +82,10 @@ public class BarChartEx {
     int nov_count = 0;
     int dec_count = 0;
     try {
-      String sql = "SELECT CHECKIN FROM GUEST";
+      String sql = "SELECT EVENTDATE FROM EVENTRESERVATION";
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next()) {
-        string1 = rs.getString("CHECKIN");
+        string1 = rs.getString("EVENTDATE");
         System.out.println(string1);
         if (string1.substring(5, 7).equals("01")) jan_count++;
         else if (string1.substring(5, 7).equals("02")) feb_count++;
@@ -122,12 +117,12 @@ public class BarChartEx {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    loadBarChart(
+    loadEventBarChart(
         jan_count, feb_count, mar_count, apr_count, may_count, jun_count, jul_count, aug_count,
         sep_count, oct_count, nov_count, dec_count);
   }
 
-  public void loadBarChart(
+  public void loadEventBarChart(
       int jan,
       int feb,
       int mar,
@@ -153,6 +148,7 @@ public class BarChartEx {
     setGuest.getData().add(new XYChart.Data("October", oct));
     setGuest.getData().add(new XYChart.Data("November", nov));
     setGuest.getData().add(new XYChart.Data("December", dec));
-    barChart_Booking.getData().addAll(setGuest);
+    eventBarChart.getData().addAll(setGuest);
   }
+
 }
