@@ -26,46 +26,26 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class UserReservationDetails implements Initializable {
-
+public class UserReservationDetails {
   @FXML private Label lbl_TitleReservation;
-
   @FXML private TextArea txtA_ReservationDet;
-
   @FXML private Button btn_CancelR;
-
   @FXML private Button btn_SignOut;
-
   @FXML private ImageView roomImage;
-
   @FXML private Label thankMessage;
-
   @FXML private Pane infoPane;
-
   @FXML private Pane roomPane;
-
   @FXML private Text rmText;
-
   @FXML private Text infoText;
-
   @FXML private Text cancelText;
-
   @FXML private Label firstName;
-
   @FXML private Label lastName;
-
   @FXML private Label email;
-
   @FXML private Label paymentType;
-
   @FXML private Label numberGuests;
-
   @FXML private Label numberRooms;
-
   @FXML private Label roomType;
-
   @FXML private Label checkInDate;
-
   @FXML private Label checkOutDate;
 
   public String myEmail;
@@ -78,87 +58,80 @@ public class UserReservationDetails implements Initializable {
   public String myRoomType;
   public String myPassword;
 
-  public static GuestReservation details;
-
-  /**
-   * *
-   *
-   * @param event Event that indicates the move to the home window
-   * @throws IOException The check exception thrown when working with input or output
-   */
-  @FXML
-  void changeResDetToHome(ActionEvent event) throws IOException {
-    Parent resDetParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
-    Scene ReservationScene = new Scene(resDetParent);
-
-    Stage rDWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    rDWindow.setScene(ReservationScene);
-    rDWindow.show();
-  }
+  private GuestReservation detail;
 
   @FXML
-  public void initialize(URL url, ResourceBundle rb) {
+  public void initialize() {
     cancelText.setVisible(false);
-    System.out.println("____________________" + myEmail);
-    email.setText(myEmail);
+    //    System.out.println("____________________" + myEmail);
+    //    email.setText(myEmail);
   }
 
-  public void setText(String email) {
-    // this.email.setText(email);
-    System.out.println("Email is " + email);
-    myEmail = email;
-    this.email.setText(myEmail);
-    try {
-      initializeDB();
-      String sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
-      // ResultSet rs = null;
-      PreparedStatement pstmt = conn.prepareStatement(sql);
-      // sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
-      pstmt = conn.prepareStatement(sql);
-      ResultSet rs2 = pstmt.executeQuery();
-      while (rs2.next()) {
-        myEmail = rs2.getString("EMAIL");
-        myName = rs2.getString("NAME");
-        myLName = rs2.getString("LASTNAME");
-        myNoPeople = rs2.getString("NOPEOPLE");
-        myNoRooms = rs2.getString("NOROOMS");
-        myCheckIn = rs2.getString("CHECKIN");
-        myCheckOut = rs2.getString("CHECKOUT");
-        myRoomType = rs2.getString("ROOMTYPE");
-        myPassword = rs2.getString("PASSWORD");
-        System.out.println(
-            myEmail
-                + "\n"
-                + myName
-                + "\n"
-                + myLName
-                + "\n"
-                + myNoPeople
-                + "\n"
-                + myNoRooms
-                + "\n"
-                + myCheckIn
-                + "\n"
-                + myCheckOut
-                + "\n"
-                + myRoomType
-                + "\n"
-                + myPassword);
-      }
-      firstName.setText(myName);
-      lastName.setText(myLName);
-      paymentType.setText(" Visa");
-      numberGuests.setText(myNoPeople);
-      numberRooms.setText(myNoRooms);
-      roomType.setText(myRoomType);
-      checkInDate.setText(myCheckIn);
-      checkOutDate.setText(myCheckOut);
-
-    } catch (SQLException e) {
-      System.out.println("Could not login");
-      e.printStackTrace();
-    }
-  }
+  //   void setText(String emails) {
+  //    // this.email.setText(email);
+  //    System.out.println("Email is " + emails);
+  //    myEmail = emails;
+  //    this.email.setText(myEmail);
+  //    try {
+  //      initializeDB();
+  //      String sql = "SELECT * FROM guest WHERE email = " + "\'" + emails + "\';";
+  //      // ResultSet rs = null;
+  //      PreparedStatement pstmt = conn.prepareStatement(sql);
+  //      // sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
+  //      pstmt = conn.prepareStatement(sql);
+  //      ResultSet rs2 = pstmt.executeQuery();
+  //      while (rs2.next()) {
+  //        email.setText(rs2.getString("EMAIL"));
+  //        firstName.setText(rs2.getString("NAME"));
+  //        lastName.setText(rs2.getString("LASTNAME"));
+  //        numberGuests.setText(rs2.getString("NOPEOPLE"));
+  //        numberRooms.setText(rs2.getString("NOROOMS"));
+  //        checkInDate.setText(rs2.getString("CHECKIN"));
+  //        checkOutDate.setText(rs2.getString("CHECKOUT"));
+  //        roomType.setText(rs2.getString("ROOMTYPE"));
+  //        }
+  ////        myEmail = rs2.getString("EMAIL");
+  ////        myName = rs2.getString("NAME");
+  ////        myLName = rs2.getString("LASTNAME");
+  ////        myNoPeople = rs2.getString("NOPEOPLE");
+  ////        myNoRooms = rs2.getString("NOROOMS");
+  ////        myCheckIn = rs2.getString("CHECKIN");
+  ////        myCheckOut = rs2.getString("CHECKOUT");
+  ////        myRoomType = rs2.getString("ROOMTYPE");
+  ////        myPassword = rs2.getString("PASSWORD");
+  ////        System.out.println(
+  ////            myEmail
+  ////                + "\n"
+  ////                + myName
+  ////                + "\n"
+  ////                + myLName
+  ////                + "\n"
+  ////                + myNoPeople
+  ////                + "\n"
+  ////                + myNoRooms
+  ////                + "\n"
+  ////                + myCheckIn
+  ////                + "\n"
+  ////                + myCheckOut
+  ////                + "\n"
+  ////                + myRoomType
+  ////                + "\n"
+  ////                + myPassword);
+  ////      }
+  ////      firstName.setText(myName);
+  ////      lastName.setText(myLName);
+  ////      paymentType.setText(" Visa");
+  ////      numberGuests.setText(myNoPeople);
+  ////      numberRooms.setText(myNoRooms);
+  ////      roomType.setText(myRoomType);
+  ////      checkInDate.setText(myCheckIn);
+  ////      checkOutDate.setText(myCheckOut);
+  //
+  //    } catch (SQLException e) {
+  //      System.out.println("Could not login");
+  //      e.printStackTrace();
+  //    }
+  //  }
   //    Integer.toString(details.getNum_p());
   //      numberGuests.setText(details.getNoPeople());
   //      numberRooms.setText(details.getNoRooms());
@@ -175,6 +148,19 @@ public class UserReservationDetails implements Initializable {
   // landingpage.
   // edit management to add management and encrypt password
 
+  void sendText4(GuestReservation details) {
+    detail = details;
+    System.out.println(detail.getEmail());
+    email.setText(detail.getEmail());
+    firstName.setText(detail.getName());
+    lastName.setText(detail.getlName());
+    numberGuests.setText(String.valueOf(detail.getNum_p()));
+    numberRooms.setText(String.valueOf(detail.getNum_r()));
+    checkInDate.setText(detail.getChkIn());
+    checkOutDate.setText(detail.getChkOut());
+    roomType.setText(detail.getRoomType());
+  }
+
   /**
    * *
    *
@@ -190,10 +176,14 @@ public class UserReservationDetails implements Initializable {
     infoText.setVisible(false);
     rmText.setVisible(false);
     cancelText.setVisible(true);
-  }
-
-  public void sendText4(GuestReservation details) {
-    this.details = details;
+//    email.setText(detail.getEmail());
+//    firstName.setText(detail.getName());
+//    lastName.setText(detail.getlName());
+//    numberGuests.setText(String.valueOf(detail.getNum_p()));
+//    numberRooms.setText(String.valueOf(detail.getNum_r()));
+//    checkInDate.setText(detail.getChkIn());
+//    checkOutDate.setText(detail.getChkOut());
+//    roomType.setText(detail.getRoomType());
   }
 
   /*
@@ -222,25 +212,40 @@ public class UserReservationDetails implements Initializable {
   }*/
 
   // Database management
-  private Connection conn = null;
-  private Statement stmt = null;
+  //  private Connection conn = null;
+  //  private Statement stmt = null;
+  //
+  //  private void initializeDB() {
+  //    final String JDBC_DRIVER = "org.h2.Driver";
+  //    final String DB_URL = "jdbc:h2:./res/palace";
+  //    final String USER = "";
+  //    final String PASS = "";
+  //
+  //    System.out.println("Attempting to connect to database");
+  //    try {
+  //      Class.forName(JDBC_DRIVER);
+  //      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+  //      stmt = conn.createStatement();
+  //      System.out.println("Successfully connected to database!");
+  //    } catch (Exception e) {
+  //      e.printStackTrace();
+  //      Alert a = new Alert(Alert.AlertType.ERROR);
+  //      a.show();
+  //    }
+  //  }
+  /**
+   * *
+   *
+   * @param event Event that indicates the move to the home window
+   * @throws IOException The check exception thrown when working with input or output
+   */
+  @FXML
+  void changeResDetToHome(ActionEvent event) throws IOException {
+    Parent resDetParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
+    Scene ReservationScene = new Scene(resDetParent);
 
-  private void initializeDB() {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/palace";
-    final String USER = "";
-    final String PASS = "";
-
-    System.out.println("Attempting to connect to database");
-    try {
-      Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
-      stmt = conn.createStatement();
-      System.out.println("Successfully connected to database!");
-    } catch (Exception e) {
-      e.printStackTrace();
-      Alert a = new Alert(Alert.AlertType.ERROR);
-      a.show();
-    }
+    Stage rDWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    rDWindow.setScene(ReservationScene);
+    rDWindow.show();
   }
 }

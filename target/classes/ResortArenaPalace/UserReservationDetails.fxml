@@ -90,22 +90,22 @@
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="firstName" layoutX="110.0" layoutY="28.0" prefHeight="27.0" prefWidth="114.0">
+            <Label fx:id="firstName" layoutX="110.0" layoutY="28.0" prefHeight="27.0" prefWidth="114.0" text="name">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="lastName" layoutX="110.0" layoutY="60.0" prefHeight="27.0" prefWidth="114.0">
+            <Label fx:id="lastName" layoutX="110.0" layoutY="60.0" prefHeight="27.0" prefWidth="114.0" text="lname">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="email" layoutX="71.0" layoutY="87.0" prefHeight="27.0" prefWidth="223.0">
+            <Label fx:id="email" layoutX="71.0" layoutY="87.0" prefHeight="27.0" prefWidth="223.0" text="email">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="paymentType" layoutX="85.0" layoutY="119.0" prefHeight="27.0" prefWidth="162.0">
+            <Label fx:id="paymentType" layoutX="85.0" layoutY="119.0" prefHeight="27.0" prefWidth="162.0" text="Visa">
                 <font>
                     <Font size="18.0" />
                 </font>
@@ -140,27 +140,27 @@
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="numberGuests" layoutX="99.0" layoutY="1.0" prefHeight="27.0" prefWidth="70.0">
+            <Label fx:id="numberGuests" layoutX="99.0" layoutY="1.0" prefHeight="27.0" prefWidth="70.0" text="number">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="numberRooms" layoutX="99.0" layoutY="28.0" prefHeight="27.0" prefWidth="70.0">
+            <Label fx:id="numberRooms" layoutX="99.0" layoutY="28.0" prefHeight="27.0" prefWidth="70.0" text="number">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="roomType" layoutX="112.0" layoutY="55.0" prefHeight="27.0" prefWidth="131.0">
+            <Label fx:id="roomType" layoutX="112.0" layoutY="55.0" prefHeight="27.0" prefWidth="131.0" text="type">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="checkInDate" layoutX="97.0" layoutY="157.0" prefHeight="27.0" prefWidth="131.0">
+            <Label fx:id="checkInDate" layoutX="97.0" layoutY="157.0" prefHeight="27.0" prefWidth="131.0" text="in">
                 <font>
                     <Font size="18.0" />
                 </font>
             </Label>
-            <Label fx:id="checkOutDate" layoutX="97.0" layoutY="184.0" prefHeight="27.0" prefWidth="131.0">
+            <Label fx:id="checkOutDate" layoutX="97.0" layoutY="184.0" prefHeight="27.0" prefWidth="131.0" text="out">
                 <font>
                     <Font size="18.0" />
                 </font>
