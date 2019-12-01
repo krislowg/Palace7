@@ -2,9 +2,10 @@ package ResortArenaPalace;
 
 import java.util.Date;
 
-public class EventReservation extends User {
+public class EventReservation {
 
   private String fName;
+  private String email;
   private String event;
   private String eventDate;
   private int noPeople;
@@ -103,7 +104,8 @@ public class EventReservation extends User {
       Boolean catering,
       Boolean dj,
       Boolean partyPlanner) {
-    super(email, password);
+    //super(email, password);
+    this.email = email;
     this.fName = fName;
     this.event = event;
     this.eventDate = eventDate;
@@ -112,5 +114,12 @@ public class EventReservation extends User {
     this.catering = catering;
     this.dj = dj;
     this.partyPlanner = partyPlanner;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+  public void setEmail(String email){
+    this.email = email;
   }
 }

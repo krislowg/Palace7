@@ -16,7 +16,7 @@ public class ConfirmMessage {
 
   @FXML private Button OkayBtn;
 
-  public static GuestReservation finalDataSet;
+  public static GuestReservation finalDataSets;
 
   /**
    * @param event Event that indicates the move to room availability window
@@ -24,29 +24,27 @@ public class ConfirmMessage {
    */
   @FXML
   void userDetails(ActionEvent event) throws IOException {
-    GuestReservation showData = finalDataSet;
+    GuestReservation showData = finalDataSets;
     // System.out.println(roomChoice.getRoomType());
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
-    try {
-      loader.load();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    UserReservationDetails y = loader.getController();
-    y.sendText4(showData);
+    Parent tableViewParent = loader.load();
 
-    Parent userAccountParent =
-        FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
-    Scene roomAvScene = new Scene(userAccountParent);
+    Scene tableViewScene = new Scene(tableViewParent);
 
-    Stage uAWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    uAWindow.setScene(roomAvScene);
-    uAWindow.show();
+    //access the controller and call a method
+    UserReservationDetails controller = loader.getController();
+    controller.sendText4(finalDataSets);
+
+    //This line gets the Stage information
+    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+    window.setScene(tableViewScene);
+    window.show();
   }
 
   void sendText3(GuestReservation finalDataSet) {
-    this.finalDataSet = finalDataSet;
-    System.out.println(finalDataSet.getRoomType());
+    finalDataSets = finalDataSet;
+    System.out.println(finalDataSets.getRoomType());
   }
 }

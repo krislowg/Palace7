@@ -49,6 +49,10 @@ public class UserAccount {
   @FXML private Label lbl_UserNaVal;
 
   @FXML private Label lbl_PasswordVal;
+  private static final String JDBC_DRIVER = "org.h2.Driver";
+  private static final String DB_URL = "jdbc:h2:./res/palace";
+  private Connection conn = null;
+  private Statement stmt = null;
 
   /** @param event Action that handles the password entry */
   @FXML
@@ -70,48 +74,93 @@ public class UserAccount {
     } else if (pField_Password.getText().trim().isEmpty()) {
       lbl_PasswordVal.setText("Password Required");
     } else {
-      if (userLogIn()) {
-        System.out.println("Changing Scene");
-        String email = txtFld_UName.getText();
+      try {
+        Class.forName(JDBC_DRIVER);
+      } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+      try {
+        conn = DriverManager.getConnection(DB_URL);
+        stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM GUEST");
+        while (rs.next()) {
+          //  System.out.println(rs.getString(2));
+          if (rs.getString("EMAIL").equals(txtFld_UName.getText())
+              && rs.getString("PASSWORD").equals(pField_Password.getText())) {
+            GuestReservation newReservation =
+                new GuestReservation(
+                    rs.getString("EMAIL"),
+                    rs.getString("NAME"),
+                    rs.getString("LASTNAME"),
+                    Integer.valueOf(rs.getString("NOPEOPLE")),
+                    Integer.valueOf(rs.getString("NOROOMS")),
+                    rs.getString("CHECKIN"),
+                    rs.getString("CHECKOUT"),
+                    rs.getString("ROOMTYPE"),
+                    rs.getString("PASSWORD"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
+            Parent tableViewParent = loader.load();
 
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
-        try {
-          Loader.load();
-        } catch (IOException ex) {
-          System.out.println("NOPE_______________________________");
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            // access the controller and call a method
+            UserReservationDetails controller = loader.getController();
+            controller.sendText4(newReservation);
+
+            // This line gets the Stage information
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+          }
         }
-        UserReservationDetails set = Loader.getController();
-        set.setText(txtFld_UName.getText());
-        UserReservationDetails display = Loader.getController();
-        display.setText(email);
-
-        Parent p = Loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(p));
-        stage.show();
-        Stage stage1 = (Stage) btn_SignInUAccount.getScene().getWindow();
-        stage1.close();
-
-        /*
-               Parent guestAcParent =
-                   FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
-               Scene gAccountScene = new Scene(guestAcParent);
-
-               Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-               gAccWindow.setScene(gAccountScene);
-               gAccWindow.showAndWait();
-
-        */
-      } else {
-        System.out.println("Not Changing Scene");
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Login Error");
-        alert.setHeaderText("This Email/Password is incorrect.");
-        alert.setContentText(null);
-        Optional<ButtonType> action = alert.showAndWait();
+      } catch (SQLException | IOException ex) {
+        ex.printStackTrace();
       }
     }
+    //      if (userLogIn()) {
+    //        System.out.println("Changing Scene");
+    //        String email = txtFld_UName.getText();
+    //
+    //        FXMLLoader Loader = new FXMLLoader();
+    //        Loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
+    //        try {
+    //          Loader.load();
+    //        } catch (IOException ex) {
+    //          System.out.println("NOPE_______________________________");
+    //        }
+    //        UserReservationDetails set = Loader.getController();
+    ////        set.setText(txtFld_UName.getText());
+    ////        UserReservationDetails display = Loader.getController();
+    ////        display.setText(email);
+    //
+    //        Parent p = Loader.getRoot();
+    //        Stage stage = new Stage();
+    //        stage.setScene(new Scene(p));
+    //        stage.show();
+    //        Stage stage1 = (Stage) btn_SignInUAccount.getScene().getWindow();
+    //        stage1.close();
+    //
+    //        /*
+    //               Parent guestAcParent =
+    //                   FXMLLoader.load(getClass().getResource("UserReservationDetails.fxml"));
+    //               Scene gAccountScene = new Scene(guestAcParent);
+    //
+    //               Stage gAccWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //               gAccWindow.setScene(gAccountScene);
+    //               gAccWindow.showAndWait();
+    //
+    //        */
+    //      } else {
+    //        System.out.println("Not Changing Scene");
+    //        Alert alert = new Alert(AlertType.ERROR);
+    //        alert.setTitle("Login Error");
+    //        alert.setHeaderText("This Email/Password is incorrect.");
+    //        alert.setContentText(null);
+    //        Optional<ButtonType> action = alert.showAndWait();
+    //      }
+    //    }
   }
 
   /**
@@ -122,7 +171,7 @@ public class UserAccount {
    */
   @FXML
   void changeScreenUAccountToHome(ActionEvent event) throws IOException {
-    userLogIn();
+    // userLogIn();
     Parent uAccountParent = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
     Scene userAccScene = new Scene(uAccountParent);
 
@@ -131,84 +180,87 @@ public class UserAccount {
     uAccWindow.show();
   }
 
-  public String myEmail;
-  public String myName;
-  public String myLName;
-  public String myNoPeople;
-  public String myNoRooms;
-  public String myCheckIn;
-  public String myCheckOut;
-  public String myRoomType;
-  public String myPassword;
-
-  public String email;
-
-  @FXML
-  boolean userLogIn() {
-    System.out.println("Log in pressed");
-    String email = txtFld_UName.getText().toString();
-    String password = pField_Password.getText().toString();
-
-    try {
-      initializeDB();
-      String sql = "SELECT * FROM guest WHERE email = ? and password = ?";
-      System.out.println("Attempting to login");
-      ResultSet rs = null;
-      PreparedStatement pstmt = conn.prepareStatement(sql);
-      pstmt.setString(1, email);
-      pstmt.setString(2, password);
-      rs = pstmt.executeQuery();
-      /**
-       * ******************************************************** sql = "SELECT * FROM guest WHERE
-       * email = " + "\'" + email + "\';"; pstmt = conn.prepareStatement(sql); ResultSet rs2 =
-       * pstmt.executeQuery(); while(rs2.next()){ myEmail = rs2.getString("EMAIL"); myName =
-       * rs2.getString("NAME"); myLName = rs2.getString("LASTNAME"); myNoPeople =
-       * rs2.getString("NOPEOPLE"); myNoRooms = rs2.getString("NOROOMS"); myCheckIn =
-       * rs2.getString("CHECKIN"); myCheckOut = rs2.getString("CHECKOUT"); myRoomType =
-       * rs2.getString("ROOMTYPE"); myPassword = rs2.getString("PASSWORD");
-       * System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n" +
-       * myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" + myPassword);
-       * } ******************************************************
-       */
-      if (!rs.next()) {
-        System.out.println("Wrong email/password!");
-        return false;
-      } else {
-        System.out.println("Login succesful!");
-        return true;
-      }
-    } catch (SQLException e) {
-      System.out.println("Could not login");
-      e.printStackTrace();
-    }
-    return true;
-  }
-
-  /*
-    public void initialize(){
-      initializeDB();
-    }
-  */
-  // Database management
-  private Connection conn = null;
-  private Statement stmt = null;
-
-  private void initializeDB() {
-    final String JDBC_DRIVER = "org.h2.Driver";
-    final String DB_URL = "jdbc:h2:./res/palace";
-    final String USER = "";
-    final String PASS = "";
-
-    System.out.println("Attempting to connect to database");
-    try {
-      Class.forName(JDBC_DRIVER);
-      conn = DriverManager.getConnection(DB_URL, USER, PASS);
-      stmt = conn.createStatement();
-      System.out.println("Successfully connected to database!");
-    } catch (Exception e) {
-      e.printStackTrace();
-      Alert a = new Alert(Alert.AlertType.ERROR);
-      a.show();
-    }
-  }
+  //  public String myEmail;
+  //  public String myName;
+  //  public String myLName;
+  //  public String myNoPeople;
+  //  public String myNoRooms;
+  //  public String myCheckIn;
+  //  public String myCheckOut;
+  //  public String myRoomType;
+  //  public String myPassword;
+  //
+  //  public String email;
+  //
+  //  @FXML
+  //  boolean userLogIn() {
+  //    System.out.println("Log in pressed");
+  //    String email = txtFld_UName.getText().toString();
+  //    String password = pField_Password.getText().toString();
+  //
+  //    try {
+  //      initializeDB();
+  //      String sql = "SELECT * FROM guest WHERE email = ? and password = ?";
+  //      System.out.println("Attempting to login");
+  //      ResultSet rs = null;
+  //      PreparedStatement pstmt = conn.prepareStatement(sql);
+  //      pstmt.setString(1, email);
+  //      pstmt.setString(2, password);
+  //      rs = pstmt.executeQuery();
+  //      /**
+  //       * ******************************************************** sql = "SELECT * FROM guest
+  // WHERE
+  //       * email = " + "\'" + email + "\';"; pstmt = conn.prepareStatement(sql); ResultSet rs2 =
+  //       * pstmt.executeQuery(); while(rs2.next()){ myEmail = rs2.getString("EMAIL"); myName =
+  //       * rs2.getString("NAME"); myLName = rs2.getString("LASTNAME"); myNoPeople =
+  //       * rs2.getString("NOPEOPLE"); myNoRooms = rs2.getString("NOROOMS"); myCheckIn =
+  //       * rs2.getString("CHECKIN"); myCheckOut = rs2.getString("CHECKOUT"); myRoomType =
+  //       * rs2.getString("ROOMTYPE"); myPassword = rs2.getString("PASSWORD");
+  //       * System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n"
+  // +
+  //       * myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" +
+  // myPassword);
+  //       * } ******************************************************
+  //       */
+  //      if (!rs.next()) {
+  //        System.out.println("Wrong email/password!");
+  //        return false;
+  //      } else {
+  //        System.out.println("Login succesful!");
+  //        return true;
+  //      }
+  //    } catch (SQLException e) {
+  //      System.out.println("Could not login");
+  //      e.printStackTrace();
+  //    }
+  //    return true;
+  //  }
+  //
+  //  /*
+  //    public void initialize(){
+  //      initializeDB();
+  //    }
+  //  */
+  //  // Database management
+  //  private Connection conn = null;
+  //  private Statement stmt = null;
+  //
+  //  private void initializeDB() {
+  //    final String JDBC_DRIVER = "org.h2.Driver";
+  //    final String DB_URL = "jdbc:h2:./res/palace";
+  //    final String USER = "";
+  //    final String PASS = "";
+  //
+  //    System.out.println("Attempting to connect to database");
+  //    try {
+  //      Class.forName(JDBC_DRIVER);
+  //      conn = DriverManager.getConnection(DB_URL, USER, PASS);
+  //      stmt = conn.createStatement();
+  //      System.out.println("Successfully connected to database!");
+  //    } catch (Exception e) {
+  //      e.printStackTrace();
+  //      Alert a = new Alert(Alert.AlertType.ERROR);
+  //      a.show();
+  //    }
+  //  }
 }
