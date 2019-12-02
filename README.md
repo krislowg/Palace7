@@ -1,4 +1,4 @@
-# Palace7
+# Palace7 < Resort Arena Palace >
 
 ## Built With
 * Intellij by JetBrains
@@ -6,6 +6,8 @@
 * JavaFX
 
 ## Authors
+Team Tuesday 7. Team name : Legendary Coders.
+Team members :
 * Shane Broxson
 * Iman Essaghir
 * Mireya Hernandez Cruz
