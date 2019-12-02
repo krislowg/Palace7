@@ -56,17 +56,16 @@ The following steps need to be performed everytime in order to connect the datab
 ## Data Base access description after the Maven version
 The Maven IntelliJ structure has been implemented in order to manage the project dependencies. Those dependencies enable the automatic updates for all the features including the H2 jar for the database. This structure has been specially implemented to avoid the database connection failure some team members had due to the fact that the H2 jar was missing. 
 When the project is running, the database connection cannot be established.  Clicking on the database section will result in the pop up of credentials window. In this case, close this window. After stopping the run, clicking on the refresh button under the database section gives access to the data tables. The event reservation and guest tables are under the following path:  
-H2 palace ->PALACE -> schemas -> Public -> EVENTRESERVATION
-                                        -> GUEST
+H2 palace ->PALACE -> schemas -> Public -> EVENTRESERVATION; GUEST
                                         
 ## Software description
 The software product to be produced is a Resort Booking System which will automate the hotel’s reservation and booking process. The system shall be able to handle rooms’ reservation in an appropriate way and with a subjective satisfaction. It includes 6 subsystems:
 1.	Checking Availabilities: The user will be asked to select the check in and check out dates, as well as to enter the number of adults and children willing to reside. 
 2.	Room and Amenities Selection:  Before booking a room, the client will be able to see the available types of rooms and amenities provided.
 3.	Payment and Creating Account: After completing the booking process, the client will be asked to select a payment method and enter the necessary information. Hence, a user account is created, the room’s status is changed to booked, and a booking confirmation window appears including a reservation summary option. 
-4.	Wellness and Events: The customer will be able to check the offered wellness sessions, also the restaurant's menu. Reservations are made by contacting the reponsible via a phone number displayed on the screens. ost special events. 
-5.	Events Reservation: The system will keep track of the booked events, diplay the related information as a data table and create a bar chart from those statistics.
-6.	Rooms Management:  This will provide a summary of all the rooms that are either booked or vacant to the resort Manager. It will also allow the manager to check if the rooms are being sold out and to handle reservations' cancellation. The guest can also cancel his / her reservation. A data table including all the reservertion information is displayed as well as a bar chart summarizing the booking system.
+4.	Wellness and Events: The customer will be able to check the offered wellness sessions, also the restaurant's menu. Reservations are made by contacting the responsible via a phone number displayed on the screens.
+5.	Events Reservation: The system will keep track of the booked events, display the related information as a data table and create a bar chart from those statistics.
+6.	Rooms Management:  This will provide a summary of all the rooms that are either booked or vacant to the resort Manager. It will also allow the manager to check if the rooms are being sold out and to handle reservations' cancellation. The guest can also cancel his / her reservation. A data table including all the booking information is displayed as well as a bar chart summarizing the booking system.
 
 ## Final Presentation
 Please see the lin below for the final presentation of the product:
