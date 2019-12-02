@@ -20,12 +20,20 @@ GNU General Public License
 * Dr Koufakou
 * StackOverFlow
 * Rashid Coder Youtube videos
-* Prof Vanselow Youtube videos
+* Professor Vanselow Youtube videos
 
-## First preview of the software
+## Software product timeline
+
+  ## First preview
 https://drive.google.com/file/d/1T3Wn6rUYQMldoa9ntdLhChPQp992EJ_0/view?usp=sharing
 
-## Data Base access description
+  ## Second preview
+https://drive.google.com/file/d/1PPBPwu7s-430b_km9pkvz8YZ5iRaQLuz/view?usp=sharing
+
+  ## Final preview
+https://drive.google.com/file/d/1w8O5FAhZO_VHsSHmzitY_ycLcK0UfBxa/view
+
+## Data Base access description before the Maven version
 The following steps need to be performed everytime in order to connect the database:
 * Load the project
 * Go to the right side of Intellij window
@@ -45,11 +53,22 @@ The following steps need to be performed everytime in order to connect the datab
 
 * Now the database is connected
 
+## Data Base access description after the Maven version
+The Maven IntelliJ structure has been implemented in order to manage the project dependencies. Those dependencies enable the automatic updates for all the features including the H2 jar for the database. This structure has been specially implemented to avoid the database connection failure some team members had due to the fact that the H2 jar was missing. 
+When the project is running, the database connection cannot be established.  Clicking on the database section will result in the pop up of credentials window. In this case, close this window. After stopping the run, clicking on the refresh button under the database section gives access to the data tables. The event reservation and guest tables are under the following path:  
+H2 palace ->PALACE -> schemas -> Public -> EVENTRESERVATION
+                                        -> GUEST
+                                        
 ## Software description
 The software product to be produced is a Resort Booking System which will automate the hotel’s reservation and booking process. The system shall be able to handle rooms’ reservation in an appropriate way and with a subjective satisfaction. It includes 6 subsystems:
 1.	Checking Availabilities: The user will be asked to select the check in and check out dates, as well as to enter the number of adults and children willing to reside. 
 2.	Room and Amenities Selection:  Before booking a room, the client will be able to see the available types of rooms and amenities provided.
-3.	Payment and Creating Account: After completing the booking process, the client will be asked to select a payment method and enter the necessary information. Hence, a user account is created, the room’s status is changed to booked, and a confirmation alert will be sent to the user’s email. 
-4.	Wellness and Events: The customer will be able to reserve wellness sessions, also host special events. 
-5.	Restaurant Selling: The system will both keep track of the sold meals and beverages, as well as charge the related room. 
-6.	Rooms Management:  This will provide a summary of all the rooms that are either booked or vacant to the resort Manager. It will also allow the manager to check if the rooms are being sold out and to handle reservations' cancellation. 
+3.	Payment and Creating Account: After completing the booking process, the client will be asked to select a payment method and enter the necessary information. Hence, a user account is created, the room’s status is changed to booked, and a booking confirmation window appears including a reservation summary option. 
+4.	Wellness and Events: The customer will be able to check the offered wellness sessions, also the restaurant's menu. Reservations are made by contacting the reponsible via a phone number displayed on the screens. ost special events. 
+5.	Events Reservation: The system will keep track of the booked events, diplay the related information as a data table and create a bar chart from those statistics.
+6.	Rooms Management:  This will provide a summary of all the rooms that are either booked or vacant to the resort Manager. It will also allow the manager to check if the rooms are being sold out and to handle reservations' cancellation. The guest can also cancel his / her reservation. A data table including all the reservertion information is displayed as well as a bar chart summarizing the booking system.
+
+## Final Presentation
+Please see the lin below for the final presentation of the product:
+https://eaglefgcu-my.sharepoint.com/:p:/r/personal/iessaghir3962_eagle_fgcu_edu/_layouts/15/Doc.aspx?sourcedoc=%7B0D603F82-C884-4A6E-B898-506F0DF3C5BC%7D&file=Resort%20Arena%20Palace%20Presentation.pptx&action=edit&mobileredirect=true&cid=c3108286-cd5c-4131-a68c-69c53089f009
+
