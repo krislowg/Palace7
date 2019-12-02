@@ -1,6 +1,7 @@
 package ResortArenaPalace;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -65,6 +67,9 @@ public class UserReservationDetails {
     cancelText.setVisible(false);
     //    System.out.println("____________________" + myEmail);
     //    email.setText(myEmail);
+
+    //System.out.println(roomType.getText());
+
   }
 
   //   void setText(String emails) {
@@ -159,6 +164,22 @@ public class UserReservationDetails {
     checkInDate.setText(detail.getChkIn());
     checkOutDate.setText(detail.getChkOut());
     roomType.setText(detail.getRoomType());
+
+    // Sets Image based on room type
+    Image image;
+    if(roomType.getText().equals("Luxury")) {
+      image = new Image("/ResortPictures/First_room.jpg");
+    } else if(roomType.getText().equals("Underwater")) {
+      image = new Image("/ResortPictures/UnderWater_Room.jpg");
+    } else if(roomType.getText().equals("Superior")) {
+      image = new Image("/ResortPictures/Queen_room.jpg");
+    } else if(roomType.getText().equals("Grand")) {
+      image = new Image("/ResortPictures/Grand_room.jpg");
+    } else {
+      image = new Image("/ResortPictures/beach.jpg");
+    }
+    roomImage.setImage(image);
+
   }
 
   /**
