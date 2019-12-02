@@ -68,6 +68,7 @@ public class UserAccount {
    */
   @FXML
   void changeScreenUAccToReservat(ActionEvent event) throws IOException {
+
     if (txtFld_UName.getText().trim().isEmpty() && pField_Password.getText().trim().isEmpty()) {
       lbl_UserNaVal.setText("User Name Required");
       lbl_PasswordVal.setText("Password Required");
@@ -80,42 +81,135 @@ public class UserAccount {
         e.printStackTrace();
       }
       try {
+
         conn = DriverManager.getConnection(DB_URL);
         stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM GUEST");
-        while (rs.next()) {
-          //  System.out.println(rs.getString(2));
-          if (rs.getString("EMAIL").equals(txtFld_UName.getText())
-              && rs.getString("PASSWORD").equals(pField_Password.getText())) {
-            GuestReservation newReservation =
-                new GuestReservation(
-                    rs.getString("EMAIL"),
-                    rs.getString("NAME"),
-                    rs.getString("LASTNAME"),
-                    Integer.valueOf(rs.getString("NOPEOPLE")),
-                    Integer.valueOf(rs.getString("NOROOMS")),
-                    rs.getString("CHECKIN"),
-                    rs.getString("CHECKOUT"),
-                    rs.getString("ROOMTYPE"),
-                    rs.getString("PASSWORD"));
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
-            Parent tableViewParent = loader.load();
+        String sql = "SELECT * FROM guest WHERE email = ? and password = ?";
+        System.out.println("Attempting to login");
+        ResultSet rs = null;
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, txtFld_UName.getText());
+        pstmt.setString(2, pField_Password.getText());
+        rs = pstmt.executeQuery();
 
-            Scene tableViewScene = new Scene(tableViewParent);
+        if (!rs.next()) {
+          System.out.println("Wrong email/password!");
+          Alert alert = new Alert(AlertType.ERROR);
+          alert.setTitle("Login Error");
+          alert.setHeaderText("This Email/Password is incorrect.");
+          alert.setContentText(null);
+          Optional<ButtonType> action = alert.showAndWait();
+          txtFld_UName.clear();
+          pField_Password.clear();
+        } else {
+          System.out.println("Login succesful!");
+          GuestReservation newReservation =
+              new GuestReservation(
+                  rs.getString("EMAIL"),
+                  rs.getString("NAME"),
+                  rs.getString("LASTNAME"),
+                  Integer.valueOf(rs.getString("NOPEOPLE")),
+                  Integer.valueOf(rs.getString("NOROOMS")),
+                  rs.getString("CHECKIN"),
+                  rs.getString("CHECKOUT"),
+                  rs.getString("ROOMTYPE"),
+                  rs.getString("PASSWORD"));
 
-            // access the controller and call a method
-            UserReservationDetails controller = loader.getController();
-            controller.sendText4(newReservation);
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
+          Parent tableViewParent = loader.load();
 
-            // This line gets the Stage information
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          Scene tableViewScene = new Scene(tableViewParent);
 
-            window.setScene(tableViewScene);
-            window.show();
-          }
+          // access the controller and call a method
+          UserReservationDetails controller = loader.getController();
+          controller.sendText4(newReservation);
+
+          // This line gets the Stage information
+          Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+          window.setScene(tableViewScene);
+          window.show();
+
         }
-      } catch (SQLException | IOException ex) {
+
+
+
+        conn = DriverManager.getConnection(DB_URL);
+        stmt = conn.createStatement();
+//        ResultSet rs = stmt.executeQuery("SELECT * FROM GUEST");
+//        i = 0;
+//        while (rs.next()) {
+//          //  System.out.println(rs.getString(2));
+//          if (rs.getString("EMAIL").equals(txtFld_UName.getText())
+//              && rs.getString("PASSWORD").equals(pField_Password.getText())) {
+//            GuestReservation newReservation =
+//                new GuestReservation(
+//                    rs.getString("EMAIL"),
+//                    rs.getString("NAME"),
+//                    rs.getString("LASTNAME"),
+//                    Integer.valueOf(rs.getString("NOPEOPLE")),
+//                    Integer.valueOf(rs.getString("NOROOMS")),
+//                    rs.getString("CHECKIN"),
+//                    rs.getString("CHECKOUT"),
+//                    rs.getString("ROOMTYPE"),
+//                    rs.getString("PASSWORD"));
+//
+//
+//
+//
+//
+//
+//
+//
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
+//            Parent tableViewParent = loader.load();
+//
+//            Scene tableViewScene = new Scene(tableViewParent);
+//
+//            // access the controller and call a method
+//            UserReservationDetails controller = loader.getController();
+//            controller.sendText4(newReservation);
+//
+//            // This line gets the Stage information
+//            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//
+//            window.setScene(tableViewScene);
+//            window.show();
+//            System.out.println("good!");
+//            System.out.println(i);
+//            i = 1;
+//            } else {
+//            i = 1;
+//            //System.out.println(rs);
+//            if (i == 1) {
+//              System.out.println("No good");
+//              i = 0;
+//            }
+//          }
+//
+////          else if(rs.getString("EMAIL") != txtFld_UName.getText()
+////              && rs.getString("PASSWORD") != pField_Password.getText() && !txtFld_UName.getText().isEmpty()) {
+////
+////            System.out.println("else");
+////            Alert alert = new Alert(AlertType.ERROR);
+////            alert.setTitle("Login Error");
+////            alert.setHeaderText("This Email/Password is incorrect.");
+////            alert.setContentText(null);
+////            Optional<ButtonType> action = alert.showAndWait();
+////            txtFld_UName.clear();
+////            pField_Password.clear();
+////          }
+//
+//            }
+
+
+
+
+
+      } catch (SQLException ex) {
+
         ex.printStackTrace();
       }
     }
@@ -190,51 +284,37 @@ public class UserAccount {
   //  public String myRoomType;
   //  public String myPassword;
   //
-  //  public String email;
-  //
-  //  @FXML
-  //  boolean userLogIn() {
-  //    System.out.println("Log in pressed");
-  //    String email = txtFld_UName.getText().toString();
-  //    String password = pField_Password.getText().toString();
-  //
-  //    try {
-  //      initializeDB();
-  //      String sql = "SELECT * FROM guest WHERE email = ? and password = ?";
-  //      System.out.println("Attempting to login");
-  //      ResultSet rs = null;
-  //      PreparedStatement pstmt = conn.prepareStatement(sql);
-  //      pstmt.setString(1, email);
-  //      pstmt.setString(2, password);
-  //      rs = pstmt.executeQuery();
-  //      /**
-  //       * ******************************************************** sql = "SELECT * FROM guest
-  // WHERE
-  //       * email = " + "\'" + email + "\';"; pstmt = conn.prepareStatement(sql); ResultSet rs2 =
-  //       * pstmt.executeQuery(); while(rs2.next()){ myEmail = rs2.getString("EMAIL"); myName =
-  //       * rs2.getString("NAME"); myLName = rs2.getString("LASTNAME"); myNoPeople =
-  //       * rs2.getString("NOPEOPLE"); myNoRooms = rs2.getString("NOROOMS"); myCheckIn =
-  //       * rs2.getString("CHECKIN"); myCheckOut = rs2.getString("CHECKOUT"); myRoomType =
-  //       * rs2.getString("ROOMTYPE"); myPassword = rs2.getString("PASSWORD");
-  //       * System.out.println(myEmail + "\n" + myName + "\n" + myLName + "\n" + myNoPeople + "\n"
-  // +
-  //       * myNoRooms + "\n" + myCheckIn + "\n" + myCheckOut + "\n" + myRoomType + "\n" +
-  // myPassword);
-  //       * } ******************************************************
-  //       */
-  //      if (!rs.next()) {
-  //        System.out.println("Wrong email/password!");
-  //        return false;
-  //      } else {
-  //        System.out.println("Login succesful!");
-  //        return true;
-  //      }
-  //    } catch (SQLException e) {
-  //      System.out.println("Could not login");
-  //      e.printStackTrace();
-  //    }
-  //    return true;
-  //  }
+//    public String email;
+//
+//    @FXML
+//    boolean userLogIn() {
+//      System.out.println("Log in pressed");
+//      String email = txtFld_UName.getText().toString();
+//      String password = pField_Password.getText().toString();
+//
+//      try {
+//        initializeDB();
+//        String sql = "SELECT * FROM guest WHERE email = ? and password = ?";
+//        System.out.println("Attempting to login");
+//        ResultSet rs = null;
+//        PreparedStatement pstmt = conn.prepareStatement(sql);
+//        pstmt.setString(1, email);
+//        pstmt.setString(2, password);
+//        rs = pstmt.executeQuery();
+//
+//        if (!rs.next()) {
+//          System.out.println("Wrong email/password!");
+//          return false;
+//        } else {
+//          System.out.println("Login succesful!");
+//          return true;
+//        }
+//      } catch (SQLException e) {
+//        System.out.println("Could not login");
+//        e.printStackTrace();
+//      }
+//      return true;
+//    }
   //
   //  /*
   //    public void initialize(){
