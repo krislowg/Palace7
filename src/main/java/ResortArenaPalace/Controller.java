@@ -128,7 +128,9 @@ public class Controller {
       rec_field5.setVisible(false);
       f5 = true;
     }
-    if (even_no_people.getText().equals("") || even_no_people.getText() == null) {
+    if (even_no_people.getText().equals("")
+        || even_no_people.getText() == null
+        || even_no_people.getText().matches("[a-z A-Z]")) {
       rec_field6.setVisible(true);
       f6 = false;
     } else {
@@ -190,12 +192,12 @@ public class Controller {
 
         Scene tableViewScene = new Scene(tableViewParent);
 
-        //access the controller and call a method
+        // access the controller and call a method
         UserEventDetails controller = loader.getController();
         controller.sendEvent(newEvent);
 
-        //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // This line gets the Stage information
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(tableViewScene);
         window.show();
@@ -310,17 +312,17 @@ public class Controller {
       if (i <= 0) {
         loader.setLocation(getClass().getResource("RoomAvailability.fxml"));
         Parent tableViewParent = loader.load();
-//        try {
-//          loader.load();
-//        } catch (IOException e) {
-//          e.printStackTrace();
-//        }
+        //        try {
+        //          loader.load();
+        //        } catch (IOException e) {
+        //          e.printStackTrace();
+        //        }
         Scene roomAvScene = new Scene(tableViewParent);
         RoomAvailability controller = loader.getController();
         controller.sendText(roomInfo);
 
-//        Parent roomAvailableParent =
-//            FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
+        //        Parent roomAvailableParent =
+        //            FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
 
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         window.setScene(roomAvScene);

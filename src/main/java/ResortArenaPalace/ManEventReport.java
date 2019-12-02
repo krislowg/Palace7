@@ -130,6 +130,9 @@ public class ManEventReport {
   void addEvent(ActionEvent event) {
     // Getting values from text field and combobox in Manager Event Report and storing them in a
     // variable
+      cbox_Catering.setEditable(false);
+      cbox_Dj.setEditable(false);
+      cbox_PartyPlanner.setEditable(false);
     if (txt_Email.getText().trim().isEmpty() || txt_EvDate.getText().trim().isEmpty()) {
       Alert alert = new Alert(AlertType.ERROR);
       alert.setTitle("Error");
@@ -368,7 +371,6 @@ public class ManEventReport {
       String sql = "SELECT * FROM EVENTRESERVATION";
       ResultSet rs = stmt.executeQuery(sql);
       while (rs.next()) {
-
         eventList.add(
             new EventReservation(
                 rs.getString("EMAIL"),
