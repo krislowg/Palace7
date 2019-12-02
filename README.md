@@ -16,7 +16,8 @@ Team members :
 * Gianni Perez
 
 ## License
-GNU General Public License
+* GNU General Public License
+* IntelliJ IDEA Ultimate
 
 ## Acknowledgments
 * Dr Koufakou
