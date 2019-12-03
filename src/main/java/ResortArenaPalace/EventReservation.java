@@ -104,7 +104,7 @@ public class EventReservation {
       Boolean catering,
       Boolean dj,
       Boolean partyPlanner) {
-    //super(email, password);
+    // super(email, password);
     this.email = email;
     this.fName = fName;
     this.event = event;
@@ -119,7 +119,8 @@ public class EventReservation {
   public String getEmail() {
     return email;
   }
-  public void setEmail(String email){
+
+  public void setEmail(String email) {
     this.email = email;
   }
 }

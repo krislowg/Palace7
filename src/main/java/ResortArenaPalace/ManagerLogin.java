@@ -23,21 +23,13 @@ import javafx.stage.Stage;
 public class ManagerLogin {
 
   @FXML private Label lbl_ManagerLog;
-
   @FXML private Label lbl_MUName;
-
   @FXML private TextField txtField_MUName;
-
   @FXML private Label lbl_MUPassword;
-
   @FXML private PasswordField passfld_MUPassword;
-
   @FXML private Button btn_ManagerSignIn;
-
   @FXML private Button btn_GbackManTOHome;
-
   @FXML private Label lbl_UserNaVal;
-
   @FXML private Label lbl_PasswordVal;
 
   /**

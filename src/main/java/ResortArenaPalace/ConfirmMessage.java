@@ -13,9 +13,7 @@ import javafx.stage.Stage;
 
 public class ConfirmMessage {
   @FXML private DialogPane dialog_p;
-
   @FXML private Button OkayBtn;
-
   public static GuestReservation finalDataSets;
 
   /**
@@ -25,11 +23,9 @@ public class ConfirmMessage {
   @FXML
   void userDetails(ActionEvent event) throws IOException {
     GuestReservation showData = finalDataSets;
-    // System.out.println(roomChoice.getRoomType());
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("UserReservationDetails.fxml"));
     Parent tableViewParent = loader.load();
-
     Scene tableViewScene = new Scene(tableViewParent);
 
     // Access the controller and call a method
@@ -37,15 +33,16 @@ public class ConfirmMessage {
     controller.sendText4(finalDataSets);
 
     // This line gets the Stage information
-    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
     window.setScene(tableViewScene);
     window.show();
   }
 
-  /***
+  /**
+   * *
    *
-   * @param finalDataSet  Object of type guest reservation used to send text input
+   * @param finalDataSet Object of type guest reservation used to send text input
    */
   void sendText3(GuestReservation finalDataSet) {
     finalDataSets = finalDataSet;

@@ -26,13 +26,9 @@ import javafx.stage.Stage;
 public class BarChartEx {
 
   @FXML private BarChart<String, Integer> barChart_Booking;
-
   @FXML private CategoryAxis x_Months;
-
   @FXML private NumberAxis y_Reservation;
-
-  @FXML
-  private Button btn_GuestChart;
+  @FXML private Button btn_GuestChart;
 
   @FXML
   void changeGuestChartToReport(ActionEvent event) throws IOException {

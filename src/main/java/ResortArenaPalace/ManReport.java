@@ -71,8 +71,7 @@ public class ManReport {
 
   @FXML private TextField txt_Email;
 
-  @FXML
-  private Label txt_ErrorFillFields;
+  @FXML private Label txt_ErrorFillFields;
 
   @FXML private Button btn_AddGuest;
 
@@ -136,7 +135,8 @@ public class ManReport {
   private ObservableList<String> roomTypes =
       FXCollections.observableArrayList("Luxury", "Underwater", "Superior", "GrandArena");
 
-  private ObservableList<Guest> guestReport = FXCollections.observableArrayList(); // Table view related
+  private ObservableList<Guest> guestReport =
+      FXCollections.observableArrayList(); // Table view related
   /**
    * *
    *
@@ -208,12 +208,6 @@ public class ManReport {
       } catch (SQLException e) {
         e.printStackTrace();
       }
-      /*Guest myGuest = new Guest((txt_Email.getText()), txt_Fname.getText(),
-          txt_Lname.getText(), Integer.parseInt(txt_Npeople.getText()),
-          Integer.parseInt(txt_nRooms.getText()),
-          txt_CheckIn.getText(), txt_CheckOut.getText(), txt_RoomType.getText(),
-          txt_password.getText());
-      tablev_Report.getItems().add(myGuest);*/
     }
   }
 

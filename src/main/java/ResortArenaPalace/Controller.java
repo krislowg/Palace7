@@ -21,45 +21,11 @@ import javafx.stage.Stage;
 public class Controller {
 
   @FXML public Button eventReserveBtn;
-  @FXML private Label lbl_TitleHome;
-  @FXML private Tab tab_home;
-  @FXML private Button btn_ckAv;
-  @FXML private Tab tab_wellness;
-  @FXML private Label wellLabel;
-  @FXML private Label gymLable;
-  @FXML private Label yogaLabel;
-  @FXML private Label spaLabel;
-  @FXML private Tab tab_events;
-  @FXML private Label eventLabel;
-  @FXML private Label confrenceLable;
-  @FXML private Label celebrationLabel;
-  @FXML private Tab tab_restaurant;
-  @FXML private Label resnameLable;
   @FXML private DatePicker checkin_pick;
   @FXML private DatePicker checkout_pick;
-  @FXML private Button btnSignin;
-  @FXML private Button btn_ManagerHome;
   @FXML private ComboBox<String> noguests_pick;
   @FXML private ComboBox<String> room_pick;
   @FXML private ComboBox<String> cBox_Venue;
-  @FXML private ImageView resortPic;
-  @FXML private AnchorPane wellnessLabel;
-  @FXML private Button ygaBtn;
-  @FXML private Button gymBtn;
-  @FXML private Button spaBtn;
-  @FXML private ImageView yogaPic;
-  @FXML private ImageView gymPic;
-  @FXML private Button weddingBtn;
-  @FXML private Button celebrationBtn;
-  @FXML private ImageView weddPic;
-  @FXML private ImageView celbPic;
-  @FXML private ImageView conferencePic;
-  @FXML private AnchorPane dessertBtn;
-  @FXML private ImageView beveragePic;
-  @FXML private ImageView foodPic;
-  @FXML private ImageView dessertPic;
-  @FXML private Button foodBtn;
-  @FXML private Label confirmation;
   @FXML private TextField txtF_Email;
   @FXML private Label lbl_EmailVal;
   @FXML private Label check_avail_error;
@@ -312,18 +278,9 @@ public class Controller {
       if (i <= 0) {
         loader.setLocation(getClass().getResource("RoomAvailability.fxml"));
         Parent tableViewParent = loader.load();
-        //        try {
-        //          loader.load();
-        //        } catch (IOException e) {
-        //          e.printStackTrace();
-        //        }
         Scene roomAvScene = new Scene(tableViewParent);
         RoomAvailability controller = loader.getController();
         controller.sendText(roomInfo);
-
-        //        Parent roomAvailableParent =
-        //            FXMLLoader.load(getClass().getResource("RoomAvailability.fxml"));
-
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         window.setScene(roomAvScene);
         window.show();

@@ -19,35 +19,20 @@ import javafx.stage.Stage;
 public class RoomAvailability {
 
   @FXML private AnchorPane lbl_RoomAv;
-
   @FXML private AnchorPane room1;
-
   @FXML private TextArea r1Details;
-
   @FXML private TextArea r3Details;
-
   @FXML private Label room3;
-
   @FXML private Label room2;
-
   @FXML private TextArea r2Details;
-
   @FXML private Label room4;
-
   @FXML private Label room;
-
   @FXML private Button btn_Select1rm;
-
   @FXML private Button btn_GoHomeRA;
-
   @FXML private Button btn_Select3rm;
-
   @FXML private Button btn_Select2rm;
-
   @FXML private TextArea r4Details;
-
   @FXML private Button btn_Select4rm;
-
   public static GuestReservation roomInfo;
 
   /**
@@ -56,11 +41,8 @@ public class RoomAvailability {
    * @param roomInfos Object of guest reservation class that stores the booked room information
    */
   void sendText(GuestReservation roomInfos) {
-    //    System.out.println(roomInfo.getCheckIn());//testing
-    // this.roomInfo = roomInfo;
     this.roomInfo = roomInfos;
     System.out.println(roomInfo);
-    // return roomInfo;
   }
 
   /**
@@ -72,7 +54,6 @@ public class RoomAvailability {
   @FXML
   void changeR1toPay(ActionEvent event) throws IOException {
     GuestReservation roomChoice = new GuestReservation(roomInfo, "Luxury");
-    // System.out.println(roomChoice.getRoomType());
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
     try {
@@ -89,8 +70,6 @@ public class RoomAvailability {
     Stage payWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
     payWindow.setScene(roomAvScene);
     payWindow.show();
-    //        System.out.println(roomInfo);
-    //        System.out.println(roomChoice);
   }
 
   /**
@@ -102,7 +81,6 @@ public class RoomAvailability {
   @FXML
   void changeR2toPay(ActionEvent event) throws IOException {
     GuestReservation roomChoice = new GuestReservation(roomInfo, "Underwater");
-    // System.out.println(roomChoice.getRoomType());
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
     try {
@@ -130,7 +108,6 @@ public class RoomAvailability {
   @FXML
   void changeR3toPay(ActionEvent event) throws IOException {
     GuestReservation roomChoice = new GuestReservation(roomInfo, "Superior");
-    // System.out.println(roomChoice.getRoomType());
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
     try {
@@ -158,7 +135,6 @@ public class RoomAvailability {
   @FXML
   void changeR4toPay(ActionEvent event) throws IOException {
     GuestReservation roomChoice = new GuestReservation(roomInfo, "Grand");
-    // System.out.println(roomChoice.getRoomType());
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("PaymentAccount.fxml"));
     try {

@@ -7,10 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import java.util.Optional;
-
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,70 +31,38 @@ import javafx.stage.Stage;
 public class ManEventReport {
 
   @FXML private TableView<EventReservation> tablev_EventReport;
-
   @FXML private TableColumn<EventReservation, String> col_EvEmail;
-
   @FXML private TableColumn<EventReservation, String> col_Name;
-
   /*@FXML
   private TableColumn<EventReservation, String> col_FullName; */
-
   @FXML private TableColumn<EventReservation, String> col_EventType;
-
   @FXML private TableColumn<EventReservation, String> col_EvDate;
-
   @FXML private TableColumn<EventReservation, Integer> col_EvNPeople;
-
   @FXML private TableColumn<EventReservation, String> col_EvVenue;
-
   @FXML private TableColumn<EventReservation, Boolean> col_EvCatering;
-
   @FXML private TableColumn<EventReservation, Boolean> col_DJ;
-
   @FXML private TableColumn<EventReservation, Boolean> col_PartyPlanner;
-
   @FXML private TableColumn<EventReservation, String> col_EvPassword;
-
   @FXML private TextField txt_Name;
-
   @FXML private TextField txt_PartyPlanner;
-
   @FXML private TextField txt_EvType;
-
   @FXML private TextField txt_EvDate;
-
   @FXML private TextField txt_EvPeople;
-
   @FXML private TextField txt_Venue;
-
   @FXML private TextField txt_EvCatering;
-
   @FXML private TextField txt_DJ;
-
   @FXML private TextField txt_Email;
-
   @FXML private TextField txt_Password;
-
   @FXML private Label lbl_TitleReport;
-
   @FXML private Button btn_CancelEvent;
-
   @FXML private Button btn_SoldOut;
-
   @FXML private Button btn_BackEVRepToGuestRep;
-
   @FXML private Button btn_AddEvent;
-
   @FXML private Button btn_LogOut;
-
   @FXML private ComboBox<String> cbox_EventType;
-
   @FXML private ComboBox<String> cbox_Venue;
-
   @FXML private ComboBox<String> cbox_Catering;
-
   @FXML private ComboBox<String> cbox_Dj;
-
   @FXML private ComboBox<String> cbox_PartyPlanner;
 
   private ObservableList<String> eventType =
@@ -128,11 +93,9 @@ public class ManEventReport {
    */
   @FXML
   void addEvent(ActionEvent event) {
-    // Getting values from text field and combobox in Manager Event Report and storing them in a
-    // variable
-      cbox_Catering.setEditable(false);
-      cbox_Dj.setEditable(false);
-      cbox_PartyPlanner.setEditable(false);
+    cbox_Catering.setEditable(false);
+    cbox_Dj.setEditable(false);
+    cbox_PartyPlanner.setEditable(false);
     if (txt_Email.getText().trim().isEmpty() || txt_EvDate.getText().trim().isEmpty()) {
       Alert alert = new Alert(AlertType.ERROR);
       alert.setTitle("Error");
@@ -252,7 +215,8 @@ public class ManEventReport {
     if (action.get() == ButtonType.OK) {
       try {
         System.out.println("Deleting Event Info");
-        EventReservation eventReservation = tablev_EventReport.getSelectionModel().getSelectedItem();
+        EventReservation eventReservation =
+            tablev_EventReport.getSelectionModel().getSelectedItem();
         String selectedEvent = eventReservation.getEmail();
         String sql = "DELETE FROM EVENTRESERVATION WHERE EMAIL = " + "\'" + selectedEvent + "\';";
         PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -349,7 +313,7 @@ public class ManEventReport {
 
   private void settingUpColumns() {
     col_EvEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-    //col_Name.setCellValueFactory(new PropertyValueFactory<>("fName"));
+    // col_Name.setCellValueFactory(new PropertyValueFactory<>("fName"));
     // col_FullName.setCellValueFactory(new PropertyValueFactory<>("fName"));
     col_EventType.setCellValueFactory(new PropertyValueFactory<>("event"));
     col_EvDate.setCellValueFactory(new PropertyValueFactory<>("eventDate"));

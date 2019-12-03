@@ -175,5 +175,4 @@ public class GuestReservation {
   public String toString() {
     return noPeople + " " + noRooms + " " + checkIn + " " + checkOut;
   }
-
 }

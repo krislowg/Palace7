@@ -22,31 +22,18 @@ import javafx.stage.Stage;
 public class PaymentAccount {
 
   @FXML private Button btn_ReserveRoom;
-
   @FXML private TextField firstName;
-
   @FXML private TextField lastName;
-
   @FXML private TextField userEmail;
-
   @FXML private TextField userName;
-
   @FXML private PasswordField userPass;
-
   @FXML private ChoiceBox<String> cBox_CCType;
-
   @FXML private TextField ccNo;
-
   @FXML private TextField ccvCode;
-
   @FXML private TextField coupCode;
-
   @FXML private Button btn_GoBackRoomA;
-
   @FXML private Label lbl_RoomConf;
-
   @FXML private ChoiceBox<String> expMonth;
-
   @FXML private ChoiceBox<Integer> expYear;
 
   private ObservableList<String> cCType =

@@ -49,111 +49,15 @@ public class UserReservationDetails {
   @FXML private Label roomType;
   @FXML private Label checkInDate;
   @FXML private Label checkOutDate;
-
-  public String myEmail;
-  public String myName;
-  public String myLName;
-  public String myNoPeople;
-  public String myNoRooms;
-  public String myCheckIn;
-  public String myCheckOut;
-  public String myRoomType;
-  public String myPassword;
-
   private GuestReservation detail;
 
   @FXML
   public void initialize() {
     cancelText.setVisible(false);
-    //    System.out.println("____________________" + myEmail);
-    //    email.setText(myEmail);
-
-    //System.out.println(roomType.getText());
-
   }
 
-  //   void setText(String emails) {
-  //    // this.email.setText(email);
-  //    System.out.println("Email is " + emails);
-  //    myEmail = emails;
-  //    this.email.setText(myEmail);
-  //    try {
-  //      initializeDB();
-  //      String sql = "SELECT * FROM guest WHERE email = " + "\'" + emails + "\';";
-  //      // ResultSet rs = null;
-  //      PreparedStatement pstmt = conn.prepareStatement(sql);
-  //      // sql = "SELECT * FROM guest WHERE email = " + "\'" + email + "\';";
-  //      pstmt = conn.prepareStatement(sql);
-  //      ResultSet rs2 = pstmt.executeQuery();
-  //      while (rs2.next()) {
-  //        email.setText(rs2.getString("EMAIL"));
-  //        firstName.setText(rs2.getString("NAME"));
-  //        lastName.setText(rs2.getString("LASTNAME"));
-  //        numberGuests.setText(rs2.getString("NOPEOPLE"));
-  //        numberRooms.setText(rs2.getString("NOROOMS"));
-  //        checkInDate.setText(rs2.getString("CHECKIN"));
-  //        checkOutDate.setText(rs2.getString("CHECKOUT"));
-  //        roomType.setText(rs2.getString("ROOMTYPE"));
-  //        }
-  ////        myEmail = rs2.getString("EMAIL");
-  ////        myName = rs2.getString("NAME");
-  ////        myLName = rs2.getString("LASTNAME");
-  ////        myNoPeople = rs2.getString("NOPEOPLE");
-  ////        myNoRooms = rs2.getString("NOROOMS");
-  ////        myCheckIn = rs2.getString("CHECKIN");
-  ////        myCheckOut = rs2.getString("CHECKOUT");
-  ////        myRoomType = rs2.getString("ROOMTYPE");
-  ////        myPassword = rs2.getString("PASSWORD");
-  ////        System.out.println(
-  ////            myEmail
-  ////                + "\n"
-  ////                + myName
-  ////                + "\n"
-  ////                + myLName
-  ////                + "\n"
-  ////                + myNoPeople
-  ////                + "\n"
-  ////                + myNoRooms
-  ////                + "\n"
-  ////                + myCheckIn
-  ////                + "\n"
-  ////                + myCheckOut
-  ////                + "\n"
-  ////                + myRoomType
-  ////                + "\n"
-  ////                + myPassword);
-  ////      }
-  ////      firstName.setText(myName);
-  ////      lastName.setText(myLName);
-  ////      paymentType.setText(" Visa");
-  ////      numberGuests.setText(myNoPeople);
-  ////      numberRooms.setText(myNoRooms);
-  ////      roomType.setText(myRoomType);
-  ////      checkInDate.setText(myCheckIn);
-  ////      checkOutDate.setText(myCheckOut);
-  //
-  //    } catch (SQLException e) {
-  //      System.out.println("Could not login");
-  //      e.printStackTrace();
-  //    }
-  //  }
-  //    Integer.toString(details.getNum_p());
-  //      numberGuests.setText(details.getNoPeople());
-  //      numberRooms.setText(details.getNoRooms());
-
-  // change expiration date to datepicker
-  // pull info
-  // check info
-  // push to db
-  // on room availability add sold out functionality
-  // add cancel reservation to homepage "email and password pull"
-  // work on this file (pull textbox info/setlabel for incorrect cases), landingpage (ending date
-  // cannot be before start date (how to block out old dates on datepicker)/ if nothing selected
-  // label.settext("must select ~~")), room availability on date, add cancel reservation on
-  // landingpage.
-  // edit management to add management and encrypt password
-
-  /***
+  /**
+   * *
    *
    * @param details Object of guest reservation type that stores the details of the booking
    */
@@ -171,19 +75,18 @@ public class UserReservationDetails {
 
     // Sets Image based on room type
     Image image;
-    if(roomType.getText().equals("Luxury")) {
+    if (roomType.getText().equals("Luxury")) {
       image = new Image("/ResortPictures/First_room.jpg");
-    } else if(roomType.getText().equals("Underwater")) {
+    } else if (roomType.getText().equals("Underwater")) {
       image = new Image("/ResortPictures/UnderWater_Room.jpg");
-    } else if(roomType.getText().equals("Superior")) {
+    } else if (roomType.getText().equals("Superior")) {
       image = new Image("/ResortPictures/Queen_room.jpg");
-    } else if(roomType.getText().equals("Grand")) {
+    } else if (roomType.getText().equals("Grand")) {
       image = new Image("/ResortPictures/Grand_room.jpg");
     } else {
       image = new Image("/ResortPictures/beach.jpg");
     }
     roomImage.setImage(image);
-
   }
 
   /**
@@ -201,63 +104,8 @@ public class UserReservationDetails {
     infoText.setVisible(false);
     rmText.setVisible(false);
     cancelText.setVisible(true);
-//    email.setText(detail.getEmail());
-//    firstName.setText(detail.getName());
-//    lastName.setText(detail.getlName());
-//    numberGuests.setText(String.valueOf(detail.getNum_p()));
-//    numberRooms.setText(String.valueOf(detail.getNum_r()));
-//    checkInDate.setText(detail.getChkIn());
-//    checkOutDate.setText(detail.getChkOut());
-//    roomType.setText(detail.getRoomType());
   }
 
-  /*
-  @FXML
-  void cancelReservation(ActionEvent event) throws SQLException {
-    System.out.println("Cancel Reservation Pressed");
-
-    //ObservableList selectedItems = tablev_Report.getSelectionModel().getSelectedItems();
-    //System.out.println(selectedItems);
-
-
-    try {
-      System.out.println("Deleting Guest/Reservation Info");
-      Guest guest = tablev_Report.getSelectionModel().getSelectedItem();
-      String selectedGuest = guest.getEmail();
-      String sql = "DELETE FROM GUEST WHERE EMAIL = " + "\'" + selectedGuest + "\';";
-      PreparedStatement pstmt = conn.prepareStatement(sql);
-      pstmt.execute();
-      System.out.println("Guest/Reservation Info Deleted!");
-
-    } catch (SQLException e){
-      System.out.println("Could not delete guest");
-      e.printStackTrace();
-    }
-    tablev_Report.getItems().removeAll(tablev_Report.getSelectionModel().getSelectedItem());
-  }*/
-
-  // Database management
-  //  private Connection conn = null;
-  //  private Statement stmt = null;
-  //
-  //  private void initializeDB() {
-  //    final String JDBC_DRIVER = "org.h2.Driver";
-  //    final String DB_URL = "jdbc:h2:./res/palace";
-  //    final String USER = "";
-  //    final String PASS = "";
-  //
-  //    System.out.println("Attempting to connect to database");
-  //    try {
-  //      Class.forName(JDBC_DRIVER);
-  //      conn = DriverManager.getConnection(DB_URL, USER, PASS);
-  //      stmt = conn.createStatement();
-  //      System.out.println("Successfully connected to database!");
-  //    } catch (Exception e) {
-  //      e.printStackTrace();
-  //      Alert a = new Alert(Alert.AlertType.ERROR);
-  //      a.show();
-  //    }
-  //  }
   /**
    * *
    *

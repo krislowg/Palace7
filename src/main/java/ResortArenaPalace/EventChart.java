@@ -20,14 +20,9 @@ import javafx.stage.Stage;
 
 public class EventChart {
 
-  @FXML
-  private BarChart<String, Integer> eventBarChart;
-
-  @FXML
-  private Button btn_GoBackEvChart;
-
-  @FXML
-  private Button btn_SummaryEvent;
+  @FXML private BarChart<String, Integer> eventBarChart;
+  @FXML private Button btn_GoBackEvChart;
+  @FXML private Button btn_SummaryEvent;
 
   @FXML
   void changeEventChartToEvReport(ActionEvent event) throws IOException {
@@ -154,5 +149,4 @@ public class EventChart {
     setGuest.getData().add(new XYChart.Data("December", dec));
     eventBarChart.getData().addAll(setGuest);
   }
-
 }
