@@ -18,7 +18,6 @@ public class GuestReservation {
   private String roomType;
   private String password;
   private String email;
-  private String chosenPackage;
   private GuestReservation roomInfo;
   private String chkOut;
   private String chkIn;
