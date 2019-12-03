@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,11 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -49,6 +46,10 @@ public class UserReservationDetails {
   @FXML private Label roomType;
   @FXML private Label checkInDate;
   @FXML private Label checkOutDate;
+  private static final String JDBC_DRIVER = "org.h2.Driver";
+  private static final String DB_URL = "jdbc:h2:./res/palace";
+  private Connection conn = null;
+  private Statement stmt = null;
   private GuestReservation detail;
 
   @FXML
@@ -98,6 +99,34 @@ public class UserReservationDetails {
   @FXML
   void cancelReservation(ActionEvent event) throws IOException {
     System.out.println("Cancel Reservation Pressed");
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Cancel Reservation");
+    alert.setHeaderText("Are you sure you want to CANCEL this Reservation?");
+    alert.setContentText(null);
+    Optional<ButtonType> action = alert.showAndWait();
+    try {
+      Class.forName(JDBC_DRIVER);
+      conn = DriverManager.getConnection(DB_URL);
+      stmt = conn.createStatement();
+      System.out.println("Successfully connected to database!");
+    } catch (Exception e) {
+      e.printStackTrace();
+      Alert a = new Alert(Alert.AlertType.ERROR);
+      a.show();
+    }
+    if (action.get() == ButtonType.OK) {
+      try {
+        System.out.println("Deleting Guest/Reservation Info");
+        String sql = "DELETE FROM GUEST WHERE EMAIL = " + "\'" + email.getText() + "\';";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.execute();
+        System.out.println("Guest/Reservation Info Deleted!");
+
+      } catch (SQLException e) {
+        System.out.println("Could not delete guest");
+        e.printStackTrace();
+      }
+    }
     roomImage.setVisible(false);
     infoPane.setVisible(false);
     roomPane.setVisible(false);
