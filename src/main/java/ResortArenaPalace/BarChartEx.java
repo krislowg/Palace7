@@ -44,6 +44,8 @@ public class BarChartEx {
     homeRWindow.show();
   }
 
+  /* Database initialization and connection */
+
   private Connection conn = null;
   private Statement stmt = null;
 
@@ -71,6 +73,8 @@ public class BarChartEx {
       a.show();
     }
   }
+
+  /* Data extraction for the bar chart */
 
   public void countJanuary() {
     String string1;

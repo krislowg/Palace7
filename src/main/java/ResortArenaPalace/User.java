@@ -4,6 +4,8 @@ public class User {
   private String email;
   private String password;
 
+  /* Getters and setters */
+
   public String getEmail() {
     return email;
   }
@@ -19,6 +21,7 @@ public class User {
   public void setPassword(String password) {
     this.password = password;
   }
+  /* Constructor */
 
   User(String email, String password) {
     this.email = email;

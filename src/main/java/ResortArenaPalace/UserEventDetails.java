@@ -26,6 +26,10 @@ public class UserEventDetails {
 
   public void initialize() {}
 
+  /***
+   * Event handling and going back to the home page.
+   */
+
   void sendEvent(EventReservation newEvent) {
     events = newEvent;
     res_name.setText(events.getfName());

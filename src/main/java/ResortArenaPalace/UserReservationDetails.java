@@ -153,6 +153,10 @@ public class UserReservationDetails {
   // landingpage.
   // edit management to add management and encrypt password
 
+  /***
+   *
+   * @param details Object of guest reservation type that stores the details of the booking
+   */
   void sendText4(GuestReservation details) {
     detail = details;
     System.out.println(detail.getEmail());

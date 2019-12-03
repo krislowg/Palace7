@@ -302,6 +302,7 @@ public class ManReport {
 
   private ObservableList<Guest> glist = FXCollections.observableArrayList();
 
+  /* Data tables management */
   private void populateGuestTableReport() {
 
     try {

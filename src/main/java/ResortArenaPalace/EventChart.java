@@ -39,6 +39,8 @@ public class EventChart {
     eventReportWindow.show();
   }
 
+  /*Database connection and load setting */
+
   private Connection conn = null;
   private Statement stmt = null;
 
@@ -121,6 +123,8 @@ public class EventChart {
         jan_count, feb_count, mar_count, apr_count, may_count, jun_count, jul_count, aug_count,
         sep_count, oct_count, nov_count, dec_count);
   }
+
+  /* Bar chart setting */
 
   public void loadEventBarChart(
       int jan,

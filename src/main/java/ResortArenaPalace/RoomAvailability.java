@@ -53,7 +53,7 @@ public class RoomAvailability {
   /**
    * *
    *
-   * @param roomInfos
+   * @param roomInfos Object of guest reservation class that stores the booked room information
    */
   void sendText(GuestReservation roomInfos) {
     //    System.out.println(roomInfo.getCheckIn());//testing

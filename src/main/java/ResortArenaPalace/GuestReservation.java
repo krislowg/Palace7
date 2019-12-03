@@ -20,6 +20,8 @@ public class GuestReservation {
   private int num_p;
   private int num_r;
 
+  /* Getters and setters for the attributes */
+
   public String getChkOut() {
     return chkOut;
   }
@@ -132,6 +134,7 @@ public class GuestReservation {
     this.email = email;
   }
 
+  /* Setting of different constructors of guest reservation */
   GuestReservation(String numP, String numR, LocalDate chkIn, LocalDate chkOut) {
     noPeople = numP;
     noRooms = numR;
@@ -164,7 +167,6 @@ public class GuestReservation {
     chkOut = ckOut;
     num_p = num_P;
     num_r = num_R;
-    //  this.noPeople = toString(num_P);
     this.email = email;
     name = fName;
     this.lName = lName;
@@ -173,8 +175,5 @@ public class GuestReservation {
   public String toString() {
     return noPeople + " " + noRooms + " " + checkIn + " " + checkOut;
   }
-  //    public String toString(){
-  //        return noPeople + " " + noRooms + " "  + checkIn + " "  + checkOut + " " + roomType;
-  //    }
 
 }

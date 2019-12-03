@@ -32,17 +32,21 @@ public class ConfirmMessage {
 
     Scene tableViewScene = new Scene(tableViewParent);
 
-    //access the controller and call a method
+    // Access the controller and call a method
     UserReservationDetails controller = loader.getController();
     controller.sendText4(finalDataSets);
 
-    //This line gets the Stage information
+    // This line gets the Stage information
     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
     window.setScene(tableViewScene);
     window.show();
   }
 
+  /***
+   *
+   * @param finalDataSet  Object of type guest reservation used to send text input
+   */
   void sendText3(GuestReservation finalDataSet) {
     finalDataSets = finalDataSet;
     System.out.println(finalDataSets.getRoomType());

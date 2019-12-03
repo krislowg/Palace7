@@ -70,6 +70,7 @@ public class PaymentAccount {
   private static final String JDBC_DRIVER = "org.h2.Driver";
   private static final String DB_URL = "jdbc:h2:./res/palace";
 
+  /* Database connection */
   private Connection conn = null;
   private Statement stmt = null;
 
@@ -102,7 +103,7 @@ public class PaymentAccount {
   /**
    * *
    *
-   * @param roomChoices
+   * @param roomChoices Object of the guest reservation type that stores room choice input
    */
   public void sendText2(GuestReservation roomChoices) {
     this.roomChoice = roomChoices;
