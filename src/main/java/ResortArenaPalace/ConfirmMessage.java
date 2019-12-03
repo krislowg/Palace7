@@ -7,8 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
 
 /**
@@ -18,8 +16,6 @@ import javafx.stage.Stage;
  * @author Shane Broxson
  */
 public class ConfirmMessage {
-  @FXML private DialogPane dialog_p;
-  @FXML private Button OkayBtn;
   public static GuestReservation finalDataSets;
 
   /**

@@ -28,7 +28,6 @@ public class Controller {
   @FXML private ComboBox<String> room_pick;
   @FXML private ComboBox<String> cBox_Venue;
   @FXML private TextField txtF_Email;
-  @FXML private Label lbl_EmailVal;
   @FXML private Label check_avail_error;
   @FXML private TextField first_name;
   @FXML private TextField last_name;

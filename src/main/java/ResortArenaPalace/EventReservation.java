@@ -1,7 +1,5 @@
 package ResortArenaPalace;
 
-import java.util.Date;
-
 /**
  * Object class to hold Guest information for EventReservations.
  *

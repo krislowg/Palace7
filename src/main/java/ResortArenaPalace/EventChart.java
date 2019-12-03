@@ -15,14 +15,11 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class EventChart {
 
   @FXML private BarChart<String, Integer> eventBarChart;
-  @FXML private Button btn_GoBackEvChart;
-  @FXML private Button btn_SummaryEvent;
 
   @FXML
   void changeEventChartToEvReport(ActionEvent event) throws IOException {

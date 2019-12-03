@@ -44,13 +44,8 @@ public class ManEventReport {
   @FXML private TableColumn<EventReservation, Boolean> col_PartyPlanner;
   @FXML private TableColumn<EventReservation, String> col_EvPassword;
   @FXML private TextField txt_Name;
-  @FXML private TextField txt_PartyPlanner;
-  @FXML private TextField txt_EvType;
   @FXML private TextField txt_EvDate;
   @FXML private TextField txt_EvPeople;
-  @FXML private TextField txt_Venue;
-  @FXML private TextField txt_EvCatering;
-  @FXML private TextField txt_DJ;
   @FXML private TextField txt_Email;
   @FXML private TextField txt_Password;
   @FXML private Label lbl_TitleReport;
