@@ -25,6 +25,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Final page for creation of reservation.
+ *
+ * @file UserReservationDetails.java
+ * @author Shane Broxson
+ */
 public class UserReservationDetails {
   @FXML private Label lbl_TitleReservation;
   @FXML private TextArea txtA_ReservationDet;

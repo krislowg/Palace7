@@ -2,6 +2,12 @@ package ResortArenaPalace;
 
 import java.util.Date;
 
+/**
+ * Object class to hold Guest information for EventReservations.
+ *
+ * @file EventReservation.java
+ * @author Shane Broxson
+ */
 public class EventReservation {
 
   private String fName;

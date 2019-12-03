@@ -11,6 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
 
+/**
+ * Confirm Message page in reserving a room, passes through all previous data.
+ *
+ * @file ConfirmMessage.java
+ * @author Shane Broxson
+ */
 public class ConfirmMessage {
   @FXML private DialogPane dialog_p;
   @FXML private Button OkayBtn;

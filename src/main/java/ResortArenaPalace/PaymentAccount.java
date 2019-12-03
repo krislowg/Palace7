@@ -17,8 +17,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-// Payment and User Account
-
+/**
+ * Controls Payment Account For Reservations.
+ *
+ * @file PaymentAccount.java
+ * @author Shane Broxson
+ */
 public class PaymentAccount {
 
   @FXML private Button btn_ReserveRoom;

@@ -3,6 +3,12 @@ package ResortArenaPalace;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * Object class to hold Guest information for Reservations.
+ *
+ * @file GuestReservation.java
+ * @author Shane Broxson
+ */
 public class GuestReservation {
   private String name;
   private String lName;

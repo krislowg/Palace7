@@ -16,6 +16,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Page to determine RoomType for reservations.
+ *
+ * @file RoomAvailability.java
+ * @author Shane Broxson
+ */
 public class RoomAvailability {
 
   @FXML private AnchorPane lbl_RoomAv;
