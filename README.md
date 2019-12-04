@@ -15,15 +15,16 @@ Team members :
 * Yoisi Low Gonzalez
 * Gianni Perez
 
-## License
+## Licenses
 * GNU General Public License
 * IntelliJ IDEA Ultimate
 
 ## Acknowledgments
 * Dr Koufakou
+* Professor Vanselow OOP class and his Youtube videos
 * StackOverFlow
 * Rashid Coder Youtube videos
-* Professor Vanselow Youtube videos
+* Youtube videos in general 
 
 ## Software product timeline
 
@@ -36,7 +37,9 @@ https://drive.google.com/file/d/1PPBPwu7s-430b_km9pkvz8YZ5iRaQLuz/view?usp=shari
   ## Final preview
 https://drive.google.com/file/d/1w8O5FAhZO_VHsSHmzitY_ycLcK0UfBxa/view
 
-## Data Base access description before the Maven version
+## Data Base implementation history 
+
+  ## Data Base access description before the Maven version
 The following steps need to be performed everytime in order to connect the database:
 * Load the project
 * Go to the right side of Intellij window
@@ -56,10 +59,18 @@ The following steps need to be performed everytime in order to connect the datab
 
 * Now the database is connected
 
-## Data Base access description after the Maven version
+  ## Data Base access description after the Maven version
 The Maven IntelliJ structure has been implemented in order to manage the project dependencies. Those dependencies enable the automatic updates for all the features including the H2 jar for the database. This structure has been specially implemented to avoid the database connection failure some team members had due to the fact that the H2 jar was missing. 
 When the project is running, the database connection cannot be established.  Clicking on the database section will result in the pop up of credentials window. In this case, close this window. After stopping the run, clicking on the refresh button under the database section gives access to the data tables. The event reservation and guest tables are under the following path:  
 H2 palace ->PALACE -> schemas -> Public -> EVENTRESERVATION; GUEST
+
+## Software Installation and Run Instructions
+1.	Have IntelliJ IDEA Ultimate version installed 
+2.	Click on VCS then click on Check out from version control then Git
+3.	Copy the following URL in the URL entry: https://github.com/krislowg/Palace7
+4.	In the bottom right side of your IntelliJ window, a small window related to Maven will pop up, so click on Enable automatically. Likewise, all the dependencies will be updated whenever needed.
+5.	In order to run the software, go to the main.java file and click on Run.
+6.	NOTE: The database tables are not accessible while the program is running. As long as it is running, if the user clicks on H2 palace the tables will not be displayed and an error window will pop up if the manager logs in to see the report. Those tables will be accessible after stopping the run and refreshing the project.
                                         
 ## Software description
 The software product to be produced is a Resort Booking System which will automate the hotel’s reservation and booking process. The system shall be able to handle rooms’ reservation in an appropriate way and with a subjective satisfaction. It includes 6 subsystems:
