@@ -36,12 +36,12 @@ Team members :
                                         
 ## Software description (introduction + functionality)
 The software product to be produced is a Resort Booking System which will automate the hotel’s reservation and booking process. The system shall be able to handle rooms’ reservation in an appropriate way and with a subjective satisfaction. It includes 6 subsystems:
-1.	Checking Availabilities: The user will be asked to select the check in and check out dates, as well as to enter the number of adults and children willing to reside. 
-2.	Room and Amenities Selection:  Before booking a room, the client will be able to see the available types of rooms and amenities provided.
-3.	Payment and Creating Account: After completing the booking process, the client will be asked to select a payment method and enter the necessary information. Hence, a user account is created, the room’s status is changed to booked, and a booking confirmation window appears including a reservation summary option. 
+1.	Checking Availabilities: The user will be asked to select the check in and check out dates, as well as to enter the number of adults and children willing to reside and the number of rooms. 
+2.	Room and Amenities Selection:  Before booking a room, the client will be able to see the available types of rooms, prices and amenities provided.
+3.	Payment and Creating Account: After completing the checking availability process, the client will be prompted to enter both personal and payment information. Hence, a user account is created, the room’s status is changed to booked, and a booking confirmation window appears including a reservation summary option. 
 4.	Wellness and Events: The customer will be able to check the offered wellness sessions, also the restaurant's menu. Reservations are made by contacting the responsible via a phone number displayed on the screens.
 5.	Events Reservation: The system will keep track of the booked events, display the related information as a data table and create a bar chart from those statistics.
-6.	Rooms Management:  This will provide a summary of all the rooms that are either booked or vacant to the resort Manager. It will also allow the manager to check if the rooms are being sold out and to handle reservations' cancellation. The guest can also cancel his / her reservation. A data table including all the booking information is displayed as well as a bar chart summarizing the booking system.
+6.	Rooms Management:  This will provide a summary of all the rooms and events that are booked to the resort's Manager. It will also allow the manager to handle reservations' cancellation and addition. Moreover, the guest can cancel his / her reservation. Two separate data tables including all the booking information are displayed as well as two bar charts summarizing the booking system.
 
 ## Software product timeline
 
